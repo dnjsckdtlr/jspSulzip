@@ -54,15 +54,15 @@
              </div>
             </div>
             <div class="list-group">
-<c:forEach items="${list}" varStatus="idx">
+<c:forEach var="mrb" items="${mrbList}" varStatus="idx">
 	<c:if test="${idx.count % 3 == 1}">
 					<div class="card-group">
 	</c:if>
-					<div class="card" data-num="1">
-                        <img src="${pageContext.request.contextPath}/assets/img/myrecipe/빅터프랑켄슈타인.jpg" class="card-img-top inside" alt="빅터프랑켄슈타인이미지">
+					<div class="card" data-num="${mrb.getMyRecipeNumber()}">
+                        <img src="${pageContext.request.contextPath}/assets/img/myrecipe/${mrb.getFileSystemName()}" class="card-img-top inside">
                         <div class="card-body">
                             <p class="card-text-1">레시피</p>
-                            <h5 class="card-title inside">빅터프랑켄슈타인</h5>
+                            <h5 class="card-title inside">${mrb.getMyRecipeNameKor()}</h5>
                             <p class="card-text-2"><small class="text-muted">HIT</small></p>
                         </div>
                     </div>
@@ -71,10 +71,7 @@
 	</c:if>
 
 </c:forEach>            
-                <!-- 
-                	controller에서 jsp로 list라는 변수를 던져주면 row에 3개씩 나오게 작업은 해뒀음
-                	controller에서 List형태로 목록에 뿌려줄 마이레시피 데이터를 limit으로 가져옴. 몇개씩 끊어서 가져올지 정하기.
-                 -->
+                
                 
                 
                 </div>
@@ -101,19 +98,28 @@
                           border-color: #ccc;
                         }
                         </style>
-                    <nav aria-label="${pageContext.request.contextPath}/assets.">
+                    <nav aria-label="...">
                         <ul class="pagination">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1"><</a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item active">
-                            <a class="page-link" href="#">2</a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">></a>
-                          </li>
+                        <c:if test="${prev}">
+	                         <li class="page-item">
+	                            <a class="page-link" href="?page=<c:out value='${startPage-1}'/>" tabindex="-1"><</a>
+	                          </li>
+                        </c:if>
+<c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
+							<c:set var="disabledClass" value="" />
+							<c:if test="${page eq pageNum}">
+								<c:set var="disabledClass" value="disabled" />
+							</c:if>
+							
+	                        <li class="page-item <c:out value='${disabledClass}' />">
+	                        	<a class="page-link" href="?page=<c:out value='${pageNum}'/>"><c:out value="${pageNum}"/></a>
+                        	</li>
+</c:forEach>
+						<c:if test="${next}">
+                         	<li class="page-item">
+                            	<a class="page-link" href="?page=<c:out value='${endPage+1}'/>">></a>
+                          	</li>
+                        </c:if>
                         </ul>
                       </nav>
                 </div>

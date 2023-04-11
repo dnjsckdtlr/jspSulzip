@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sulzip.app.Execute;
+import com.sulzip.app.file.dao.FileDAO;
+import com.sulzip.app.file.dto.FileDTO;
 import com.sulzip.app.myrecipe.dao.MyRecipeDAO;
 import com.sulzip.app.myrecipe.dto.MyRecipeDTO;
 import com.sulzip.app.myrecipe.vo.MyRecipeVO;
@@ -18,7 +20,7 @@ public class MyRecipeDetailController implements Execute {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		FileDAO fileDAO = new FileDAO();
 		MyRecipeDAO myRecipeDAO = new MyRecipeDAO();
 		UserDAO userDAO = new UserDAO();
 		HttpSession session = req.getSession();
@@ -26,19 +28,23 @@ public class MyRecipeDetailController implements Execute {
 		String path = null;
 		
 		int mrbNum = Integer.parseInt(req.getParameter("num"));
+		System.out.println(mrbNum);
 
 		MyRecipeDTO myRecipeDTO = myRecipeDAO.select(mrbNum);
 		List<MyRecipeVO> ingreList = myRecipeDAO.ingre(mrbNum);
-
+		List<FileDTO> fileList = fileDAO.select(mrbNum);
+		
 		req.setAttribute("myRecipe", myRecipeDTO);
 		req.setAttribute("ingreList", ingreList);
-
+		req.setAttribute("fileList", fileList);
+		System.out.println("===");
+		System.out.println(ingreList);
 		if (userNumber == null) {
 			path = "/app/user/login.jsp";
 		} else {
 			path = "/app/myrecipe/myrecipedetail.jsp";
 		}
-//		req.getParameterValues(path)
+		
 		req.getRequestDispatcher(path).forward(req, resp);
 
 	}

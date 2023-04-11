@@ -20,13 +20,14 @@
     <main>
       <div class="detail-main">
         <div class="img-preview">
-          <div class="preview"></div>
-          <div class="preview"></div>
-          <div class="preview"></div>
+          <c:forEach var="file" items="${fileList}">
+            <div class="preview">
+              <img src="${pageContext.request.contextPath}/assets/img/myrecipe/${file.getFileSystemName()}" class="">
+            </div>
+          </c:forEach>
         </div>
         <div class="main-img">
-        <img src="${pageContext.request.contextPath}/assets/img/myrecipe/빅터프랑켄슈타인.jpg" class="card-img-top inside" alt="빅터프랑켄슈타인이미지">
-        <%-- <img src="${pageContext.request.contextPath}/assets/img/myrecipe/${myRecipe.get사용자가올린mr파일이미지()}" class="card-img-top inside"> --%>
+        	<img src="${pageContext.request.contextPath}/assets/img/myrecipe/${fileList.get(0).getFileSystemName()}" class="card-img-top inside" alt="빅터프랑켄슈타인이미지">
         </div>
         <div class="info">
           <div class="info-title">
@@ -37,9 +38,9 @@
             ${myRecipe.getMyRecipeDesc()}
           </div>
           <div class="abv">
-            <span>도수 : 22도</span>
+            <span>${myRecipe.getUserNumber()}</span>
           </div>
-          <div class="button-box">
+          <!-- <div class="button-box">
             <button class="like-btn">
               <span>3</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -55,7 +56,7 @@
                 />
               </svg>
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
       <!-- 재료, 레시피 -->
@@ -82,7 +83,7 @@
           </div>
           <!-- 레시피 설명 -->
           <div class="section-2">
-            <div class="recipe-title"></div>
+            <div class="recipe-title"><span>레시피</span></div>
             <div class="recipe-box">
               <p>${myRecipe.getMyRecipeRecipe()}</p>
             </div>
@@ -93,5 +94,7 @@
     <footer>
     	<jsp:include page="${pageContext.request.contextPath}/app/footer.jsp"/>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/myrecipe/myrecipedetail.js"></script>
   </body>
 </html>

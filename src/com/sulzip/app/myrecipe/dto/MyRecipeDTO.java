@@ -68,8 +68,4 @@ public class MyRecipeDTO {
 				+ ", myRecipeNameEng=" + myRecipeNameEng + ", myRecipeDesc=" + myRecipeDesc + ", myRecipeRecipe="
 				+ myRecipeRecipe + ", myRecipeHits=" + myRecipeHits + ", userNumber=" + userNumber + "]";
 	}
-	
-	
-	
-	
 }

@@ -18,8 +18,8 @@
 	
 	<select id="ingre" parameterType="_int" resultType="MyRecipeVO">
 		select p.product_name_kor, p.product_system_name, b.pmBridge_vol
-		from myrecipe m, pmbridge b, product p
-		where m.myRecipe_number = #{myRecipeNumber} and b.product_number = p.product_number
+		from pmbridge b, product p
+		where b.myRecipe_number = #{myRecipeNumber} and b.product_number = p.product_number
 	</select>
 	
 	<select id="category" parameterType="_int" resultType="ProductDTO">
@@ -30,6 +30,17 @@
 	
 	<select id="getSequence" resultType="_int">
 		select last_insert_id()
+	</select>
+	
+	<select id="selectMrb" parameterType="map" resultType="MyRecipeListVO">
+		select m.myRecipe_name_kor, m.myRecipe_number, m.myRecipe_hits, f.file_system_name 
+		from myrecipe m join file f ON m.myRecipe_number = f.myRecipe_number
+		order by myRecipe_number desc
+		limit #{startRow}, #{rowCount} 
+	</select>
+	
+	<select id="getTotal" resultType="_int">
+		select count(myRecipe_number) from myrecipe	
 	</select>
 </mapper>
 

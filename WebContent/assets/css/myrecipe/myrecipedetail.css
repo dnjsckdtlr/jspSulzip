@@ -48,6 +48,12 @@
   background-color: lightcoral;
   margin-bottom: 10px;
   border-radius: 10px;
+  overflow: hidden;
+}
+
+.preview > img {
+	width: 80px;
+    height: 80px;
 }
 
 .main-img {
@@ -72,7 +78,7 @@
   /* background-color: rgb(121, 121, 121); */
 }
 
-.info-title {
+.info-title{
   display: flex;
   flex-direction: row;
   margin-bottom: 4px;
@@ -171,18 +177,20 @@
 
 .section-1 {
   width: 100%;
-  height: 450px;
+  /* height: 30%; */
   margin: 74px auto 30px;
   background-color: white;
 }
 
-.ingre-title {
+.ingre-title,
+.recipe-title {
   margin-bottom: 30px;
   display: flex;
   align-items: center;
 }
 
-.ingre-title > span {
+.ingre-title > span,
+.recipe-title > span {
   font-size: 16px;
   font-weight: 800;
   color: rgb(79, 79, 79);
@@ -245,7 +253,7 @@
 
 .section-2 {
   width: 100%;
-  height: 450px;
+  /* height: 30%; */
   margin: 74px auto 30px;
   background-color: white;
 }

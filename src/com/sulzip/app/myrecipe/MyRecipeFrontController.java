@@ -27,32 +27,15 @@ public class MyRecipeFrontController extends HttpServlet {
 		System.out.println(target);
 		switch(target) {
 		case "/myrecipe/myRecipe.mrb":
-			List<String> resultList = new ArrayList<String>();
-			resultList.add("a");
-			resultList.add("b");
-			resultList.add("c");
-			resultList.add("d");
-			resultList.add("e");
-			resultList.add("f");
-			resultList.add("g");
-			resultList.add("h");
-			resultList.add("i");
-			resultList.add("j");
-			resultList.add("k");
-			resultList.add("l");
-			req.setAttribute("list", resultList);
-			req.getRequestDispatcher("/app/myrecipe/myrecipe.jsp").forward(req, resp);
+			new MyRecipeListOkController().execute(req, resp);
 			break;
 		case "/myrecipe/myRecipeDetail.mrb": 
-			System.out.println("안녕하세요!!!");
 			new MyRecipeDetailController().execute(req, resp);
 			break;
 		case "/myrecipe/myRecipeUpload.mrb": 
-			System.out.println("안녕하세요!!!");
 			new MyRecipeUploadController().execute(req, resp);
 			break;
 		case "/myrecipe/myRecipeUploadOk.mrb": 
-			System.out.println("안녕하세요!!!");
 			new MyRecipeUploadOkController().execute(req, resp);
 			break;
 		}
