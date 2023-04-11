@@ -16,5 +16,5 @@ let urlParams = new URLSearchParams(queryString);
 let result = urlParams.get('result');
 
 if(result == 'false'){
-   alert('아이디와 비밀번호를 확인해주세요')
+   alert('회원정보가 없거나 일치하지 않습니다.')
 }
