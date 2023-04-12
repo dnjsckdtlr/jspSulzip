@@ -252,6 +252,10 @@ main {
   padding-left: 7px;
 }
 
+.gender {
+	margin-right: 15px;
+}
+
 #p-info {
   width: 100px;
   height: 25px;
@@ -347,9 +351,7 @@ main {
 .search-list-div {
   height: 35px;
   background-color: #f5f5f5;
-  border: 1px solid#ddd;
-  border-left: none;
-  border-top: none;
+  border-bottom: 1px solid#ddd;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -360,19 +362,20 @@ main {
   width: 50px;
 }
 .search-list > li:nth-child(2) {
-  width: 120px;
+  width: 119px;
 }
 .search-list > li:nth-child(3) {
-  width: 150px;
+  width: 147px;
 }
 .search-list > li:nth-child(4) {
-  width: 200px;
+  width: 195px;
 }
 .search-list > li:nth-child(5) {
   width: 100px;
 }
 .search-list > li:nth-child(6) {
   width: 200px;
+  border-right: 1px solid#ddd;
 }
 
 .search-result {
@@ -381,9 +384,7 @@ main {
   background-color: #f9f9f9;
   border: 1px solid#ddd;
   border-top: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: scroll;
 }
 
 /* 탈퇴/삭제 버튼 */
@@ -405,27 +406,35 @@ main {
 
 .search-result-box {
   list-style-type: none;
+  height: 100.8px;
   display: flex;
 }
 
+.search-result-box > li {
+  font-size: 16px;
+  list-style: none;
+}
+
+
 .search-result-box > li:nth-child(1) {
-  border-left: 1px solid#ddd;
-  width: 47px;
+  /* border-left: 1px solid#ddd; */
+  width: 50px;
 }
 .search-result-box > li:nth-child(2) {
-  width: 110.5px;
+  width: 112px;
 }
 .search-result-box > li:nth-child(3) {
-  width: 139.5px;
+  width: 147px;
 }
 .search-result-box > li:nth-child(4) {
-  width: 185.5px;
+  width: 196px;
 }
 .search-result-box > li:nth-child(5) {
-  width: 92px;
+  width: 100px;
 }
 .search-result-box > li:nth-child(6) {
-  width: 186.5px;
+  width: 187px;
+  border-right: none;
 }
 
 .search-result-div {

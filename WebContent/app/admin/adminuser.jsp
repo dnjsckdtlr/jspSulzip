@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -102,35 +104,32 @@
               <div class="column1"><span>개인정보</span></div>
               <div class="select1">
                 <select name="아이디" id="p-info">
+                  <option value="0">선택해주세요.</option>
                   <option value="1">아이디</option>
                   <option value="2">이름</option>
                 </select>
-                <input type="text" />
+                <input type="text" id="keyword"/>
               </div>
-            </li>
-            <li>
-              <div class="column2"><span>나이</span></div>
-              <div class="select2"><input type="text" /><span>년생~</span> <input type="text" /><span>년생</span></div>
-              <!-- 연도별로 조회할 수 있는 input칸 물어보기 -->
             </li>
             <li>
               <div class="column3"><span>가입일</span></div>
               <div class="select3">
-                <input type="date" />
+                <input type="date" id="date"/>
               </div>
             </li>
             <li>
               <div class="column4"><span>성별</span></div>
               <div class="select4">
-                남성<input type="radio" name="gender" value="남성" /> 여성<input
+              선택안함<input type="radio" name="gender" value="N" class="gender" checked/>
+                남성<input type="radio" name="gender" value="M" class="gender" /> 여성<input
                   type="radio"
                   name="gender"
-                  value="여성"
+                  value="F" class="gender"
                 />
               </div>
             </li>
             <div class="search-btn">
-              <button>검색</button>
+              <button id="search-btn">검색</button>
               <button>초기화</button>
             </div>
           </ul>
@@ -138,13 +137,13 @@
           <div class="user-list-table">
             <div class="user-total">
               <!-- 가입한 모든 회원수 -->
-              <div class="user-tt"><span>[총 회원수 : </span>150<span>명]</span></div>
+              <div class="user-tt"><span>[총 회원수 : <strong> </span> <c:out value="${fn:length(userList)}"></c:out> <span></strong>명]</span></div>
               <!-- 검색한 결과 나온 회원 수 -->
-              <div class="user-search"><span> 검색 결과 : </span>20<span>명</span></div>
+              <div class="user-search"><span> 검색 결과 : </span> <strong><span class="ea"><c:out value="${fn:length(userList)}"></c:out></span></strong><span>명</span></div>
             </div>
             <ul class="search-list">
               <li>
-                <div class="search-list-div"><input type="checkbox" /></div>
+                <div class="search-list-div"><input type="checkbox" id="checkAll"/></div>
               </li>
               <li>
                 <div class="search-list-div"><span>이름</span></div>
@@ -162,7 +161,37 @@
                 <div class="search-list-div"><span>가입일</span></div>
               </li>
             </ul>
-            <ul class="search-result-box">
+            <div class="search-result">
+            
+            <!-- 검색 결과창 -->
+            <c:forEach var="userList" items="${userList}">
+            	<div class="result-box">
+            	<ul class="search-result-box">
+	              <li>
+	                <div class="search-result-div"><input type="checkbox" class="cbox"/></div>
+	              </li>
+	              <li>
+	                <div class="search-result-div"><span><c:out value="${userList.userName }"/></span></div>
+	              </li>
+	              <li>
+	                <div class="search-result-div"><span><c:out value="${userList.userId}"/></span></div>
+	              </li>
+	              <li>
+	                <div class="search-result-div"><span> <c:out value="${userList.userPhone }"/></span></div>
+	              </li>
+	              <li>
+	                <div class="search-result-div"><span> <c:out value="${userList.userGender }"/></span></div>
+	              </li>
+	              <li>
+	                <div class="search-result-div"><span> <c:out value="${userList.userRegistrationDate }"/></span></div>
+	              </li>
+            	</ul>
+            </div>
+            </c:forEach>
+            
+            </div>
+            
+            <!-- <ul class="search-result-box">
               <li>
                 <div class="search-result-div"><input type="checkbox" /></div>
               </li>
@@ -181,9 +210,10 @@
               <li>
                 <div class="search-result-div"><span>가입일</span></div>
               </li>
-            </ul>
-            <!-- 검색 결과창 -->
-            <div class="search-result"></div>
+            </ul> -->
+            
+            
+      
             <div class="delete-box">
               <button class="delete">탈퇴/삭제</button>
             </div>
@@ -194,5 +224,7 @@
     <footer>
     	<jsp:include page="${pageContext.request.contextPath}/app/footer.jsp"/>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/admin/adminuser.js"></script>
   </body>
 </html>

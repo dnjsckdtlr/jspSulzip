@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="admin">
-
+	
 	<select id="sulkit" resultType="_int">
 		select count(sulkit_number) from sulkit
 	</select>
@@ -12,6 +12,7 @@
 		where category_number = #{categoryNumber}
 	</select>
 	
+	<!-- 상품 전체 검색 -->
 	<select id="sulkitList" resultType="ProductVO">
 		select sulkit_number "number", sulkit_name_kor "name_kor", sulkit_name_eng "name_eng", sulkit_price "price" from sulkit s
 	</select>
@@ -21,6 +22,7 @@
 		from product 
 	</select>
 	
+	<!-- 국문검색 -->
 	<select id="searchProAll"  parameterType="SearchVO" resultType="ProductVO">
 		select product_number "number" , category_number  "category", product_name_kor "name_kor" , product_name_eng "name_eng" , product_price  price
 		from product 
@@ -40,7 +42,7 @@
 	
 	
 	
-	
+	<!-- 영문검색 -->
 	<select id="searchProAllEng"  parameterType="SearchVO" resultType="ProductVO">
 		select product_number "number" , category_number  "category", product_name_kor "name_kor" , product_name_eng "name_eng" , product_price  price
 		from product 
@@ -58,7 +60,53 @@
 		where sulkit_name_eng like concat('%', #{keyword}, '%')
 	</select>
 	
-
+	<!-- 회원 전체 검색 -->
+	<select id="userSelect" resultType="UserListVO">
+		select user_name, user_id, user_phone, user_gender, user_registration_date
+		from user
+	</select>
+	
+	<!-- 회원 아이디 검색 -->
+	<select id="userId" parameterType="UserSearchVO" resultType="UserListVO">
+		select user_name, user_id, user_phone, user_gender, user_registration_date
+		from user
+		where user_id like concat('%', #{keyword}, '%')
+	</select>
+	
+	<!-- 회원 이름 검색 -->
+	<select id="userName" parameterType="UserSearchVO" resultType="UserListVO">
+		select user_name, user_id, user_phone, user_gender, user_registration_date
+		from user
+		where user_name like concat('%', #{keyword}, '%')
+	</select>
+	
+	<!-- 가입일 검색 -->
+	<select id="date" parameterType="UserSearchVO" resultType="UserListVO">
+		select user_name, user_id, user_phone, user_gender, user_registration_date
+		from user
+		where user_registration_date = #{date}
+	</select>
+	
+	<select id="searchUser" parameterType="UserSearchVO" resultType="UserListVO">
+		select user_name, user_id, user_phone, user_gender, user_registration_date
+		from user
+		
+		<trim prefix="where" prefixOverrides="and">
+			<if test='"1".equals(select)'>
+				and user_id like concat('%', #{keyword}, '%')
+			</if>
+			<if test='"2".equals(select)'>
+				and user_name like concat('%', #{keyword}, '%')
+			</if>
+			<if test='!"".equals(date) '>
+				and user_registration_date = #{date}
+			</if>
+			<if test=' !"N".equals(gender)'>
+				and user_gender = #{gender}
+			</if>
+		</trim>
+		
+	</select>
 
 </mapper>
 

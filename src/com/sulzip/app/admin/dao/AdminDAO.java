@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.mybatis.config.MyBatisConfig;
 import com.sulzip.app.admin.vo.SearchVO;
+import com.sulzip.app.admin.vo.UserListVO;
+import com.sulzip.app.admin.vo.UserSearchVO;
 import com.sulzip.app.product.vo.ProductVO;
 
 public class AdminDAO {
@@ -53,6 +55,28 @@ public class AdminDAO {
 	
 	public List<ProductVO> searchProAllEng(SearchVO searchVO){
 		return sqlsession.selectList("admin.searchProAllEng", searchVO);
+	}
+	
+//	============회원관리===============
+	
+	public List<UserListVO> userSelect(){
+		return sqlsession.selectList("admin.userSelect");
+	}
+	
+	public List<UserListVO> userId(UserSearchVO userSearchVO) {
+		return sqlsession.selectList("admin.userId", userSearchVO);
+	}
+	
+	public List<UserListVO> userName(UserSearchVO userSearchVO) {
+		return sqlsession.selectList("admin.userName", userSearchVO);
+	}
+	
+	public List<UserListVO> date(UserSearchVO userSearchVO){
+		return sqlsession.selectList("admin.date", userSearchVO);
+	}
+	
+	public List<UserListVO> searchUser(UserSearchVO userSearchVO){
+		return sqlsession.selectList("admin.searchUser", userSearchVO);
 	}
 	
 }

@@ -23,10 +23,12 @@ public class AdminFrontController extends HttpServlet{
 		System.out.println(target);
 		switch(target) {
 		case "/admin/user.adm":
-			req.getRequestDispatcher("/app/admin/adminuser.jsp").forward(req, resp);
+			new AdminUserController().execute(req,resp);
+			break;
+		case "/admin/userSearch.adm":
+			new AdminUserSearchOkController().execute(req, resp);
 			break;
 		case "/admin/product.adm":
-//			req.getRequestDispatcher("/app/admin/adminproduct.jsp").forward(req, resp);
 			new AdminProductController().execute(req, resp);
 			break;
 		case "/admin/order.adm":
