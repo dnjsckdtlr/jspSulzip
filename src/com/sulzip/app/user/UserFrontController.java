@@ -61,7 +61,12 @@ public class UserFrontController extends HttpServlet {
 		case "/user/edituserinfoOk.usr" :
 			new EdituserinfoOkController().execute(req, resp);
 			break;
-			
+		case "/user/findidpw.usr" :
+			new FindidpwController().execute(req, resp);
+			break;
+		case "/user/findidpwOk.usr" :
+			new FindidpwOkController().execute(req, resp);
+			break;
 		}
 	}
 }
