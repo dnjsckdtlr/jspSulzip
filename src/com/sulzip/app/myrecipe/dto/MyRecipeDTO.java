@@ -16,8 +16,18 @@ public class MyRecipeDTO {
 	private String myRecipeRecipe;
 	private int myRecipeHits;
 	private int userNumber;
+	private String thumbnail;
 	
+
 	public MyRecipeDTO() {
+	}
+	
+	public String getThumbnail() {
+		return thumbnail;
+	}
+	
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 	
 	public int getMyRecipeNumber() {
@@ -62,10 +72,13 @@ public class MyRecipeDTO {
 	public void setUserNumber(int userNumber) {
 		this.userNumber = userNumber;
 	}
+
 	@Override
 	public String toString() {
-		return "MyRecipeBoardDTO [myRecipeNumber=" + myRecipeNumber + ", myRecipeNameKor=" + myRecipeNameKor
+		return "MyRecipeDTO [myRecipeNumber=" + myRecipeNumber + ", myRecipeNameKor=" + myRecipeNameKor
 				+ ", myRecipeNameEng=" + myRecipeNameEng + ", myRecipeDesc=" + myRecipeDesc + ", myRecipeRecipe="
-				+ myRecipeRecipe + ", myRecipeHits=" + myRecipeHits + ", userNumber=" + userNumber + "]";
+				+ myRecipeRecipe + ", myRecipeHits=" + myRecipeHits + ", userNumber=" + userNumber + ", thumbnail="
+				+ thumbnail + "]";
 	}
+	
 }

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sulzip.app.product.AlcoholDetailController;
+import com.sulzip.app.product.AlcoholListOkController;
+
 public class SulkitFrontController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,17 +27,10 @@ public class SulkitFrontController extends HttpServlet {
 		
 		switch(target) {
 		case "/sulkit/sulkitDetail.suk": 
-			System.out.println("안녕하세요!!!");
 			new SulkitBoardController().execute(req, resp);
 			break;
-		case "/sulkit/productSulkit1.suk" : 
-			req.getRequestDispatcher("/app/sulkit/sulkit1.jsp").forward(req, resp);
-			break;
-		case "/sulkit/productSulkit2.suk" : 
-			req.getRequestDispatcher("/app/sulkit/sulkit2.jsp").forward(req, resp);
-			break;
-		case "/sulkit/productSulkit3.suk" : 
-			req.getRequestDispatcher("/app/sulkit/sulkit3.jsp").forward(req, resp);
+		case "/sulkit/sulkit.suk" : 
+			new SulkitListOkController().execute(req, resp);
 			break;
 		}
 	}

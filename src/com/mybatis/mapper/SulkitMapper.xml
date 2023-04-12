@@ -15,6 +15,15 @@
 		on b.product_number = p.product_number;
 	</select>
 	
-	
+	<select id="sulkitBoard" parameterType="map" resultType="SulkitDTO">
+		select sulkit_number, sulkit_name_kor, sulkit_price, sulkit_img
+		from sulkit
+		order by sulkit_number desc
+		limit #{startRow}, #{rowCount} 
+	</select>
 
+	<select id="getTotal" resultType="_int">
+		select count(sulkit_number) from sulkit
+	</select>
+	
 </mapper>

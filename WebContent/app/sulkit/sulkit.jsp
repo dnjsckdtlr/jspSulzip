@@ -7,8 +7,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myrecipe</title>
+    <title>sulkit1</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/sulkit/sulkit.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/font/nanumbarungothicsubset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
@@ -26,7 +27,7 @@
     </header>
     <div class="container-fluid">
         <div class="img-content">
-            <img class="banner-img" src="${pageContext.request.contextPath}/assets/img/banner/myrecipebanner.jpg" alt="마이레시피배너이미지">
+                <img class="banner-img" src="${pageContext.request.contextPath}/assets/img/banner/칵테일키트.jpg" alt="칵테일키트이미지">
         </div>
     </div>
     <div class="container">
@@ -34,42 +35,37 @@
             <div class="asidebar">
                 <div class="list-nav">
                     <span class="text-muted1">홈 >
-                            <span class="text-muted2">마이레시피</span>
+                            <span class="text-muted2">술키트</span>
                     </span>
                 </div>
             </div>
-            <div class="row">
-             <div class="col-10 filter-group mb-5">
-                 <button type="button" class="btn btn-dark">전체보기</button>
-                 <button type="button" class="btn btn-light text-secondary" >베스트</button>
-                 <button type="button" class="btn btn-light text-secondary" >스테디</button>
-             </div>
-             <div class="col-2 filter-group mb-5 d-md-flex justify-content-md-end">
-                    <a href="${pageContext.request.contextPath}/myrecipe/myRecipeUpload.mrb" class="btn" style="color: white; background-color: #d61c6a;">작성하기</a>
-             </div>
+            <div class="filter-group mb-5">
+                <button type="button" class="btn btn-dark">전체보기</button>
+                <button type="button" class="btn btn-light text-secondary" >베스트</button>
+                <button type="button" class="btn btn-light text-secondary" >스테디</button>
             </div>
             <div class="list-group">
-<c:forEach var="mrb" items="${mrbList}" varStatus="idx">
+            
+<c:forEach var="sulkit" items="${sulkitList}" varStatus="idx">
 	<c:if test="${idx.count % 3 == 1}">
 					<div class="card-group">
 	</c:if>
-					<div class="card" data-num="${mrb.getMyRecipeNumber()}">
-                        <img src="${pageContext.request.contextPath}/assets/img/myrecipe/${mrb.getThumbnail()}" class="card-img-top inside">
+					<div class="card" data-num="${sulkit.getSulkitNumber()}">
+                        <img src="${pageContext.request.contextPath}/assets/img/sulkit/${sulkit.getSulkitImg()}" class="card-img-top inside">
                         <div class="card-body">
-                            <p class="card-text-1">레시피</p>
-                            <h5 class="card-title inside">${mrb.getMyRecipeNameKor()}</h5>
-                            <p class="card-text-2"><small class="text-muted">HIT</small></p>
+                            <p class="card-text-1">술</p>
+                            <h5 class="card-title inside">${sulkit.getSulkitNameKor()}</h5>
+                            <p class="card-text-2"><small class="text-muted">${sulkit.getSulkitPrice()}</small></p>
                         </div>
                     </div>
 	<c:if test="${idx.count % 3 == 0}">
 					</div>
 	</c:if>
 
-</c:forEach>            
-                
-                
-                
+</c:forEach> 
+
                 </div>
+                
                 <div class="pagination-area ">
                     <style>
                         .page-link {
@@ -119,13 +115,13 @@
                       </nav>
                 </div>
             </div>
-         </div>
-       </div>  
+		</div>
+     </div>
     <footer>
     	<jsp:include page="${pageContext.request.contextPath}/app/footer.jsp"/>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/myrecipe/myrecipe.js"></script>
+    	<script src="${pageContext.request.contextPath}/assets/js/sulkit/sulkit.js"></script>
     </body>
 
 </html>

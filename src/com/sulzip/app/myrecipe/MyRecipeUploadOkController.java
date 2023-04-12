@@ -3,7 +3,9 @@ package com.sulzip.app.myrecipe;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
@@ -59,6 +61,16 @@ public class MyRecipeUploadOkController implements Execute {
 
 			String fileSystemName = multipartReq.getFilesystemName(name);
 			String fileOriginalName = multipartReq.getOriginalFileName(name);
+
+			if(name.equals("myRecipeFile1")) {
+				
+				Map<String, String> thumbInfo = new HashMap<String, String>();
+				
+				thumbInfo.put("fileSystemName", fileSystemName);
+				thumbInfo.put("myRecipeNumber", Integer.toString(myRecipeNumber));
+				
+				myRecipeDAO.upThumb(thumbInfo);
+			}
 
 			// System.out.println("fileSystemName : " + fileSystemName);
 			if (fileSystemName == null) {

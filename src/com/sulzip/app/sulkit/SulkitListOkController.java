@@ -1,4 +1,4 @@
-package com.sulzip.app.myrecipe;
+package com.sulzip.app.sulkit;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sulzip.app.Execute;
-import com.sulzip.app.myrecipe.dao.MyRecipeDAO;
-import com.sulzip.app.myrecipe.dto.MyRecipeDTO;
+import com.sulzip.app.sulkit.dao.SulkitDAO;
+import com.sulzip.app.sulkit.dto.SulkitDTO;
 
-public class MyRecipeListOkController implements Execute {
+public class SulkitListOkController implements Execute {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		MyRecipeDAO myRecipeDAO = new MyRecipeDAO();
+		SulkitDAO sulkitDAO = new SulkitDAO();
 		
 		String temp = req.getParameter("page");
 		
@@ -35,7 +35,7 @@ public class MyRecipeListOkController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("rowCount", rowCount);
 		
-		int total = myRecipeDAO.getTotal();
+		int total = sulkitDAO.getTotal();
 		
 		//페이지번호 한세트의 마지막 페이지번호, Math.ceil()은 올림처리.
 		int endPage = (int)(Math.ceil(page/(double)pageCount) * pageCount);
@@ -54,16 +54,17 @@ public class MyRecipeListOkController implements Execute {
 		
 		boolean next = endPage != realEndPage;
 		
-		List<MyRecipeDTO> mrbList = myRecipeDAO.selectMrb(pageMap);
-		System.out.println(mrbList);
-		req.setAttribute("mrbList", mrbList);
+		List<SulkitDTO> sulkitList = sulkitDAO.sulkitBoard(pageMap);
+		
+		req.setAttribute("sulkitList", sulkitList);
 		req.setAttribute("page", page);
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endPage", endPage);
 		req.setAttribute("prev", prev);
 		req.setAttribute("next", next);
 		
-		req.getRequestDispatcher("/app/myrecipe/myrecipe.jsp").forward(req, resp);
+		req.getRequestDispatcher("/app/sulkit/sulkit.jsp").forward(req, resp);
+		
 	}
 
 }

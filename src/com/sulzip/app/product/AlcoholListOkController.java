@@ -1,4 +1,4 @@
-package com.sulzip.app.myrecipe;
+package com.sulzip.app.product;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sulzip.app.Execute;
-import com.sulzip.app.myrecipe.dao.MyRecipeDAO;
-import com.sulzip.app.myrecipe.dto.MyRecipeDTO;
+import com.sulzip.app.product.dao.ProductDAO;
+import com.sulzip.app.product.dto.ProductDTO;
 
-public class MyRecipeListOkController implements Execute {
+public class AlcoholListOkController implements Execute {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		MyRecipeDAO myRecipeDAO = new MyRecipeDAO();
+		ProductDAO productDAO = new ProductDAO();
 		
 		String temp = req.getParameter("page");
 		
@@ -35,7 +35,7 @@ public class MyRecipeListOkController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("rowCount", rowCount);
 		
-		int total = myRecipeDAO.getTotal();
+		int total = productDAO.getTotal(2);
 		
 		//페이지번호 한세트의 마지막 페이지번호, Math.ceil()은 올림처리.
 		int endPage = (int)(Math.ceil(page/(double)pageCount) * pageCount);
@@ -54,16 +54,17 @@ public class MyRecipeListOkController implements Execute {
 		
 		boolean next = endPage != realEndPage;
 		
-		List<MyRecipeDTO> mrbList = myRecipeDAO.selectMrb(pageMap);
-		System.out.println(mrbList);
-		req.setAttribute("mrbList", mrbList);
+		List<ProductDTO> alcoholList = productDAO.alcoholBoard(pageMap);
+		
+		req.setAttribute("alcoholList", alcoholList);
 		req.setAttribute("page", page);
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endPage", endPage);
 		req.setAttribute("prev", prev);
 		req.setAttribute("next", next);
 		
-		req.getRequestDispatcher("/app/myrecipe/myrecipe.jsp").forward(req, resp);
+		req.getRequestDispatcher("/app/product/alcohol.jsp").forward(req, resp);
+		
 	}
 
 }

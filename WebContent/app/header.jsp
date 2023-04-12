@@ -34,10 +34,10 @@
           </div>
           <div class="h-bottom-line">
             <ul class="h-ctg">
-              <li><a href="${pageContext.request.contextPath}/sulkit/productSulkit1.suk">술키트</a></li>
-              <li><a href="${pageContext.request.contextPath}/product/productAlcohol1.prd">술</a></li>
-              <li><a href="${pageContext.request.contextPath}/product/productIngredients1.prd">재료</a></li>
-              <li><a href="${pageContext.request.contextPath}/product/productSupplies1.prd">용품</a></li>
+              <li><a href="${pageContext.request.contextPath}/sulkit/sulkit.suk">술키트</a></li>
+              <li><a href="${pageContext.request.contextPath}/product/alcohol.prd">술</a></li>
+              <li><a href="${pageContext.request.contextPath}/product/ingredients.prd">재료</a></li>
+              <li><a href="${pageContext.request.contextPath}/product/supplies.prd">용품</a></li>
               <li><a href="${pageContext.request.contextPath}/myrecipe/myRecipe.mrb">나만의 레시피</a></li>
               <li><a href="${pageContext.request.contextPath}/partners/partners.ptn">파트너스</a></li>
               <li><a href="${pageContext.request.contextPath}/clientboard/serviceListOk.clb">고객센터</a></li>

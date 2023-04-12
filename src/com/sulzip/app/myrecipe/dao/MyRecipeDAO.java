@@ -48,11 +48,15 @@ public class MyRecipeDAO {
 		sqlSession.insert("PmBridge.insert", pmBridgeDTO);
 	}
 	
-	public List<MyRecipeListVO> selectMrb(Map<String, Integer> pageMap){
-		return sqlSession.selectList("myRecipe.selectMrb", pageMap);
+	public List<MyRecipeDTO> selectMrb(Map<String, Integer> pageMap){
+		return sqlSession.selectList("myRecipe.selectMrb", pageMap);	
 	}
 	
 	public int getTotal() {
 		return sqlSession.selectOne("myRecipe.getTotal");
+	}
+	
+	public void upThumb(Map<String, String> thumbInfo) {
+		sqlSession.update("myRecipe.upThumb", thumbInfo);
 	}
 }

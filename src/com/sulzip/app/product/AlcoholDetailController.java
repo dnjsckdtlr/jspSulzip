@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.sulzip.app.Execute;
 import com.sulzip.app.product.dao.ProductDAO;
 import com.sulzip.app.product.dto.ProductDTO;
+import com.sulzip.app.sulkit.dto.SulkitDTO;
 
-public class ProductIngredientsController implements Execute {
-
+public class AlcoholDetailController implements Execute {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ProductDAO productDAO = new ProductDAO();
@@ -20,11 +20,7 @@ public class ProductIngredientsController implements Execute {
 		
 		ProductDTO productDTO = productDAO.alcohol(num);
 		
-		System.out.println(productDTO);
-		
-		req.setAttribute("ingredients", productDTO);
-		req.getRequestDispatcher("/app/product/ingredientsdetail.jsp").forward(req, resp);
-		
+		req.setAttribute("alcohol", productDTO);
+		req.getRequestDispatcher("/app/product/alcoholdetail.jsp").forward(req, resp);
 	}
-
 }

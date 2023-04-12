@@ -11,7 +11,7 @@
 	
 	<select id="select" parameterType="_int"
 		resultType="MyRecipeDTO">
-		select myRecipe_name_kor, myRecipe_name_eng, myRecipe_desc, myRecipe_recipe, myRecipe_hits, user_number
+		select myRecipe_name_kor, myRecipe_name_eng, myRecipe_desc, myRecipe_recipe, myRecipe_hits, user_number, thumbnail
 		from myrecipe
 		where myRecipe_number = #{myRecipeNumber}
 	</select>
@@ -32,9 +32,9 @@
 		select last_insert_id()
 	</select>
 	
-	<select id="selectMrb" parameterType="map" resultType="MyRecipeListVO">
-		select m.myRecipe_name_kor, m.myRecipe_number, m.myRecipe_hits, f.file_system_name 
-		from myrecipe m join file f ON m.myRecipe_number = f.myRecipe_number
+	<select id="selectMrb" parameterType="map" resultType="MyRecipeDTO">
+		select myRecipe_name_kor, myRecipe_number, myRecipe_hits, thumbnail  
+		from myrecipe 
 		order by myRecipe_number desc
 		limit #{startRow}, #{rowCount} 
 	</select>
@@ -42,6 +42,13 @@
 	<select id="getTotal" resultType="_int">
 		select count(myRecipe_number) from myrecipe	
 	</select>
+	
+	<update id="upThumb" parameterType="map">
+		update myrecipe
+		set thumbnail = #{fileSystemName}
+		where myRecipe_number = #{myRecipeNumber}	
+	</update>
+	
 </mapper>
 
 
