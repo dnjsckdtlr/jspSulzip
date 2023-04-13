@@ -8,11 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sulzip.app.Execute;
 
-public class FindidpwOkController implements Execute{
+public class FindidpwOkController implements Execute {
 	@Override
-	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			
+		}
+	   
 	}
-}	
-
-

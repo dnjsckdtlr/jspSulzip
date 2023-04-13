@@ -125,6 +125,7 @@ const btn = document.querySelector('.join-btn-submit');
 
 btn.addEventListener('click', () => {
   alert('회원가입 완료되었습니다.');
+
 });
 
 

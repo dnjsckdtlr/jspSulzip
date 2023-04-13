@@ -104,6 +104,8 @@ public class UserDTO {
 	public void setUserRegistrationNumber(String userRegistrationNumber) {
 		this.userRegistrationNumber = userRegistrationNumber;
 	}
+	
+	
 
 	@Override
 	public String toString() {
