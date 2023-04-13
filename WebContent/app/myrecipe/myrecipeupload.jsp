@@ -21,6 +21,9 @@
 * {
 	font-family: "NanumBarunGothic", sans-serif;
 }
+.h-ctg5{
+	color: black !important;
+}
 </style>
 
 </head>

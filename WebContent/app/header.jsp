@@ -34,13 +34,13 @@
           </div>
           <div class="h-bottom-line">
             <ul class="h-ctg">
-              <li><a href="${pageContext.request.contextPath}/sulkit/sulkit.suk">술키트</a></li>
-              <li><a href="${pageContext.request.contextPath}/product/alcohol.prd">술</a></li>
-              <li><a href="${pageContext.request.contextPath}/product/ingredients.prd">재료</a></li>
-              <li><a href="${pageContext.request.contextPath}/product/supplies.prd">용품</a></li>
-              <li><a href="${pageContext.request.contextPath}/myrecipe/myRecipe.mrb">나만의 레시피</a></li>
-              <li><a href="${pageContext.request.contextPath}/partners/partners.ptn">파트너스</a></li>
-              <li><a href="${pageContext.request.contextPath}/clientboard/serviceListOk.clb">고객센터</a></li>
+              <li><a href="${pageContext.request.contextPath}/sulkit/sulkit.suk" class="h-ctg1">술키트</a></li>
+              <li><a href="${pageContext.request.contextPath}/product/alcohol.prd" class="h-ctg2">술</a></li>
+              <li><a href="${pageContext.request.contextPath}/product/ingredients.prd" class="h-ctg3">재료</a></li>
+              <li><a href="${pageContext.request.contextPath}/product/supplies.prd" class="h-ctg4">용품</a></li>
+              <li><a href="${pageContext.request.contextPath}/myrecipe/myRecipe.mrb" class="h-ctg5">나만의 레시피</a></li>
+              <li><a href="${pageContext.request.contextPath}/partners/partners.ptn" class="h-ctg6">파트너스</a></li>
+              <li><a href="${pageContext.request.contextPath}/clientboard/serviceListOk.clb" class="h-ctg7">고객센터</a></li>
             </ul>
           </div>
         </div>

@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.h-ctg1{
+	color:black !important;	
+}
+
 .container{
     height: 530px;
 }

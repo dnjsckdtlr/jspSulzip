@@ -171,8 +171,8 @@
 
 .detail {
   width: 1050px;
-  height: 1200px;
-  /* background-color: thistle; */
+  height: 100%;
+  margin-bottom: 100px;
 }
 
 .section-1 {

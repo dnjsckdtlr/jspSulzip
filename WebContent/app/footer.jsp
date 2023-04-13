@@ -43,7 +43,7 @@
               <li class="f-index-li">
                 운영시간 : 오전10:00~오후06:00 <br />점심시간 :
                 오후12:00~오후13:00 <br />
-                휴<span class="f-transparency">무휴</span>무 : 토요일, 일요일,
+                휴<span class="f-transparency">무휴</span>무 : 토, 일,
                 공휴일
               </li>
             </ul>

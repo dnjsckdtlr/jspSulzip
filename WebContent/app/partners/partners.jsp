@@ -28,6 +28,11 @@
     	}
     }
     </script>
+    <style>
+        .h-ctg6{
+			color: black !important;
+		}
+    </style>
 </head>
 <body onload="fn_access_check()">
     <header>

@@ -21,13 +21,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <style>
+  	.h-ctg2{
+		color: black !important;
+	}
+  </style>
 </head>
 
 <body>
 <header>
 	<jsp:include page="${pageContext.request.contextPath}/app/header.jsp"/>
 </header>
-<form action="${pageContext.request.contextPath}/product/productAlcoholDetail.prd" method="post">
+<form action="${pageContext.request.contextPath}/product/alcoholDetail.prd" method="post">
   <div class="container">
     <div class="asidebar">
       <div class="list-nav">
@@ -78,9 +83,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="myrecipe-detail-container">
-    <div class="detail">
   </div>
   </form>
 <footer>
