@@ -46,13 +46,13 @@ public class UserDAO {
 	}
 	
 //	아이디 찾기
-	public void selectId(UserDTO userDTO) {
-		sqlSession.selectOne("user.selectId", userDTO);
+	public String selectId(UserDTO userDTO) {
+		  return sqlSession.selectOne("user.selectId", userDTO);
 	}
 	
 //	비밀번호 찾기
-	public void selectPw(UserDTO userDTO) {
-		sqlSession.selectOne("user.selectPw", userDTO);
+	public String selectPw(UserDTO userDTO) {
+	return	sqlSession.selectOne("user.selectPw", userDTO);
 	}
 
 }

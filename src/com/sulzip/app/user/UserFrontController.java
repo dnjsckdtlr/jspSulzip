@@ -49,21 +49,28 @@ public class UserFrontController extends HttpServlet {
 		case "/user/logoutOk.usr" :
 			new LogoutOkController().execute(req, resp);
 			break;
+			
 		case "/user/mypage.usr" :
 			new MypageController().execute(req, resp);
 			break;
+			
 		case "/user/mypageOk.usr" :
 			new MypageOkController().execute(req, resp);
 			break;
+			
 		case "/user/edituserinfo.usr" :
 			new EdituserinfoController().execute(req, resp);
 			break;
+			
 		case "/user/edituserinfoOk.usr" :
 			new EdituserinfoOkController().execute(req, resp);
 			break;
+			
+//			아이디 찾기 
 		case "/user/findidpw.usr" :
 			new FindidpwController().execute(req, resp);
 			break;
+//			아이디 찾기 ok
 		case "/user/findidpwOk.usr" :
 			new FindidpwOkController().execute(req, resp);
 			break;

@@ -23,7 +23,9 @@ public class UserDTO {
 	private String userEmail;
 	private String userRegistrationNumber;
 
-	public UserDTO() {}
+	public UserDTO() {
+	
+}
 
 	public int getUserNumber() {
 		return userNumber;
@@ -104,8 +106,6 @@ public class UserDTO {
 	public void setUserRegistrationNumber(String userRegistrationNumber) {
 		this.userRegistrationNumber = userRegistrationNumber;
 	}
-	
-	
 
 	@Override
 	public String toString() {
@@ -114,6 +114,5 @@ public class UserDTO {
 				+ ", userPhone=" + userPhone + ", userGender=" + userGender + ", userEmail=" + userEmail
 				+ ", userRegistrationNumber=" + userRegistrationNumber + "]";
 	}
-	
 	
 }

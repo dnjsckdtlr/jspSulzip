@@ -121,12 +121,27 @@ $(".agree-wrap").on("click", "#agree_all", function () {
 
 
 /* 회원가입 버튼 클릭시 회원가입 완료 */
-const btn = document.querySelector('.join-btn-submit');
+
+
+/*const btn = document.querySelector('.join-btn-submit');
+
 
 btn.addEventListener('click', () => {
   alert('회원가입 완료되었습니다.');
+ let idMsg =$('#check-id-msg').text();
 
-});
+ console.log(idMsg.includes('사용 가능'));
+
+});*/
+
+$('.join-btn-submit').on('click', function(){
+   if($checkPwMsg.text().includes("사용 가능") && $checkPwMsg2.text().includes("동일한")){
+      alert('회원가입 완료되었습니다.');
+      $('.form-sub').submit();
+   } else {
+      alert("일치 하지 않습니다!");
+   }
+})
 
 
 

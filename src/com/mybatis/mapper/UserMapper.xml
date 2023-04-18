@@ -1,72 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="user">
-	<insert id="join" parameterType="UserDTO">
-		insert into `user`(user_registration_date, user_id, user_pw, user_name,
-		 user_phone, user_gender, user_email, user_registration_number)
-		values (sysdate(), #{userId}, #{userPw}, #{userName}, #{userPhone}, #{userGender}, #{userEmail}, #{userRegistrationNumber});
-	</insert>
-	
-	<select id="login" parameterType="UserDTO" resultType="_int" >
-		select user_number 
-		from `user` 
-		where user_id = #{userId} and user_pw = #{userPw} and user_status = 1
-	</select>
-	
-	<update id="withdrawal" parameterType="UserDTO" >
-		update `user`
-		set user_status = '0'
-		where user_id = #{userId} and user_pw = #{userPw}
-	</update>
-	
-	<select id="withCheck" parameterType="UserDTO" resultType="_int">
-		select user_status
-		from `user`
-		where user_id = #{userId} and user_pw = #{userPw}
-	</select>
-	
-	<select id="checkId" parameterType="string" resultType="_int">
+   <insert id="join" parameterType="UserDTO">
+      insert into `user`(user_registration_date, user_id, user_pw, user_name,
+       user_phone, user_gender, user_email, user_registration_number)
+      values (sysdate(), #{userId}, #{userPw}, #{userName}, #{userPhone}, #{userGender}, #{userEmail}, #{userRegistrationNumber});
+   </insert>
+   
+   <select id="login" parameterType="UserDTO" resultType="_int" >
+      select user_number 
+      from `user` 
+      where user_id = #{userId} and user_pw = #{userPw} and user_status = 1
+   </select>
+   
+   <update id="withdrawal" parameterType="UserDTO" >
+      update `user`
+      set user_status = '0'
+      where user_id = #{userId} and user_pw = #{userPw}
+   </update>
+   
+   <select id="withCheck" parameterType="UserDTO" resultType="_int">
+      select user_status
+      from `user`
+      where user_id = #{userId} and user_pw = #{userPw}
+   </select>
+   
+   <select id="checkId" parameterType="string" resultType="_int">
       select count(user_number) from user
       where user_id = #{userId} 
-   	</select>
-	
-	<select id="getUserId" parameterType="_int" resultType="string">
-	select user_id
-	from `user`
-	where user_number = #{userNumber}
-	</select>
-	
-	<select id="selectDetail" parameterType="_int" resultType="UserDTO">
-		select user_status, user_registration_date, user_id, user_pw, user_name,
-		 user_phone, user_gender, user_email, user_registration_number
-		from `user`
-		where user_number = #{userNumber}
-	</select>
-	
-	<update id="modify" parameterType="UserDTO">
-		update `user`
-		set user_email = #{userEmail}, user_phone = #{userPhone}
-		<if test='userPw != null and userPw != ""'>
-			,user_pw = #{userPw}
-		</if>
-		where user_number = #{userNumber}
-	</update>
-	
-	<!--  아이디 찾기 -->
-	 <select id="selectId" parameterType="UserDTO" resultType="UserDTO">
-	 	select user_id from `user` u 
-		where user_name = #{userName} and user_phone = #{userPhone}
-	 </select>
-	 
-	 
-	<!-- 비번 찾기 -->
-	<select id="selectPw" parameterType="UserDTO" resultType="UserDTO">
-		select user_password from `user` u 
-		where user_id = #{userId} and user_name = #{userName}and user_phone = #{userPhone}
-	</select>
-	
-	
-	
+      </select>
+   
+   <select id="getUserId" parameterType="_int" resultType="string">
+   select user_id
+   from `user`
+   where user_number = #{userNumber}
+   </select>
+   
+   <select id="selectDetail" parameterType="_int" resultType="UserDTO">
+      select user_status, user_registration_date, user_id, user_pw, user_name,
+       user_phone, user_gender, user_email, user_registration_number
+      from `user`
+      where user_number = #{userNumber}
+   </select>
+   
+   <update id="modify" parameterType="UserDTO">
+      update `user`
+      set user_email = #{userEmail}, user_phone = #{userPhone}
+      <if test='userPw != null and userPw != ""'>
+         ,user_pw = #{userPw}
+      </if>
+      where user_number = #{userNumber}
+   </update>
+   
+
+   <!--  아이디 찾기 -->
+    <select id="selectId" parameterType="UserDTO" resultType="string">
+       select user_id from `user` u 
+      where user_name = #{userName} and user_phone = #{userPhone}
+         
+    </select>
+   
+   <!-- 비번 찾기 -->
+   <select id="selectPw" parameterType="UserDTO" resultType="UserDTO">
+      select user_password from `user` u 
+      where user_id = #{userId} and user_name = #{userName}and user_phone = #{userPhone}
+   </select>
+   
+   
+   
 </mapper>
 
 
@@ -80,4 +81,5 @@
 
 
 
->>>>>>> work/user04
+
+
