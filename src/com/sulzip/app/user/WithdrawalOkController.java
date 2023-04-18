@@ -31,7 +31,20 @@ public class WithdrawalOkController implements Execute {
 		}
 		
 		resp.sendRedirect(path);
-		
+				
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
