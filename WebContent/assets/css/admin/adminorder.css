@@ -41,7 +41,7 @@ main {
 
 .side-bar {
   width: 200px;
-  height: 250px;
+  height: 280px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   padding: 30px;
@@ -160,8 +160,16 @@ main {
   padding-left: 10px;
 }
 
-#order-ctg {
+#order-ctg{
   width: 100px;
+  height: 25px;
+  border: 1px solid#ddd;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+#keyword{
+  width: 150px;
   height: 25px;
   border: 1px solid#ddd;
   border-radius: 3px;
@@ -265,6 +273,7 @@ button {
   background-color: #f9f9f9;
   border: 1px solid#ddd;
   border-top: none;
+  overflow: scroll;
 }
 
 .ctg-list-2 {

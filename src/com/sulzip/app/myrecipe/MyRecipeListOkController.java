@@ -55,7 +55,7 @@ public class MyRecipeListOkController implements Execute {
 		boolean next = endPage != realEndPage;
 		
 		List<MyRecipeDTO> mrbList = myRecipeDAO.selectMrb(pageMap);
-		System.out.println(mrbList);
+//		System.out.println(mrbList);
 		req.setAttribute("mrbList", mrbList);
 		req.setAttribute("page", page);
 		req.setAttribute("startPage", startPage);

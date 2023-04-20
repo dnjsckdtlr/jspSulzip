@@ -14,5 +14,7 @@ public class OrderDAO {
 	
 	public void insert(OrderDTO orderDTO) {
 		sqlSession.insert("order.orderInsert", orderDTO);
-	} 
+	}
+	
+
 }

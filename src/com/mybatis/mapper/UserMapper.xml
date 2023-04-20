@@ -61,25 +61,11 @@
     </select>
    
    <!-- 비번 찾기 -->
-   <select id="selectPw" parameterType="UserDTO" resultType="UserDTO">
+   <select id="selectPw" parameterType="UserDTO" resultType="string">
       select user_password from `user` u 
       where user_id = #{userId} and user_name = #{userName}and user_phone = #{userPhone}
    </select>
-   
-   
-   
+	
+	
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
 

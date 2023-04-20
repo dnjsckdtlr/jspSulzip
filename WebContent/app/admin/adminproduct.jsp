@@ -76,7 +76,7 @@
                 게시판관리</a
               >
             </li>
-            <li><a href="">로그아웃</a></li>
+            <li><a href="${pageContext.request.contextPath}/user/logoutOk.usr">로그아웃</a></li>
           </ul>
         </div>
         <!-- 상품관리 메인페이지 -->
@@ -89,7 +89,7 @@
             <div class="product-ea"><span>재료</span><a href="${pageContext.request.contextPath}/product/ingredients.prd"><c:out value="${itotal }"/></a>개</div>
             <div class="product-ea"><span>용품</span><a href="${pageContext.request.contextPath}/product/supplies.prd"><c:out value="${stotal }"/></a>개</div>
           </div>
-          <div class="new-product"><button>상품등록</button></div>
+          <!-- <div class="new-product"><button>상품등록</button></div> -->
           <!-- 상품검색 카테고리 -->
           <div class="search-title"><span>상품검색</span></div>
           <div class="product-search">
@@ -118,20 +118,19 @@
           </div> -->
           <div class="search-btn">
             <button id="search-btn">검색</button>
-            <button>초기화</button>
           </div>
           <!-- 상품목록 -->
           <div class="product-list">
             <div class="list-title"><span>상품목록</span></div>
             <div class="product-total"> <span>총</span><span class="ea"><c:out value="${fn:length(joined)}"></c:out></span><span>개</span> </div>
-            <div class="product-status">
+           <!--  <div class="product-status">
               <div class="status-btn">
                 <button>분류수정</button>
                 <button>이름수정</button>
                 <button>가격수정</button>
                 <button>삭제</button>
               </div>
-            </div>
+            </div> -->
             <div class="product-ctg">
               <div class="ctg-box">
                 <div class="check"><input type="checkbox" id="checkAll" name="abox"/></div>

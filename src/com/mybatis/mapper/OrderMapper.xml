@@ -3,8 +3,9 @@
 
 <mapper namespace="order">
 	<insert id="orderInsert" parameterType="orderDTO">
-	insert into `order`(order_number, order_date, product_ea, product_total_price, pickup_store, order_message, user_number)
-		values(#{orderNumber}, sysdate(), #{productEa}, #{productTotalPrice}, #{pickupStore}, #{orderMessage}, #{userNumber})
+	insert into `order`(order_number, order_date, order_pay, product_total_price, pickup_store, order_message, user_number)
+		values(#{orderNumber}, sysdate(), #{orderPay}, #{productTotalPrice}, #{pickupStore}, #{orderMessage}, #{userNumber})
 	</insert>
+	
 	
 </mapper>

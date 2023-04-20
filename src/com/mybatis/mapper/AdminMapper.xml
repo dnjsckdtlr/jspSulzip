@@ -161,9 +161,63 @@
 		where user_status = '1'
 	</select>
 	
+	<!-- 주문 조회 -->
+	<select id="orderSelect" resultType="OrderVO">
+		select o.order_date , o.order_number , u.user_name, p.product_name_kor , c.product_total_price, o.order_pay from cart c join `order` o 
+		on c.user_number = o.user_number
+		join `user` u 
+		on o.user_number = u.user_number 
+		join product p 
+		on p.product_number = c.product_number
+	</select>
+	
+	<!-- 날짜별 주문 조회 -->
+	<select id="orderDate" parameterType="OrderSearchVO" resultType="OrderVO">
+		select date_format(o.order_date, '%Y-%m-%d') order_date , o.order_number , u.user_name, p.product_name_kor , c.product_total_price, o.order_pay 
+		from cart c join `order` o 
+		on c.user_number = o.user_number
+		join `user` u 
+		on o.user_number = u.user_number 
+		join product p 
+		on p.product_number = c.product_number
+		<where>
+			<if test='"2".equals(select)'>
+				u.user_id like concat('%', #{keyword}, '%')
+			</if>
+			<if test='"1".equals(select)'>
+				u.user_name like concat('%', #{keyword}, '%')
+			</if>
+			<if test='!"".equals(date)'>
+				and o.order_date = #{date}
+			</if>
+		</where>
+		
+		<!-- where o.order_date = #{date} -->
+	</select>
+	
+	<!-- 회원 아이디로 검색 -->
+	<select id="searchId" parameterType="OrderSearchVO" resultType="OrderVO">
+		select o.order_date , o.order_number , u.user_name, p.product_name_kor , c.product_total_price, o.order_pay from cart c join `order` o 
+		on c.user_number = o.user_number
+		join `user` u 
+		on o.user_number = u.user_number 
+		join product p 
+		on p.product_number = c.product_number
+		where u.user_id  = like concat('%', #{keyword}, '%')
+	</select>
+	
+	<!-- 회원 이름으로 검색 -->
+	<select id="searchName" parameterType="OrderSearchVO" resultType="OrderVO">
+		select o.order_date , o.order_number , u.user_name, p.product_name_kor , c.product_total_price, o.order_pay from cart c join `order` o 
+		on c.user_number = o.user_number
+		join `user` u 
+		on o.user_number = u.user_number 
+		join product p 
+		on p.product_number = c.product_number
+		where u.user_name  = like concat('%', #{keyword}, '%')
+	</select>
 
 </mapper>
-
 
 
 

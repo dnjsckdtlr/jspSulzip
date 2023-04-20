@@ -130,6 +130,7 @@ btn.addEventListener('click', () => {
   alert('회원가입 완료되었습니다.');
  let idMsg =$('#check-id-msg').text();
 
+
  console.log(idMsg.includes('사용 가능'));
 
 });*/
@@ -142,13 +143,6 @@ $('.join-btn-submit').on('click', function(){
       alert("일치 하지 않습니다!");
    }
 })
-
-
-
-
-
-
-
 
    /*  로그인시 메인페이지에 OOO님 으로*/
 

@@ -133,9 +133,19 @@ li:nth-child(4) > .slide-img {
 }
 
 .prev {
-  left: -100px;
+  left: -150px;
+  width: 130px;
+  height: 300px;
+  top: 50px;
+  text-align: center;
+  line-height: 300px;
 }
 
 .next {
-  right: -100px;
+  left: 780px;
+  width: 130px;
+  height: 300px;
+  top: 50px;
+  text-align: center;
+  line-height: 300px;
 }

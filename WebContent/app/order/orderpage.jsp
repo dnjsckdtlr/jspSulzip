@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,21 +18,41 @@
 		<jsp:include page="${pageContext.request.contextPath}/app/header.jsp"/>
     </header>
     <main>
-    <form id="order" action="/order/orderOk.ord" method="post">
+    <form id="order" action="${pageContext.request.contextPath}/order/orderOk.ord" method="post">
       <div class="order-title">주문서</div>
       <div class="content">
         <div class="order-container">
           <div class="order-page-main">
-            <div class="order-item-table">
-              <div class="order-wrap">
-                <div class="img-wrap"></div>
-                <div class="info-wrap">
-                  <div class="item-name">봄베이사파이어</div>
-                  <div class="item-ea">1개</div>
-                </div>
-                <div class="price-wrap">12,000원</div>
-              </div>
-            </div>
+	          <c:forEach var="check" items="${checkList}" varStatus="status">
+		            <div class="order-item-table">
+		              <div class="order-wrap">
+		                <div class="img-wrap">
+		                 <c:choose>
+		                	<c:when test="${check.getCategoryNumber() == 0}">
+								<img src="${pageContext.request.contextPath}/assets/img/sulkit/${check.getProductSystemName()}" width="75" height="75"/>
+							</c:when>
+							<c:when test="${check.getCategoryNumber() == 2}">
+								<img src="${pageContext.request.contextPath}/assets/img/alcohol/${check.getProductSystemName()}" width="75" height="75"/>
+							</c:when>
+							<c:when test="${check.getCategoryNumber() == 3}">
+								<img src="${pageContext.request.contextPath}/assets/img/ingredients/${check.getProductSystemName()}" width="75" height="75"/>
+							</c:when>
+							<c:when test="${check.getCategoryNumber() == 4}">
+								<img src="${pageContext.request.contextPath}/assets/img/supplies/${check.getProductSystemName()}" width="75" height="75"/>
+							</c:when>
+							<c:otherwise>
+								<img src="" alt="이미지 없음" width="75" height="75"/>
+							</c:otherwise>
+						</c:choose>
+		                </div>
+		                <div class="info-wrap">
+		                  <div class="item-name">${check.getProductNameKor()}</div>
+		                  <div class="item-ea"><span>${eaList[status.index]}</span>개</div>
+		                </div>
+		                <div class="price-wrap"><span>${priceList[status.index]}</span>원</div>
+		              </div>
+		            </div>
+	            </c:forEach>
             <section>
               <div class="order-info-title">
                 <span>주문 정보</span>
@@ -51,11 +72,11 @@
                 <div class="info-content">
                   <div class="customer-form">
                     <label for="userName">이름</label>
-                    <input type="text" name="userName" />
+                    <div>${userInfo.getUserName()}</div>
                   </div>
                   <div class="customer-form">
                     <label for="userPhone">연락처</label>
-                    <input type="text" name="userPhone" />
+                    <div>${userInfo.getUserPhone()}</div>
                   </div>
                    <div class="customer-form">
                    <label for="pickupStore">픽업장소</label>
@@ -203,7 +224,6 @@
             <div class="final-payment-amount"><span>최종 결제 금액</span></div>
             <div class="final-price" id="final_price">12,000 <span>원</span></div>
             <div class="order-btn-box">주문하기<a href=""></a></div>
-            <!-- <p><button id="check_module" type="button" onclick="requestPay()">주문하기</button></p> -->
           </div>
         </div>
       </div>
@@ -216,6 +236,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="${pageContext.request.contextPath}/assets/js/order/orderpage.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquary-1.12.4.min.js"></script>
 	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 	<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
     
@@ -226,28 +247,30 @@
       $payBtn.on('click', payModule);
 
       function payModule(){
-        const userCode = 'imp24463063';
-        IMP.init(userCode); // 가맹점 식별 코드를 넣어 모듈을 초기화해주세요.
+        const IMP = window.IMP;
+        IMP.init("imp24463063"); // 가맹점 식별 코드를 넣어 모듈을 초기화해주세요.
 
         IMP.request_pay({
             pg : 'html5_inicis.INIBillTst',  // 실제 계약 후에는 실제 상점아이디로 변경
             pay_method : 'card', // 'card'만 지원됩니다.
-            merchant_uid: "order_monthly_0001", // 상점에서 관리하는 주문 번호
-            name : '최초인증결제',
-            customer_uid : 'your-customer-unique-id', // 필수 입력.
+            /* merchant_uid: "order_monthly_00012", // 상점에서 관리하는 주문 번호 */
+            merchant_uid: "order_" + new Date().getTime(), // 상점에서 관리하는 주문 번호
+            name : 'SUL.ZIP결제',
        		amount : $("#final_price").text().replace(",","").replace("원","").trim(), // 결제창에 표시될 금액. 실제 승인이 이뤄지지는 않습니다.
-            buyer_email : 'test@portone.io',
-            buyer_name : '포트원',
-            buyer_tel : '02-1234-1234',
-            m_redirect_url : '{모바일에서 결제 완료 후 리디렉션 될 URL}'
+/*             customer_uid : 'your-customer-unique-id2'+new Date().getTime(), // 필수 입력. */
+            customer_uid : 'userId'+new Date().getTime(), // 필수 입력.
+            buyer_email : 'userEmail',
+            buyer_name : 'userName',
+            buyer_tel : 'userPhone',
+            /* m_redirect_url : '{모바일에서 결제 완료 후 리디렉션 될 URL}' */
         }, function(rsp) {
             if ( rsp.success ) {
             //    alert('빌링키 발급 성공');
             
-            let productEa = "";
+/*          let productEa = "";
             let productTotalPrice = "";
             let pickupStore = "";
-            let orderMessage = "";
+            let orderMessage = ""; */
             
     		      // axios로 HTTP 요청
     		      axios({
@@ -269,7 +292,7 @@
 
       }
 
-      IMP.request_pay({ /** 요청 객체를 추가해주세요 */ },
+/*       IMP.request_pay({  요청 객체를 추가해주세요  },
     		  rsp => {
     		    if (rsp.success) {   
     		      // axios로 HTTP 요청
@@ -287,9 +310,9 @@
     		    } else {
     		      alert(`결제에 실패하였습니다. 에러 내용: ${rsp.error_msg}`);
     		    }
-    		  });
-
-         IMP.request_pay({
+    		  }); */
+      
+      /*  IMP.request_pay({
              pg : 'html5_inicis.{PG상점아이디}',  // 실제 계약 후에는 실제 상점아이디로 변경
              pay_method : 'card', // 'card'만 지원됩니다.
              merchant_uid: "order_monthly_0001", // 상점에서 관리하는 주문 번호
@@ -306,7 +329,7 @@
              } else {
                  alert('빌링키 발급 실패');
              }
-         });
+         }); */
     </script>
   </body>
 </html>

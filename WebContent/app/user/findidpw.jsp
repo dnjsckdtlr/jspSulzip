@@ -11,22 +11,20 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/font/nanumbarungothicsubset.css" />
   </head>
   <body>
-    <!-- <a href="_blank" onclick="window.open(this.href, '', 'width=400, height=500'); return false;">
-      이거누르면새창열림
-    </a> -->
     <div class="find-nav-btn">
-      <span class="find-id-btn">아이디 찾기</span>
-      <span class="find-pw-btn">비밀번호 찾기</span>
+      <span class="find-id-btn findBtn">아이디 찾기</span>
+      <span class="find-pw-btn findBtn">비밀번호 찾기</span>
     </div>
     <!-- 클릭시 활성화, 글자배경색 주기.
       아이디 찾기 클릭 시 새창 열리고, 새 창에
       두 가지 탭 -->
 
     <div class="findIdPw">
-      <form class="find-id">
+      <div class="find-id" action="${pageContext.request.contextPath}" method="post">
+       <span class="findtxt"><span class="resultId"></span></span>
         <label
           ><input
-            class="find-input-box"
+            class="find-input-box nameId"
             type="text"
             placeholder="이름"
             required
@@ -34,22 +32,23 @@
         <br />
         <label>
           <input
-            class="find-input-box"
+            class="find-input-box phoneId"
             type="text"
             placeholder="핸드폰 번호"
             required
         /></label>
         <br />
-        <button type="submit" class="find-submit-btn">확인</button>
-        <button type="button" class="find-submit-btn" onclick="window.close();">
-          닫기
-        </button>
-      </form>
+        <div>
+        <button type="button" class="find-submit-btn idBtn">확인</button>
+        <button type="button" class="find-submit-btn" onclick="window.close();">닫기</button>
+        </div>
+      </div>
 
-      <form class="find-pw">
+      <div class="find-pw">
+        <span class="findtxt"><span class="resultPw"></span></span>
         <label
           ><input
-            class="find-input-box"
+            class="find-input-box idPw"
             type="text"
             placeholder="아이디"
             required
@@ -57,7 +56,7 @@
         <br />
         <label
           ><input
-            class="find-input-box"
+            class="find-input-box namePw"
             type="text"
             placeholder="이름"
             required
@@ -65,7 +64,7 @@
         <br />
         <label
           ><input
-            class="find-input-box"
+            class="find-input-box phonePw"
             type="text"
             placeholder="핸드폰 번호"
             required
@@ -73,16 +72,9 @@
         <br />
 
         <div>
-          <button class="find-submit-btn" type="submit">확인</button>
-          <button
-            class="find-submit-btn"
-            type="button"
-            onclick="window.close();"
-          >
-            닫기
-          </button>
+          <button class="find-submit-btn pwBtn" type="submit">확인</button>
+          <button class="find-submit-btn" type="button" onclick="window.close();">닫기</button>
         </div>
-      </form>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.6.3.js"

@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sulkitdetail</title>
+  <title>alcoholdetail</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/product/alcoholdetail.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/font/nanumbarungothicsubset.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
@@ -32,7 +32,6 @@
 <header>
 	<jsp:include page="${pageContext.request.contextPath}/app/header.jsp"/>
 </header>
-<form action="${pageContext.request.contextPath}/product/alcoholDetail.prd" method="post">
   <div class="container">
     <div class="asidebar">
       <div class="list-nav">
@@ -67,13 +66,13 @@
               </div>
               <div class="row price-area2">
                 <div class="col-12" style="text-align: right;">
-                  <span>총 수량</span><span id="total_num">&nbsp;&nbsp;1</span><span>&nbsp;개&nbsp;&nbsp;|&nbsp;&nbsp;</span><span id="price"><c:out value="${alcohol.getProductPrice()}"/></span><span class="won">&nbsp;원</span>
+                  <span>총 수량</span><span id="total_num">1</span><span>&nbsp;개&nbsp;&nbsp;|&nbsp;&nbsp;</span><span id="price"><c:out value="${alcohol.getProductPrice()}"/></span><span class="won">&nbsp;원</span>
                 </div>
               </div>
               <div class="row mt-3">
                 <div class="col-3"></div>
                 <div class="col-9">
-                  <button class="btn btn-outline-secondary btn-sm">장바구니 담기</button>
+                  <button class="btn btn-outline-secondary btn-sm cartBtn">장바구니 담기</button>
                   <button class="btn btn-danger btn-sm" onclick="fn_go_to_link('${pageContext.request.contextPath}/order/order.ord')">바로 구매하기</button>
                 </div>
               </div>
@@ -84,12 +83,11 @@
       </div>
     </div>
   </div>
-  </form>
 <footer>
 	<jsp:include page="${pageContext.request.contextPath}/app/footer.jsp"/>
 </footer>
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/product/alcohol.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/product/alcoholdetail.js"></script>
 </body>
 
 <script type="text/javascript">

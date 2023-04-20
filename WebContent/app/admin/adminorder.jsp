@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -74,33 +76,30 @@
                 게시판관리</a
               >
             </li>
-            <li><a href="">로그아웃</a></li>
+            <li><a href="${pageContext.request.contextPath}/user/logoutOk.usr">로그아웃</a></li>
           </ul>
         </div>
         <!-- 주문관리 메인페이지 -->
         <div class="order-management">
           <div class="order-title"><span>주문관리</span></div>
           <div class="order-select">
-            <div class="order-select-ctg"><span>기간</span></div>
+            <div class="order-select-ctg"><span>주문날짜</span></div>
             <div class="date-select">
-              <button>오늘</button>
-              <button>7일</button>
-              <button>1개월</button>
-              <input type="date" />~<input type="date" />
+              <input type="date" id="date"/>
             </div>
           </div>
           <div class="order-select2">
             <div class="order-select-ctg"><span>검색어</span></div>
             <div class="search-select">
-              <select name="주문번호" id="order-ctg">
-                <option value="1">주문번호</option>
-                <option value="2">주문자명</option>
-                <option value="3">주문자ID</option>
+              <select name="select" id="order-ctg">
+                <option value="1" name="select">주문자명</option>
+                <option value="2" name="select">주문자ID</option>
               </select>
+              <input type="text" id="keyword"/>
             </div>
           </div>
           <div class="search-btn">
-            <button>검색</button>
+            <button class="search">검색</button>
             <button>초기화</button>
           </div>
           <div class="order-list-ctg">
@@ -113,16 +112,35 @@
               <div class="order-price"><span>결제금액</span></div>
               <div class="order-pay"><span>결제수단</span></div>
             </div>
+            
+            
             <div class="ctg-list-select">
-              <div class="ctg-list-2">
-                <div class="list-date"><span>주문일</span></div>
-                <div class="list-num"><span>주문번호</span></div>
-                <div class="list-name"><span>주문자</span></div>
-                <div class="list-product-name"><span>상품명</span></div>
-                <div class="list-price"><span>결제금액</span></div>
-                <div class="list-pay"><span>결제수단</span></div>
-              </div>
+            
+            <c:forEach var="order" items="${orderList}">
+	            <div class="ctg-list-2">
+	                <div class="list-date"><c:out value="${order.orderDate }"/> </div>
+	                <div class="list-num"><c:out value="${order.orderNumber }"/></div>
+	                <div class="list-name"><c:out value="${order.userName }"/></div>
+	                <div class="list-product-name"><c:out value="${order.productNameKor }"/></div>
+	                <div class="list-price"><c:out value="${order.productTotalPrice }"/></div>
+	                <div class="list-pay">
+	                	<c:choose>
+                		<c:when test="${order.orderPay == 1}">
+		                	<c:out value="무통장입금"/>     
+		                </c:when>           		
+                		<c:when test="${order.orderPay == 2}">
+		                	<c:out value="카드"/>  
+		                </c:when>              		
+                	</c:choose>
+	                </div>
+	              </div>
+            </c:forEach>
+              
+              
+              
             </div>
+            
+            
           </div>
         </div>
       </div>
@@ -130,5 +148,7 @@
     <footer>
     	<jsp:include page="${pageContext.request.contextPath}/app/footer.jsp"></jsp:include>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/admin/adminorder.js"></script>
   </body>
 </html>

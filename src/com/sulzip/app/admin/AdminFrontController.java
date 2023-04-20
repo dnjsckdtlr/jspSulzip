@@ -43,9 +43,12 @@ public class AdminFrontController extends HttpServlet{
 		case "/admin/boardSearch.adm":
 			new AdminBoardSearchOKController().execute(req, resp);
 			break;
-//		case "/admin/order.adm":
-//			req.getRequestDispatcher("/app/admin/adminorder.jsp").forward(req, resp);
-//			break;
+		case "/admin/order.adm":
+			new AdminOrderController().execute(req, resp);
+			break;
+		case "/admin/orderSearch.adm":
+			new AdminOrderSearchOkController().execute(req, resp);
+			break;
 		
 		}
 	}

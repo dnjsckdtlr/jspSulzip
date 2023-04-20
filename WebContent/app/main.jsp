@@ -26,17 +26,17 @@
       <div style="overflow: hidden;" class="main">
         <div class="main-img">
           <div class="main-first">
-            <a href="${pageContext.request.contextPath}/sulkit/productSulkit1.suk">
+            <a href="${pageContext.request.contextPath}/sulkit/sulkit.suk">
               <img src="${pageContext.request.contextPath}/assets/img/banner/mainImg.jpg" />
             </a>
           </div>
           <div class="main-second">
-            <a href="${pageContext.request.contextPath}/sulkit/productSulkit1.suk">
+            <a href="${pageContext.request.contextPath}/sulkit/sulkit.suk">
               <img src="${pageContext.request.contextPath}/assets/img/banner/mainimg2.jpg" />
             </a>
           </div>
           <div class="main-first">
-            <a href="${pageContext.request.contextPath}/sulkit/productSulkit1.suk">
+            <a href="${pageContext.request.contextPath}/sulkit/sulkit.suk">
               <img src="${pageContext.request.contextPath}/assets/img/banner/mainImg.jpg" />
             </a>
           </div>
@@ -56,17 +56,17 @@
             <ul class="slide-box">
               <li>
                 <div class="slide-img">
-                  <a href="${pageContext.request.contextPath}/app/partners/partners.jsp"><img src="${pageContext.request.contextPath}/assets/img/sub-banner/brand_image_left.jpg" alt="" /></a>
+                  <a href="${pageContext.request.contextPath}/partners/partners.ptn"><img src="${pageContext.request.contextPath}/assets/img/sub-banner/brand_image_left.jpg" alt="" /></a>
                 </div>
               </li>
               <li>
                 <div class="slide-img">
-                  <a href="${pageContext.request.contextPath}/sulkit/productSulkit1.suk"><img src="${pageContext.request.contextPath}/assets/img/sub-banner/brand_image_main.jpg" alt="" /></a>
+                  <a href="${pageContext.request.contextPath}/sulkit/sulkit.suk"><img src="${pageContext.request.contextPath}/assets/img/sub-banner/brand_image_main.jpg" alt="" /></a>
                 </div>
               </li>
               <li>
                 <div class="slide-img">
-                  <a href="${pageContext.request.contextPath}/app/myrecipe/myrecipe.jsp"><img src="${pageContext.request.contextPath}/assets/img/sub-banner/brand_image_right.jpg" /></a>
+                  <a href="${pageContext.request.contextPath}/myrecipe/myRecipe.mrb"><img src="${pageContext.request.contextPath}/assets/img/sub-banner/brand_image_right.jpg" /></a>
                 </div>
               </li>
             </ul>

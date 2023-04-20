@@ -126,7 +126,7 @@ width: 485px;
 }
 
 .join-n-find-wrap{
-  font-size: 15px;
+  font-size: 13px;
   line-height: 3;
   padding-left: 10px;
 }
@@ -139,18 +139,12 @@ width: 485px;
   letter-spacing: -1px;
   text-align: center;
 }
-.but{
-/* cursor: pointer; */
-}
 
 .form-group{
   margin-bottom: 20px;
 }
 
-a{
+.colorRed{
   text-decoration-line: none;
-}
-
-span{
-  font-size: 13px;
+  color: black;   
 }

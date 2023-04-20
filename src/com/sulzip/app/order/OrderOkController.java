@@ -32,13 +32,13 @@ public class OrderOkController implements Execute {
 		orderDTO.setOrderNumber((int)session.getAttribute("userNumber"));
 		orderDTO.setOrderNumber(Integer.valueOf(req.getParameter("orderNumber")));
 		orderDTO.setProductTotalPrice(Integer.valueOf(req.getParameter("productTotalPrice")));
-		orderDTO.setProductEa(Integer.valueOf(req.getParameter("productEa")));
+		orderDTO.setOrderPay(Integer.valueOf(req.getParameter("orderPay")));
 		orderDTO.setOrderMessage(req.getParameter("orderMessage"));
 		orderDTO.setPickupStore(req.getParameter("pickupStore"));
 		orderDTO.setOrderDate(req.getParameter("orderDate"));
 		
 		orderDAO.insert(orderDTO);
 		
-		resp.sendRedirect("/order/orderOk.ord");
+//		resp.sendRedirect("/order/orderOk.ord");
 	}
 }

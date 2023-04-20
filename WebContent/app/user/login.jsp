@@ -9,27 +9,27 @@
     <title>login</title>
     
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/font/nanumbarungothicsubset.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user/login.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user/login.css" />
+   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
-  	<style>
-    	* {font-family: "NanumBarunGothic", sans-serif;}
-  	</style>
+     <style>
+       * {font-family: "NanumBarunGothic", sans-serif;}
+     </style>
     <script>
       function showPopup() {
-        let popupX = document.body.offsetWidth / 2 - 400 / 2;
-        let popupY = window.screen.height / 2 - 300;
+        let popupX = document.body.offsetWidth / 2 - 500 / 2;
+        let popupY = window.screen.height / 2 - 280;
         window.open(
-          "findIdPw.html",
+          "http://localhost:8085/user/findidpw.usr",
           "아이디/비밀번호찾기",
-          "width=400, height=300, left=" + popupX + ", top=" + popupY
+          "width=500, height=320, left=" + popupX + ", top=" + popupY
         );
       }
     </script>
   </head>
   <body>
     <header>
-    	<jsp:include page="${pageContext.request.contextPath}/app/header.jsp"/>
+       <jsp:include page="${pageContext.request.contextPath}/app/header.jsp"/>
     </header>
     <div id="container">
       <div id="content" class="at-container">
@@ -81,20 +81,18 @@
                         <button type="submit" class="btn btn-login">로그인</button>
                       </div>
                       </form>
-          			  <div class="login-btn">
- <%--          			  	<a href="${pageContaxt.request.contaxtPath}/user/findidpw.jsp">로그인</a> --%>
-          			  </div>
+                     <div class="login-btn">
+ <%--                        <a href="${pageContaxt.request.contaxtPath}/user/findidpw.jsp">로그인</a> --%>
+                     </div>
                       <div class="regis-wrap">
                         <ul class="join-n-find-wrap">
                           <li>
                             <span>· 아직 술집 회원이 아니신가요?</span>
-                            <a href="/user/join.usr">술집 회원가입</a>
+                            <a href="/user/join.usr" class="colorRed">술집 회원가입</a>
                           </li>
                           <li>
                             <span>· 아이디/비밀번호를 잊어버리셨나요?</span>
-<!--                             <a href="" onclick="showPopup();" -->
-								<a href="${pageContaxt.request.contaxtPath}/app/user/findidpw.jsp" onclick="window.open(this.href,'', 'width=400, height=500'); return false;">
-                              아이디/비밀번호 찾기</a>
+                     <a href="" onclick="showPopup();" class="colorRed">아이디/비밀번호 찾기</a>
                           </li>
                         </ul>
                       </div>
@@ -108,9 +106,9 @@
       </div>
     </div>
     <footer>
-    	<jsp:include page="${pageContext.request.contextPath}/app/footer.jsp"/>
+       <jsp:include page="${pageContext.request.contextPath}/app/footer.jsp"/>
     </footer>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   		<script src="${pageContext.request.contextPath}/assets/js/user/login.js"></script>
+         <script src="${pageContext.request.contextPath}/assets/js/user/login.js"></script>
   </body>
 </html>

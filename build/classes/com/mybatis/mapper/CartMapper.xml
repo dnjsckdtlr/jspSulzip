@@ -2,6 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cart">
-
+	<select id="select" parameterType="_int" resultType="CartVO">
+		select c.product_number, c.product_ea, p.product_name_kor, p.product_price, p.category_number, p.product_system_name 
+		from cart c join product p 
+		on c.product_number = p.product_number 
+		where c.user_number = #{userNumber}
+	</select>
 	
+	<delete id="delete" parameterType="map">
+		delete from cart
+		where user_number = #{userNumber} and product_number = #{productNumber}
+	</delete>
+	
+	<insert id="insert" parameterType="CartVO2">
+		insert into cart
+		(user_number, product_number, product_total_price, product_ea)
+		values(#{userNumber}, #{productNumber}, #{productTotalPrice}, #{productEa})
+	</insert>
+	
+	<select id="cartCheck" parameterType="map" resultType="_int">
+		select count(user_number)
+		from cart
+		where user_number = #{userNumber} and product_number = #{productNumber}
+	</select>
 </mapper>

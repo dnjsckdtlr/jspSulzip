@@ -90,8 +90,7 @@
 	<select id="searchUser" parameterType="UserSearchVO" resultType="UserListVO">
 		select user_name, user_id, user_phone, user_gender, user_registration_date
 		from user
-		
-		<trim prefix="where" prefixOverrides="and">
+		where user_status = '1'
 			<if test='"1".equals(select)'>
 				and user_id like concat('%', #{keyword}, '%')
 			</if>
@@ -104,7 +103,6 @@
 			<if test=' !"N".equals(gender)'>
 				and user_gender = #{gender}
 			</if>
-		</trim>
 		
 	</select>
 	<!-- 게시판 전체 리스트 -->
@@ -149,22 +147,77 @@
 		where u.user_id like concat('%', #{keyword}, '%')
 	</select>
 	
-
-<!-- 	<select id="myRecipeList" parameterType="_int" resultType="BoardVO">
-		select myRecipe_name_kor title, u.user_id id, myRecipe_number number
-		from myrecipe m join `user` u 
-		on m.user_number = #{userNumber} and m.user_number = u.user_number
+	<!-- 회원탈퇴 -->
+	<update id="delete" parameterType="string" >
+		update `user`
+		set user_status = '0'
+		where user_id = #{userId}
+	</update>
+	
+	<!-- 회원 전체 조회2 -->
+	<select id="userList" resultType="UserListVO">
+		select user_registration_date, user_id, user_name, user_phone, user_gender
+		from `user`
+		where user_status = '1'
 	</select>
 	
-	<select id="clientList" parameterType="_int" resultType="BoardVO">
-		select board_title title , u.user_id id, board_number number
-		from client_board cb join `user` u 
-		on cb.user_number = #{userNumber} and cb.user_number = u.user_number
-	</select> -->
+	<!-- 주문 조회 -->
+	<select id="orderSelect" resultType="OrderVO">
+		select o.order_date , o.order_number , u.user_name, p.product_name_kor , c.product_total_price, o.order_pay from cart c join `order` o 
+		on c.user_number = o.user_number
+		join `user` u 
+		on o.user_number = u.user_number 
+		join product p 
+		on p.product_number = c.product_number
+	</select>
 	
+	<!-- 날짜별 주문 조회 -->
+	<select id="orderDate" parameterType="OrderSearchVO" resultType="OrderVO">
+		select date_format(o.order_date, '%Y-%m-%d') order_date , o.order_number , u.user_name, p.product_name_kor , c.product_total_price, o.order_pay 
+		from cart c join `order` o 
+		on c.user_number = o.user_number
+		join `user` u 
+		on o.user_number = u.user_number 
+		join product p 
+		on p.product_number = c.product_number
+		<where>
+			<if test='"2".equals(select)'>
+				u.user_id like concat('%', #{keyword}, '%')
+			</if>
+			<if test='"1".equals(select)'>
+				u.user_name like concat('%', #{keyword}, '%')
+			</if>
+			<if test='!"".equals(date)'>
+				and o.order_date = #{date}
+			</if>
+		</where>
+		
+		<!-- where o.order_date = #{date} -->
+	</select>
+	
+	<!-- 회원 아이디로 검색 -->
+	<select id="searchId" parameterType="OrderSearchVO" resultType="OrderVO">
+		select o.order_date , o.order_number , u.user_name, p.product_name_kor , c.product_total_price, o.order_pay from cart c join `order` o 
+		on c.user_number = o.user_number
+		join `user` u 
+		on o.user_number = u.user_number 
+		join product p 
+		on p.product_number = c.product_number
+		where u.user_id  = like concat('%', #{keyword}, '%')
+	</select>
+	
+	<!-- 회원 이름으로 검색 -->
+	<select id="searchName" parameterType="OrderSearchVO" resultType="OrderVO">
+		select o.order_date , o.order_number , u.user_name, p.product_name_kor , c.product_total_price, o.order_pay from cart c join `order` o 
+		on c.user_number = o.user_number
+		join `user` u 
+		on o.user_number = u.user_number 
+		join product p 
+		on p.product_number = c.product_number
+		where u.user_name  = like concat('%', #{keyword}, '%')
+	</select>
 
 </mapper>
-
 
 
 

@@ -126,7 +126,7 @@
     	<jsp:include page="${pageContext.request.contextPath}/app/footer.jsp"/>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-    	<script src="${pageContext.request.contextPath}/assets/js/sulkit/sulkit.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/sulkit/sulkit.js"></script>
     </body>
 
 </html>

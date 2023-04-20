@@ -41,7 +41,7 @@
 
 .order-container {
   width: 1200px;
-  height: 1000px;
+  min-height: 1000px;
   /* background-color: palegoldenrod; */
   display: flex;
 }
@@ -83,8 +83,10 @@
   width: 75px;
   height: 75px;
   background-color: wheat;
-  /* vertical-align: middle; */
-  /* text-align: center; */
+}
+
+.img-wrap > img{
+	border: 1px solid #ddd;
 }
 
 .info-wrap {
@@ -165,6 +167,15 @@ section {
   line-height: 50px;
   font-size: 14px;
   font-weight: 400;
+}
+
+.customer-form > div {
+  width: calc(100% - 100px);
+  height: 50px;
+  line-height: 50px;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0 16px;
 }
 
 .customer-form > input {

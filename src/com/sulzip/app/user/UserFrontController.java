@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class UserFrontController extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
@@ -71,9 +72,13 @@ public class UserFrontController extends HttpServlet {
 			new FindidpwController().execute(req, resp);
 			break;
 //			아이디 찾기 ok
-		case "/user/findidpwOk.usr" :
-			new FindidpwOkController().execute(req, resp);
+		case "/user/findidOk.usr" :
+			new FindidOkController().execute(req, resp);
+			break;
+		case "/user/findpwOk.usr" :
+			new FindpwOkController().execute(req, resp);
 			break;
 		}
+		
 	}
 }

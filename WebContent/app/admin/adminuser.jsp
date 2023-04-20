@@ -76,7 +76,7 @@
                 게시판관리</a
               >
             </li>
-            <li><a href="${pageContext.request.contextPath}/">로그아웃</a></li>
+            <li><a href="${pageContext.request.contextPath}/user/logoutOk.usr">로그아웃</a></li>
           </ul>
         </div>
         <!-- 회원관리 메인페이지 -->
@@ -130,7 +130,6 @@
             </li>
             <div class="search-btn">
               <button id="search-btn">검색</button>
-              <button>초기화</button>
             </div>
           </ul>
           <div class="user-list"><span>회원 목록</span></div>

@@ -7,11 +7,12 @@ import org.apache.ibatis.session.SqlSession;
 import com.mybatis.config.MyBatisConfig;
 import com.sulzip.app.admin.vo.BoardSearchVO;
 import com.sulzip.app.admin.vo.BoardVO;
+import com.sulzip.app.admin.vo.OrderSearchVO;
+import com.sulzip.app.admin.vo.OrderVO;
 import com.sulzip.app.admin.vo.SearchVO;
 import com.sulzip.app.admin.vo.UserListVO;
 import com.sulzip.app.admin.vo.UserSearchVO;
 import com.sulzip.app.product.vo.ProductVO;
-import com.sulzip.app.user.dto.UserDTO;
 
 public class AdminDAO {
 	public SqlSession sqlsession;
@@ -118,6 +119,24 @@ public class AdminDAO {
 	
 	public List<BoardVO> clientId(BoardSearchVO boardSearchVO){
 		return sqlsession.selectList("admin.clientId", boardSearchVO);
+	}
+	
+//	============주문관리===============
+	
+	public List<OrderVO> orderSelect(){
+		return sqlsession.selectList("admin.orderSelect");
+	}
+	
+	public List<OrderVO> orderDate(OrderSearchVO orderSearchVO){
+		return sqlsession.selectList("admin.orderDate", orderSearchVO);
+	}
+	
+	public List<OrderVO> searchId(OrderSearchVO orderSearchVO){
+		return sqlsession.selectList("admin.searchId", orderSearchVO);
+	}
+	
+	public List<OrderVO> searchName(OrderSearchVO orderSearchVO){
+		return sqlsession.selectList("admin.searchName", orderSearchVO);
 	}
 	
 }

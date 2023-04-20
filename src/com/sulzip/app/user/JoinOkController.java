@@ -34,8 +34,6 @@ public class JoinOkController implements Execute{
 	      req.setCharacterEncoding("utf-8");
 	      
 	      userDTO.setUserRegistrationDate(req.getParameter("userRegistrationDate"));
-//	      userDTO.setUserRegistrationDate("20001010");
-	      
 	      userDTO.setUserId(req.getParameter("userId"));
 	      userDTO.setUserPw(req.getParameter("userPw"));
 	      userDTO.setUserName(req.getParameter("userName"));

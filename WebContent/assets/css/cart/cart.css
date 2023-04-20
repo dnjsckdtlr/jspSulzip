@@ -24,6 +24,7 @@
   .cart-table {
     border-top: 2px solid #D61C6A;
     border-spacing: 0;
+    width: 1400px;
   }
   
   .cart-tr1 {
@@ -59,6 +60,9 @@
   
   .cart-sum-price {
     color: #D61C6A;
+    width: 100px;
+    text-align: center;
+    display: inline-block;
   }
   
   .cart-select-delete {
@@ -103,6 +107,10 @@
     margin-bottom: 10px;
   }
   
-  .quantity::after {
-    content: "개";
+  .item-img > img {
+	border: 1px solid #ddd;
+  }
+  
+  .bi {
+  cursor: pointer;
   }

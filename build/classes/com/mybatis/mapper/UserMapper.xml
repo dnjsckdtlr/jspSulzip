@@ -52,4 +52,18 @@
 		where user_number = #{userNumber}
 	</update>
 	
+	<!--  아이디 찾기 -->
+    <select id="selectId" parameterType="UserDTO" resultType="string">
+       select user_id from `user` u 
+      where user_name = #{userName} and user_phone = #{userPhone}
+         
+    </select>
+   
+   <!-- 비번 찾기 -->
+   <select id="selectPw" parameterType="UserDTO" resultType="string">
+      select user_password from `user` u 
+      where user_id = #{userId} and user_name = #{userName}and user_phone = #{userPhone}
+   </select>
+	
+	
 </mapper>

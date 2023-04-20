@@ -130,7 +130,7 @@
                           
             <!--fwrGVWEGWREF-->
             <button type="submit" class="join-btn-cancel" onclick="history.back()">취소</button>
-            <button type="submit" class="join-btn-submit" accesskey="s">확인</button>
+            <button type="submit" class="join-btn-submit">확인</button>
         </section>
 </form>
         

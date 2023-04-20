@@ -76,7 +76,7 @@
                 게시판관리</a
               >
             </li>
-            <li><a href="">로그아웃</a></li>
+            <li><a href="${pageContext.request.contextPath}/user/logoutOk.usr">로그아웃</a></li>
           </ul>
           <!-- 게시판관리 메인페이지 -->
         </div>

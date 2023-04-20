@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,11 +20,18 @@
   </header>
     <div class="cart-header">장바구니</div>
     <div class="cart-content-title">
-      <span class="cart-user-name">회원이름</span>님이 장바구니에 담아놓은
-      상품입니다.
+      
+      	<c:choose>
+           	<c:when test="${cartList.size() == 0}">
+				<span class="cart-user-name"><c:out value="${userInfo.getUserName()}"/></span>님이 장바구니에 담은 상품이 없습니다.
+			</c:when>
+			<c:otherwise>
+				<span class="cart-user-name"><c:out value="${userInfo.getUserName()}"/></span>님이 장바구니에 담아놓은 상품입니다.
+			</c:otherwise>
+		</c:choose>
     </div>
 
-    <form action="" class="cart-form">
+    <form action="${pageContext.request.contextPath}/order/order.ord" class="cart-form">
       <table class="cart-table">
         <colgroup>
           <col width="5%" />
@@ -50,55 +58,76 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="cart-tr2">
-            <td>
-              <input
-                type="checkbox"
-                name="cart_check[0]"
-                value="1"
-                id="cart_check_0"
-                checked
-              />
-              <label for="cart_check_0"></label>
-            </td>
-            <td>
-              <div class="item-img">
-                <img
-                  src="https://www.shakit.co.kr/data/item/1654579111/thumb-7IOB7ZKI7I2464Sk7J28_7Ja86re466CI7J20_100x100.jpg"
-                  width="100"
-                  height="100"
-                />
-              </div>
-            </td>
-            <td class="product_name">
-              <a href="./item.php?it_id=1654579111" class="item-name-links">
-                상품이름(클릭 시 상품페이지로 이동)
-              </a>
-            </td>
-            <td>
-              <div class="options">
-                <div>
-                  <div class="quantity" value="1">1</div>
-                  <div>
-                    <i class="bi bi-arrow-up-square"></i>
-                    <i class="bi bi-arrow-down-square"></i>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <span id="sell_price_0" class="sell-price">상품가격</span>
-            </td>
-          </tr>
+        	<c:forEach var="cart" items="${cartList}">
+	          <tr class="cart-tr2">
+	            <td>
+	              <input
+	                type="checkbox"
+	                name="cart_check"
+	                class="cart_check"
+	                value="${cart.getProductNumber()}"
+	                checked
+	              />
+	              <label for="cart_check"></label>
+	            </td>
+	            <td>
+	              <div class="item-img">
+	                <c:choose>
+	                	<c:when test="${cart.getCategoryNumber() == 0}">
+							<img src="${pageContext.request.contextPath}/assets/img/sulkit/${cart.getProductSystemName()}" width="100" height="100"/>
+						</c:when>
+						<c:when test="${cart.getCategoryNumber() == 2}">
+							<img src="${pageContext.request.contextPath}/assets/img/alcohol/${cart.getProductSystemName()}" width="100" height="100"/>
+						</c:when>
+						<c:when test="${cart.getCategoryNumber() == 3}">
+							<img src="${pageContext.request.contextPath}/assets/img/ingredients/${cart.getProductSystemName()}" width="100" height="100"/>
+						</c:when>
+						<c:when test="${cart.getCategoryNumber() == 4}">
+							<img src="${pageContext.request.contextPath}/assets/img/supplies/${cart.getProductSystemName()}" width="100" height="100"/>
+						</c:when>
+						<c:otherwise>
+							<img src="" alt="이미지 없음" width="100" height="100"/>
+						</c:otherwise>
+					</c:choose>
+	              </div>
+	            </td>
+	            <td class="product_name">
+	              <a href="" class="item-name-links">
+	                ${cart.getProductNameKor()}
+	              </a>
+	            </td>
+	            <td>
+	              <div class="options">
+	                <div>
+	                  <div class="quantity">
+	                  	<span class="quantity--in">${cart.getProductEa()}</span>개
+	                  	<input type="hidden" name="productEa" value="${cart.getProductEa()}" class="productEa" disabled>
+	                  </div>
+	                  <div>
+	                    <i class="bi bi-arrow-up-square" data-price="${cart.getProductPrice()}"></i>
+	                    <i class="bi bi-arrow-down-square" data-price="${cart.getProductPrice()}"></i>
+	                  </div>
+	                </div>
+	              </div>
+	            </td>
+	            <td>
+	              <span class="sell-price">
+	              	<span class="sell-price--in">
+	              		<c:out value="${cart.getProductPrice()}"/>
+	              	</span>
+	              	원
+	              	<input type="hidden" name="productPrice" value="${cart.getProductPrice()}" class="productPrice" disabled>
+	              </span>
+	            </td>
+	          </tr>
+        	</c:forEach>
         </tbody>
 
         <tfoot class="cart-tfoot">
           <tr>
             <td colspan="5">
               <div class="cart-sum-price-notice">
-                결제 금액&nbsp;:&nbsp;<span class="cart-sum-price"
-                  >"총금액"</span
-                >원
+                결제 금액&nbsp;:&nbsp;<span class="cart-sum-price"></span>원
               </div>
             </td>
           </tr>
@@ -119,6 +148,7 @@
       integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
       crossorigin="anonymous"
     ></script>
-    <script src="../js/cart.js"></script>
+    <script src="/assets/js/cart/cart.js"></script>
+    <script type="text/javascript">function fn_go_to_link(link){location.href=link;}</script>
   </body>
 </html>

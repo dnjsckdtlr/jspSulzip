@@ -9,79 +9,86 @@ package com.sulzip.app.order.dto;
 //int userNumber;
 
 public class OrderDTO {
-	private int orderNumber;
-	private String orderDate;
-	private int productEa;
-	private int productTotalPrice;
-	private String pickupStore;
-	private String orderMessage;
-	private int userNumber;
-	
-	public OrderDTO() {}
 
-	public int getOrderNumber() {
-		return orderNumber;
-	}
+   private int orderNumber;
+   private String orderDate;
+   private int orderPay;
+   private int productTotalPrice;
+   private String pickupStore;
+   private String orderMessage;
+   private int userNumber;
+   
+   public OrderDTO() {
+   }
 
-	public void setOrderNumber(int orderNumber) {
-		this.orderNumber = orderNumber;
-	}
 
-	public String getOrderDate() {
-		return orderDate;
-	}
+   public int getOrderNumber() {
+      return orderNumber;
+   }
 
-	public void setOrderDate(String orderDate) {
-		this.orderDate = orderDate;
-	}
+   public void setOrderNumber(int orderNumber) {
+      this.orderNumber = orderNumber;
+   }
 
-	public int getProductEa() {
-		return productEa;
-	}
+   public String getOrderDate() {
+      return orderDate;
+   }
 
-	public void setProductEa(int productEa) {
-		this.productEa = productEa;
-	}
+   public void setOrderDate(String orderDate) {
+      this.orderDate = orderDate;
+   }
 
-	public int getProductTotalPrice() {
-		return productTotalPrice;
-	}
 
-	public void setProductTotalPrice(int productTotalPrice) {
-		this.productTotalPrice = productTotalPrice;
-	}
+   public int getOrderPay() {
+      return orderPay;
+   }
 
-	public String getPickupStore() {
-		return pickupStore;
-	}
+   public void setOrderPay(int orderPay) {
+      this.orderPay = orderPay;
+   }
 
-	public void setPickupStore(String pickupStore) {
-		this.pickupStore = pickupStore;
-	}
 
-	public String getOrderMessage() {
-		return orderMessage;
-	}
+   public int getProductTotalPrice() {
+      return productTotalPrice;
+   }
 
-	public void setOrderMessage(String orderMessage) {
-		this.orderMessage = orderMessage;
-	}
+   public void setProductTotalPrice(int productTotalPrice) {
+      this.productTotalPrice = productTotalPrice;
+   }
 
-	public int getUserNumber() {
-		return userNumber;
-	}
+   public String getPickupStore() {
+      return pickupStore;
+   }
 
-	public void setUserNumber(int userNumber) {
-		this.userNumber = userNumber;
-	}
+   public void setPickupStore(String pickupStore) {
+      this.pickupStore = pickupStore;
+   }
 
-	@Override
-	public String toString() {
-		return "OrderDTO [orderNumber=" + orderNumber + ", orderDate=" + orderDate + ", productEa=" + productEa
-				+ ", productTotalPrice=" + productTotalPrice + ", pickupStore=" + pickupStore + ", orderMessage="
-				+ orderMessage + ", userNumber=" + userNumber + "]";
-	}
-	
-	
-	
+   public String getOrderMessage() {
+      return orderMessage;
+   }
+
+   public void setOrderMessage(String orderMessage) {
+      this.orderMessage = orderMessage;
+   }
+
+   public int getUserNumber() {
+      return userNumber;
+   }
+
+   public void setUserNumber(int userNumber) {
+      this.userNumber = userNumber;
+   }
+
+
+   @Override
+   public String toString() {
+      return "OrderDTO [orderNumber=" + orderNumber + ", orderDate=" + orderDate + ", orderPay=" + orderPay
+            + ", productTotalPrice=" + productTotalPrice + ", pickupStore=" + pickupStore + ", orderMessage="
+            + orderMessage + ", userNumber=" + userNumber + "]";
+   }
+   
+   
+   
 }
+

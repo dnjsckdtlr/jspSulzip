@@ -42,8 +42,7 @@ public class MyRecipeUploadOkController implements Execute {
 		myRecipeDTO.setMyRecipeNameEng(multipartReq.getParameter("myRecipeNameEng"));
 		myRecipeDTO.setMyRecipeDesc(multipartReq.getParameter("myRecipeDesc"));
 		myRecipeDTO.setMyRecipeRecipe(multipartReq.getParameter("myRecipeRecipe"));
-		myRecipeDTO.setUserNumber(1);
-//		myRecipeDTO.setUserNumber((Integer)session.getAttribute("userNumber"));
+		myRecipeDTO.setUserNumber((Integer)session.getAttribute("userNumber"));
 		myRecipeDAO.insert(myRecipeDTO);
 
 //파일업로드 for문

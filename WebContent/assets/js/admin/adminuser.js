@@ -18,7 +18,6 @@ $('.ctg-list').on('click', '.cbox' , function(){
 
 
 
-
 $('#search-btn').on('click', function(){
 	let keyword = $('#keyword').val();
 	let select = $('#p-info').val();

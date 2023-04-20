@@ -78,14 +78,6 @@
 	                            <input type="text" name="userPhone" value="${userDTO.userPhone}" class="edit_contact">
 	                        </td>
 	                    </tr>
-	                    <!-- <tr class="edit-tr">
-	                        <th class="edit-th">주소</th>
-	                        <td class="edit-td">
-	                            <input type="text" name="edit_address1" class="edit_address1"><br/>
-	                            <input type="text" name="edit_address2" class="edit_address2"><br/>
-	                            <input type="text" name="edit_address3" class="edit_address3">
-	                        </td>
-	                    </tr> -->
 	                </tbody>
 	            </table>
 	        </section>
