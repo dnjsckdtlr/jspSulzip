@@ -1,4 +1,3 @@
-
 /**
  * 
  */
@@ -33,6 +32,9 @@ $idInput.on('blur', function() {
 });
 
 
+
+/* */
+
 /*영어, 숫자, 특수문자로 이루어진 비밀번호 8글자 이상
     영어 대소문자를 구분하지 않음*/
 const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[a-zA-Z\d!@#$%^&*()_+]{8,}$/;
@@ -61,6 +63,8 @@ $pwInput2.on('blur', function(){
 });
 
 
+
+
 $('.join-btn-submit').on('click', function(){
    console.log()
    if($checkMsg.text().includes('사용가능') && $checkPwMsg.text().includes('사용가능') && $checkPwMsg2.text().includes('동일')){
@@ -70,7 +74,6 @@ $('.join-btn-submit').on('click', function(){
 });
 
 // 이름 확인
-
 
 
 // 약관 확인하기
@@ -100,40 +103,9 @@ $(".agree-wrap").on("click", "#agree_all", function () {
 });
 
 
-/* 입력값이 다를시 회원가입 불가 */
 
 
 
-/*아이디 */
-
-/* 비밀번호 */
-
-/*이름 */
-
-/* 주민번호 */
-
-/* 성별 */
-
-/* 이메일 */
-
-/*   폰번호 */
-
-
-
-/* 회원가입 버튼 클릭시 회원가입 완료 */
-
-
-/*const btn = document.querySelector('.join-btn-submit');
-
-
-btn.addEventListener('click', () => {
-  alert('회원가입 완료되었습니다.');
- let idMsg =$('#check-id-msg').text();
-
-
- console.log(idMsg.includes('사용 가능'));
-
-});*/
 
 $('.join-btn-submit').on('click', function(){
    if($checkPwMsg.text().includes("사용 가능") && $checkPwMsg2.text().includes("동일한")){

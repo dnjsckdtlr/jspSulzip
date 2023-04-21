@@ -30,38 +30,38 @@
                     <tr class="join-tr">
                         <th class="join-th">비밀번호</th>
                         <td class="join-td">
-                            <input type="text" name="join_pw" class="join_pw">
+                            <input type="text" name="join_pw" class="join_pw" required/>
                         </td>
                     </tr>
                     <tr class="join-tr">
                         <th class="join-th">비밀번호 확인</th>
                         <td class="join-td">
-                            <input type="text" name="join_pwconfirm" class="join_pwconfirm">
+                            <input type="text" name="join_pwconfirm" class="join_pwconfirm" required/>
                         </td>
                     </tr>
                     <tr class="join-tr">
                         <th class="join-th">이름</th>
                         <td class="join-td">
-                            <input type="text" name="join_name" class="join_name">
+                            <input type="text" name="join_name" class="join_name" required/>
                         </td>
                     </tr>
                     <tr class="join-tr">
                         <th class="join-th">성별</th>
                         <td class="join-td">
-                            <input type="radio" name="join_gender" value="male" class="join_male" checked="checked">남성
-                            <input type="radio" name="join_gender" value="female" class="join_female">여성
+                            <input type="radio" name="join_gender" value="male" class="join_male" checked="checked" required/>남성
+                            <input type="radio" name="join_gender" value="female" class="join_female" required/>여성
                         </td>
                     </tr>
                     <tr class="join-tr">
                         <th class="join-th">이메일</th>
                         <td class="join-td">
-                            <input type="text" name="join_email" class="join_email">
+                            <input type="text" name="join_email" class="join_email" required/>
                         </td>
                     </tr>
                     <tr class="join-tr">
                         <th class="join-th">휴대폰번호</th>
                         <td class="join-td">
-                            <input type="text" name="join_contact" class="join_contact">
+                            <input type="text" name="join_contact" class="join_contact" required/>
                         </td>
                     </tr>
                     <!-- <tr class="join-tr">
@@ -83,7 +83,7 @@
             <div class="register-agree">
                 <div class="agree-wrap">
                     <div class="all-check">
-                        <input type="checkbox" id="agree_all"><label for="agree_all">전체 동의합니다.</label>
+                        <input type="checkbox" id="agree_all"><label for="agree_all" required/>전체 동의합니다.</label>
                     </div>
                     <ul class="check-list-agrees">
                         <li class="agree di_flex">
