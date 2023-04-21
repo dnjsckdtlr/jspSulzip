@@ -117,6 +117,7 @@ function selDel(){
 	
 }
 
+
 /* 체크된거 제외 hidden으로 하려고 했던거에 disabled 적용, 폼태그를 가져온다음 .submit() */
 let $submitBtn = $('.cart-buy-btn');
 $submitBtn.on('click', function(){
@@ -127,8 +128,6 @@ $submitBtn.on('click', function(){
 	
 	$('.cart-form').submit();
 })
-
-
 
 
 

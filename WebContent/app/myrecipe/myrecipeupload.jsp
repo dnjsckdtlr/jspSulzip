@@ -67,7 +67,7 @@
 				<div class="img-preview"></div>
 			</div>
 			<form action="/myrecipe/myRecipeUploadOk.mrb" method="post" enctype="multipart/form-data">
-				<input type="file" name="myRecipeFile1" id="" class="myRecipeFileInput" /> <br />
+				<input type="file" name="myRecipeFile1" id="" class="myRecipeFileInput" required/> <br />
 				<input type="file"	name="myRecipeFile2" id="" class="myRecipeFileInput" /> <br />
 				<input type="file" name="myRecipeFile3" id="" class="myRecipeFileInput" /> <br />
 
@@ -76,18 +76,16 @@
 				<div class="name-title">
 					<span>칵테일 이름</span>
 				</div>
-				<input type="text" class="input" name="myRecipeNameKor" />
+				<input type="text" class="input" name="myRecipeNameKor" required/>
 				<div class="name-title">
 					<span>칵테일 영문 이름</span>
 				</div>
-				<input type="text" class="input" name="myRecipeNameEng" />
+				<input type="text" class="input" name="myRecipeNameEng" required/>
 				<!-- 상품 설명 -->
 				<div class="pro-info-title">
 					<span>칵테일 설명</span>
 				</div>
-				<!-- <input type="text" class="info-input" /> -->
-				<textarea name="myRecipeDesc" id="" cols="30" rows="10"
-					class="info-input"></textarea>
+				<textarea name="myRecipeDesc" id="" cols="30" rows="10" class="info-input" required></textarea>
 				<!-- 재료 -->
 				<div class="ingredient-title">
 					<span class="ingre-svg"> 재료 정보&nbsp;&nbsp; <svg
@@ -112,57 +110,59 @@
 								<option value="1" selected>카테고리</option>
 								<option value="2">술</option>
 								<option value="3">재료</option>
-							</select> <select name="category1" class="myrecipe-alcohol pro">
+							</select>
+							<select name="category1" class="myrecipe-alcohol pro">
 								<option value="" selected>술</option>
 								<c:forEach var="alcohol" items="${alcoholList}">
 									<option value="${alcohol.getProductNumber()}">
 										<c:out value="${alcohol.getProductNameKor()}" />
 									</option>
 								</c:forEach>
-							</select> <select name="category1" class="myrecipe-ingre pro">
+							</select>
+							<select name="category1" class="myrecipe-ingre pro">
 								<option value="" selected>재료</option>
 								<c:forEach var="ingre" items="${ingreList}">
 									<option value="${ingre.getProductNumber()}">
 										<c:out value="${ingre.getProductNameKor()}" />
 									</option>
 								</c:forEach>
-							</select> <input type="text" placeholder="용량, 단위" name="pmBridgeVol"
-								class="myrecipe-vol pro" />
+							</select> 
+							<input type="text" placeholder="용량, 단위" name="pmBridgeVol" class="myrecipe-vol pro" />
 						</div>
 					</div>
 					<div class="ingre-box">
 						<div>1.</div>
-						<select name="category" class="myrecipe-category category">
-							<option value="1" selected>카테고리</option>
+						<select name="category" class="myrecipe-category category" required>
+							<option value="" selected disabled>카테고리</option>
 							<option value="2">술</option>
 							<option value="3">재료</option>
-						</select> <select name="category1" class="myrecipe-alcohol pro">
-							<option value="" selected>술</option>
+						</select>
+						<select name="category1" class="myrecipe-alcohol pro">
+							<option value="" selected disabled>술</option>
 							<c:forEach var="alcohol" items="${alcoholList}">
 								<option value="${alcohol.getProductNumber()}">
 									<c:out value="${alcohol.getProductNameKor()}" />
 								</option>
 							</c:forEach>
-						</select> <select name="category1" class="myrecipe-ingre pro">
-							<option value="" selected>재료</option>
+						</select>
+						<select name="category1" class="myrecipe-ingre pro">
+							<option value="" selected disabled>재료</option>
 							<c:forEach var="ingre" items="${ingreList}">
 								<option value="${ingre.getProductNumber()}">
 									<c:out value="${ingre.getProductNameKor()}" />
 								</option>
 							</c:forEach>
-						</select> <input type="text" placeholder="용량, 단위" name="pmBridgeVol"
-							class="myrecipe-vol pro" />
+						</select>
+						<input type="text" placeholder="용량, 단위" name="pmBridgeVol" class="myrecipe-vol pro"/>
 					</div>
 				</div>
-
 
 				<!-- 레시피 -->
 				<div class="recipe-title">
 					<span>레시피</span>
 				</div>
 				<div class="input-box">
-					<textarea name="myRecipeRecipe" id="" cols="30" rows="10"
-						class="recipe-input"></textarea>
+					<textarea name="myRecipeRecipe" id="" cols="30" rows="10" class="recipe-input" required></textarea>
 				</div>
 				<!-- 등록버튼 -->
 				<div class="upload-btn-box">

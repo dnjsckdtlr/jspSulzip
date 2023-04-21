@@ -99,8 +99,11 @@ public class MyRecipeUploadOkController implements Execute {
 			pmBridgeDTO.setMyRecipeNumber(myRecipeNumber);
 			myRecipeDAO.insertPmBridge(pmBridgeDTO);
 		}
-		resp.sendRedirect("/myrecipe/myRecipeUpload.mrb");
-		//추후 '작성된 글로 넘어가게' 처리
+		
+//		업로드 후 작성된 글로 이동
+		int boardNumber = myRecipeDAO.getSequence();
+		System.out.println(boardNumber);
+		resp.sendRedirect("/myrecipe/myRecipeDetail.mrb?num="+boardNumber);
 	}
 
 }

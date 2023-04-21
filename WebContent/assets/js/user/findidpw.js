@@ -27,6 +27,7 @@ $idBtn.on('click', function(){
 })
 
 $pwBtn.on('click', function(){
+	console.log(0);
    findPw();
 })
 
@@ -59,7 +60,7 @@ function findPw(){
    let userId = $pwBtn.closest('.find-pw').find('.idPw').val();
    let userName = $pwBtn.closest('.find-pw').find('.namePw').val();
    let userPhone = $pwBtn.closest('.find-pw').find('.phonePw').val();
-   
+   console.log(1);
    $.ajax({
       type: 'get',
       url: '/user/findpwOk.usr',
@@ -70,13 +71,17 @@ function findPw(){
      },
      dataType: 'json',
       success: function(result) {
+	console.log(2);
       if(result == null){
+	console.log(3);
          alert('비밀번호를 찾을 수 없습니다. 회원정보를 다시 입력해주세요.');
       }else{
+	console.log(4);
          $('.resultPw').text("찾으시는 비밀번호는 : " + result + "입니다.");
       }
       },
       error: function(a, b, c) {
+	console.log(5);
         console.error(c);
       }
     });

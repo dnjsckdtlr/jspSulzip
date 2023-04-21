@@ -15,7 +15,8 @@ import com.sulzip.app.user.dto.UserDTO;
 public class FindpwOkController implements Execute {
    @Override
       public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      UserDTO userDTO = new UserDTO();
+	  
+	  UserDTO userDTO = new UserDTO();
       UserDAO userDAO = new UserDAO();
       
       Gson gson = new Gson();
@@ -25,7 +26,8 @@ public class FindpwOkController implements Execute {
       userDTO.setUserName(req.getParameter("userName"));
       userDTO.setUserPhone(req.getParameter("userPhone"));
       userDTO.setUserId(req.getParameter("userId"));
-      String userPw =userDAO.selectPw(userDTO);
+      
+      String userPw = userDAO.selectPw(userDTO);
       
       replyJson = gson.toJson(userPw);
       out.print(replyJson.toString());

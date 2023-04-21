@@ -30,15 +30,15 @@ public class OrderOkController implements Execute {
 		req.setCharacterEncoding("utf-8");
 
 		orderDTO.setOrderNumber((int)session.getAttribute("userNumber"));
-		orderDTO.setOrderNumber(Integer.valueOf(req.getParameter("orderNumber")));
 		orderDTO.setProductTotalPrice(Integer.valueOf(req.getParameter("productTotalPrice")));
-		orderDTO.setOrderPay(Integer.valueOf(req.getParameter("orderPay")));
+		orderDTO.setOrderPay(Integer.valueOf(req.getParameter("payingtype")));
 		orderDTO.setOrderMessage(req.getParameter("orderMessage"));
 		orderDTO.setPickupStore(req.getParameter("pickupStore"));
-		orderDTO.setOrderDate(req.getParameter("orderDate"));
+		System.out.println(req.getParameter("accountName"));
+		orderDTO.setAccountName(req.getParameter("accountName"));
 		
 		orderDAO.insert(orderDTO);
 		
-//		resp.sendRedirect("/order/orderOk.ord");
+		resp.sendRedirect("/");
 	}
 }

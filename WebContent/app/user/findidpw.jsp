@@ -21,7 +21,7 @@
 
     <div class="findIdPw">
       <div class="find-id" action="${pageContext.request.contextPath}" method="post">
-       <span class="findtxt"><span class="resultId"></span></span>
+       <div class="findtxt"><span class="resultId"></span></div>
         <label
           ><input
             class="find-input-box nameId"
@@ -45,7 +45,7 @@
       </div>
 
       <div class="find-pw">
-        <span class="findtxt"><span class="resultPw"></span></span>
+        <div class="findtxt"><span class="resultPw"></span></div>
         <label
           ><input
             class="find-input-box idPw"
@@ -72,7 +72,7 @@
         <br />
 
         <div>
-          <button class="find-submit-btn pwBtn" type="submit">확인</button>
+          <button class="find-submit-btn pwBtn" type="button">확인</button>
           <button class="find-submit-btn" type="button" onclick="window.close();">닫기</button>
         </div>
     </div>

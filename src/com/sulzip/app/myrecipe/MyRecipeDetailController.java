@@ -22,13 +22,11 @@ public class MyRecipeDetailController implements Execute {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		FileDAO fileDAO = new FileDAO();
 		MyRecipeDAO myRecipeDAO = new MyRecipeDAO();
-		UserDAO userDAO = new UserDAO();
 		HttpSession session = req.getSession();
 		Integer userNumber = (Integer) session.getAttribute("userNumber");
 		String path = null;
 		
 		int mrbNum = Integer.parseInt(req.getParameter("num"));
-		System.out.println(mrbNum);
 
 		MyRecipeDTO myRecipeDTO = myRecipeDAO.select(mrbNum);
 		List<MyRecipeVO> ingreList = myRecipeDAO.ingre(mrbNum);
@@ -37,8 +35,7 @@ public class MyRecipeDetailController implements Execute {
 		req.setAttribute("myRecipe", myRecipeDTO);
 		req.setAttribute("ingreList", ingreList);
 		req.setAttribute("fileList", fileList);
-		System.out.println("===");
-		System.out.println(ingreList);
+		
 		if (userNumber == null) {
 			path = "/app/user/login.jsp";
 		} else {

@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.mybatis.config.MyBatisConfig;
 import com.sulzip.app.product.dto.ProductDTO;
+import com.sulzip.app.product.vo.AllProductVO;
 
 public class ProductDAO {
 	public SqlSession sqlsession;
@@ -41,5 +42,9 @@ public class ProductDAO {
 	
 	public List<ProductDTO> supBoard(Map<String, Integer> pageMap) {
 		return sqlsession.selectList("product.supBoard", pageMap);
+	}
+	
+	public AllProductVO allProduct(int productNumber) {
+		return sqlsession.selectOne("product.allProduct", productNumber);
 	}
 }

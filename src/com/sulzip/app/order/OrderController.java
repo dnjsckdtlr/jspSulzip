@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sulzip.app.Execute;
 import com.sulzip.app.product.dao.ProductDAO;
-import com.sulzip.app.product.dto.ProductDTO;
+import com.sulzip.app.product.vo.AllProductVO;
 import com.sulzip.app.user.dao.UserDAO;
 import com.sulzip.app.user.dto.UserDTO;
 
@@ -24,6 +24,7 @@ public class OrderController implements Execute {
 		ProductDAO productDAO = new ProductDAO();
 		UserDAO userDAO = new UserDAO();
 		UserDTO userDTO = new UserDTO();
+
 		
 		//로그인한 유저의 상세정보 가져오기
 		userDTO = userDAO.getUserDetail((int)session.getAttribute("userNumber"));
@@ -31,15 +32,15 @@ public class OrderController implements Execute {
 		req.setAttribute("userInfo", userDTO);
 		
 		//장바구니 체크된 항목들의 정보 가져오기
-		List<ProductDTO> checkList = new ArrayList<>();
-
+		List<AllProductVO> checkList = new ArrayList<>();
+		
 		String[] check = req.getParameterValues("cart_check");
 		String[] ea = req.getParameterValues("productEa");
 		String[] price = req.getParameterValues("productPrice");
 		
-		for(String product : check) {
-			int num = Integer.valueOf(product);
-			checkList.add(productDAO.alcohol(num));
+		for(String productNum : check) {
+			int productNumber = Integer.valueOf(productNum);
+			checkList.add(productDAO.allProduct(productNumber));
 		}
 		
 		List<String> eaList = Arrays.stream(ea).collect(Collectors.toList()); 
@@ -49,6 +50,7 @@ public class OrderController implements Execute {
 		req.setAttribute("eaList", eaList);
 		req.setAttribute("priceList", priceList);
 		
+//		resp.sendRedirect("/app/order/orderpage.jsp");
 		req.getRequestDispatcher("/app/order/orderpage.jsp").forward(req, resp);
 	}
 }

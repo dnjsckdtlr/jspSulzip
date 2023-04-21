@@ -72,17 +72,24 @@
             <div class="ingre-title"><span>재료 정보</span></div>
             <div class="ingre-box">
               
-              <c:forEach var="ingre" items="${ingreList}">
-           		<div class="ingre">
-            		<div class="ingre-icon">
-            			<img src="${pageContext.request.contextPath}/assets/img/productAll/${ingre.getProductSystemName()}"/>
-            		</div>
-            		<div class="span">
-              			<div class="name"><span>${ingre.getProductNameKor()}</span></div>
-              			<div class="vol"><span id="vol">${ingre.getPmBridgeVol()}</span></div>
-            		</div>
-          		</div>
-        	  </c:forEach>
+              <c:choose>
+              	<c:when test="${ingreList.size() == 0}">
+              		<c:out value="재료 정보가 없습니다."/>
+              	</c:when>
+              	<c:otherwise>
+              		<c:forEach var="ingre" items="${ingreList}">
+		           		<div class="ingre">
+		            		<div class="ingre-icon">
+		            			<img src="${pageContext.request.contextPath}/assets/img/productAll/${ingre.getProductSystemName()}"/>
+		            		</div>
+		            		<div class="span">
+		              			<div class="name"><span>${ingre.getProductNameKor()}</span></div>
+		              			<div class="vol"><span id="vol">${ingre.getPmBridgeVol()}</span></div>
+		            		</div>
+		          		</div>
+		        	</c:forEach>
+              	</c:otherwise>
+              </c:choose>
               
             </div>
           </div>
@@ -90,7 +97,7 @@
           <div class="section-2">
             <div class="recipe-title"><span>레시피</span></div>
             <div class="recipe-box">
-              <p>${myRecipe.getMyRecipeRecipe()}</p>
+	        	<p>${myRecipe.getMyRecipeRecipe()}</p>
             </div>
           </div>
         </div>

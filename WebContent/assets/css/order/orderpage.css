@@ -89,6 +89,8 @@
 	border: 1px solid #ddd;
 }
 
+
+
 .info-wrap {
   width: calc(100% - 200px);
   margin-left: 15px;
@@ -274,10 +276,8 @@ section {
   margin-left: 40px;
 }
 
-.accout > select {
-  width: 350px;
-  font-size: 14px;
-  height: 30px;
+.account {
+  font-size: 15px;
   line-height: 30px;
   margin-left: 20px;
 }
@@ -462,4 +462,13 @@ section {
 
 .orderMessage{
 	resize: none;
+}
+
+.userId,
+.userEmail{
+	display: none;
+}
+
+.disabled{
+	display : none;
 }

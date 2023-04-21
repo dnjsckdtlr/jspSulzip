@@ -17,23 +17,25 @@
           <div class="f-column">
             <ul class="f-index">
               <li class="f-index-ul">쇼핑 및 레시피</li>
-              <li class="f-index-li"><a href="${pageContext.request.contextPath}/app/sulkit/sulkit1.jsp" class="f-a">칵테일 패키지</a></li>
-              <li class="f-index-li"><a href="${pageContext.request.contextPath}/app/product/ingredients1.jsp" class="f-a">칵테일 재료</a></li>
+              <li class="f-index-li"><a href="${pageContext.request.contextPath}/sulkit/sulkit.suk" class="f-a">술키트</a></li>
+              <li class="f-index-li"><a href="${pageContext.request.contextPath}/product/alcohol.prd" class="f-a">술</a></li>
+              <li class="f-index-li"><a href="${pageContext.request.contextPath}/product/ingredients.prd" class="f-a">재료</a></li>
+              <li class="f-index-li"><a href="${pageContext.request.contextPath}/product/supplies.prd" class="f-a">용품</a></li>
             </ul>
           </div>
           <div class="f-column">
             <ul class="f-index">
               <li class="f-index-ul">계정</li>
-              <li class="f-index-li"><a href="${pageContext.request.contextPath}/app/user/login.jsp" class="f-a">로그인</a></li>
-              <li class="f-index-li"><a href="${pageContext.request.contextPath}/app/user/join.jsp" class="f-a">회원가입</a></li>
-              <li class="f-index-li"><a href="${pageContext.request.contextPath}/app/user/mypage.jsp" class="f-a">마이페이지</a></li>
-              <li class="f-index-li"><a href="${pageContext.request.contextPath}/app/cart/cart.jsp" class="f-a">장바구니</a></li>
+              <li class="f-index-li"><a href="${pageContext.request.contextPath}/user/login.usr" class="f-a">로그인</a></li>
+              <li class="f-index-li"><a href="${pageContext.request.contextPath}/user/join.usr" class="f-a">회원가입</a></li>
+              <li class="f-index-li"><a href="${pageContext.request.contextPath}/user/mypage.usr" class="f-a">마이페이지</a></li>
+              <li class="f-index-li"><a href="${pageContext.request.contextPath}/cart/cart.car" class="f-a">장바구니</a></li>
             </ul>
           </div>
           <div class="f-column">
             <ul class="f-index">
               <li class="f-index-ul">파트너스</li>
-              <li class="f-index-li"><a href="" class="f-a">가입문의</a></li>
+              <li class="f-index-li"><a href="${pageContext.request.contextPath}/partners/partners.ptn" class="f-a">가입문의</a></li>
             </ul>
           </div>
           <div class="f-column">
@@ -41,7 +43,7 @@
               <li class="f-index-ul">고객센터</li>
               <li class="f-index-li">02-0000-0000</li>
               <li class="f-index-li">
-                운영시간 : 오전10:00~오후06:00 <br />점심시간 :
+                운영시간 : 오전10:00~오후06:00 <br />점심시간 :12-13시
                 오후12:00~오후13:00 <br />
                 휴<span class="f-transparency">무휴</span>무 : 토, 일,
                 공휴일
