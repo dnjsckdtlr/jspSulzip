@@ -130,7 +130,7 @@
 		                <div class="ctg-5">
 		                  <button type="button" class="read" data-num="${board.getNumber()}"> <span>글보기 ></span> 
 		                  </button>
-		                  <button  id="delete" data-num="${board.getNumber()}"><span>글삭제 ></span>
+		                  <button type="button" id="delete" class="delete-2" data-num="${board.getNumber()}"><span>글삭제 ></span>
 		                  </button>
 		                </div>
 	              	</div>

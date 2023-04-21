@@ -28,6 +28,12 @@ public class AdminFrontController extends HttpServlet{
 		case "/admin/search.adm":
 			new AdminSearchOkController().execute(req, resp);
 			break;
+		case "/admin/sulkitUpload.adm":
+			new AdminSulkitUploadController().execute(req, resp);
+			break;
+		case "/admin/sulkitUploadOk.adm":
+			new AdminSulkitUploadOkController().execute(req, resp);
+			break;
 		case "/admin/user.adm":
 			new AdminUserController().execute(req,resp);
 			break;
@@ -42,6 +48,9 @@ public class AdminFrontController extends HttpServlet{
 			break;
 		case "/admin/boardSearch.adm":
 			new AdminBoardSearchOKController().execute(req, resp);
+			break;
+		case "/admin/boardDelete.adm":
+			new AdminBoardDeleteController().execute(req, resp);
 			break;
 		case "/admin/order.adm":
 			new AdminOrderController().execute(req, resp);

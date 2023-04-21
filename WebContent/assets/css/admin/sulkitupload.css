@@ -16,7 +16,7 @@
 }
 
 .title-page > span {
-  font-size: 25px;
+  font-size: 25px;`
   color: black;
   font-weight: bold;
   display: flex;
@@ -199,3 +199,166 @@ button > span {
 button {
   cursor: pointer;
 }
+
+
+.ingre-svg {
+	display: flex;
+	align-items: center;
+}
+
+.ingre-cnt{
+	width : 25px;
+	text-align: center;
+}
+
+
+.all {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.ingre-box {
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+}
+
+.category {
+	width: 130px;
+	height: 40px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin-right: 15px;
+	font-size: 16px
+}
+
+.category>option, .pro>option {
+	text-align: center;
+}
+
+.pro {
+	width: 250px;
+	height: 40px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px
+}
+
+
+/* ======================================== */
+
+
+.img-cancel-btn {
+	background-color: #333333;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	width: 35px;
+	height: 20px;
+}
+
+.img-cancel-btn:hover {
+	background-color: rgb(255, 87, 87);
+	color: #fff;
+}
+.label-wrap:hover{
+	fill: black;
+	color: black;
+}
+.label-wrap {
+	fill: #999999;
+	color: #999999;
+}
+
+.preview-li {
+	list-style-type: none;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.preview-img-box {
+	width: 100%;
+	height: 100%;
+}
+
+.preview-img {
+	width: 100%;
+	height: 100%;
+}
+
+.preview-cancel-box {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+}
+
+.alcohol {
+	display: none;
+}
+
+.ingre {
+	display: none;
+}
+
+/* ======================================== */
+
+.ingre-box>div {
+	font-size: 15px;
+	width: 40px;
+	text-align: center;
+	line-height: 30px;
+	font-weight: 700;
+	margin-left: 100px;
+}
+
+.ingre-box>input {
+	font-size: 16px;
+	width: 150px;
+	height: 38px;
+	text-align: center;
+}
+
+.vol {
+	display: none;
+	padding-left: 5px;
+	height: 28px;
+	width: 100px;
+	margin-left: 10px;
+}
+
+.myRecipeFileInput {
+	opacity: 0;
+	position: absolute;
+}
+
+.ingre-svg {
+	display: flex;
+	align-items: center;
+}
+
+.ingre-svg>svg {
+	margin: 0 10px;
+}
+
+.bi {
+	fill: #cccccc;
+}
+
+.bi:hover {
+	fill: black;
+}
+
+.ingre-sample{
+	display: none;
+}
+
+.ingre-cnt{
+	width : 25px;
+	text-align: center;
+}
+
+
+
+

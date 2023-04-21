@@ -15,6 +15,10 @@
     align-items: center;
 }
 
+.list-group>.card-group>.card{
+	/* align-items: flex-start; */
+}
+
 .card img{
     width: 300px;
     height: 300px;

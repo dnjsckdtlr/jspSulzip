@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,8 +29,22 @@
               <li class="f-index-ul">계정</li>
               <li class="f-index-li"><a href="${pageContext.request.contextPath}/user/login.usr" class="f-a">로그인</a></li>
               <li class="f-index-li"><a href="${pageContext.request.contextPath}/user/join.usr" class="f-a">회원가입</a></li>
-              <li class="f-index-li"><a href="${pageContext.request.contextPath}/user/mypage.usr" class="f-a">마이페이지</a></li>
-              <li class="f-index-li"><a href="${pageContext.request.contextPath}/cart/cart.car" class="f-a">장바구니</a></li>
+              <c:choose>
+	              <c:when test="${userId !=null}"> 
+	              	<li class="f-index-li"><a href="${pageContext.request.contextPath}/user/mypage.usr" class="f-a">마이페이지</a></li>
+	              </c:when>
+	              <c:otherwise>
+	              	<li class="f-index-li"><a href="${pageContext.request.contextPath}/user/login.usr" class="f-a">마이페이지</a></li>
+				  </c:otherwise>
+              </c:choose>
+              <c:choose>
+              	<c:when test="${userId !=null }">
+	              <li class="f-index-li"><a href="${pageContext.request.contextPath}/cart/cart.car" class="f-a">장바구니</a></li>
+              	</c:when>
+              	<c:otherwise>
+	              <li class="f-index-li"><a href="${pageContext.request.contextPath}/user/login.usr" class="f-a">장바구니</a></li>
+              	</c:otherwise>
+              </c:choose>
             </ul>
           </div>
           <div class="f-column">

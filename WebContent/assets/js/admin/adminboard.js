@@ -82,6 +82,33 @@ $read.on('click', function() {
 	console.log(mrbNum);
 });
 
+let $delete = $('.delete-2');
+
+$delete.on('click', function(){
+let $boardNumber = $(this).data('num');
+
+console.log($boardNumber);
+	
+	alert("정말 삭제하시겠습니까?")
+	console.log("gg");
+	
+	$.ajax({
+		url : '/admin/boardDelete.adm',
+		type : 'get',
+		data : {
+			myRecipeNumber : $boardNumber
+		},
+		success : function(){
+			location.reload();
+			alert("삭제되었습니다.")
+		},
+		error : function(a,b,c){
+			console.error(c);
+		}
+	});
+	
+});
+
 
 
 

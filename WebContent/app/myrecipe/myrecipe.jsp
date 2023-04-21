@@ -54,23 +54,24 @@
              </div>
             </div>
             <div class="list-group">
-<c:forEach var="mrb" items="${mrbList}" varStatus="idx">
-	<c:if test="${idx.count % 3 == 1}">
-					<div class="card-group">
-	</c:if>
-					<div class="card" data-num="${mrb.getMyRecipeNumber()}">
-                        <img src="${pageContext.request.contextPath}/assets/img/myrecipe/${mrb.getThumbnail()}" class="card-img-top inside">
-                        <div class="card-body">
-                            <p class="card-text-1">레시피</p>
-                            <h5 class="card-title inside">${mrb.getMyRecipeNameKor()}</h5>
-                            <p class="card-text-2"><small class="text-muted">HIT</small></p>
-                        </div>
-                    </div>
-	<c:if test="${idx.count % 3 == 0}">
-					</div>
-	</c:if>
-
-</c:forEach>            
+				<c:forEach var="mrb" items="${mrbList}" varStatus="idx">
+					<c:if test="${idx.count % 3 == 1}">
+									<div class="card-group">
+					</c:if>
+									<div class="card" data-num="${mrb.getMyRecipeNumber()}">
+				                        <img src="${pageContext.request.contextPath}/assets/img/myrecipe/${mrb.getThumbnail()}" class="card-img-top inside">
+				                        <div class="card-body">
+				                            <p class="card-text-1">레시피</p>
+				                            <h5 class="card-title inside">${mrb.getMyRecipeNameKor()}</h5>
+				                            <p class="card-text-2"><small class="text-muted">HIT</small></p>
+				                        </div>
+				                    </div>
+					<c:if test="${idx.count % 3 == 0}">
+					
+									</div>
+					</c:if>
+				
+				</c:forEach>            
                 
                 
                 

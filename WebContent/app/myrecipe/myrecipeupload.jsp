@@ -50,7 +50,6 @@
 					</div>
 				</div>
 			</div>
-
 			<!-- 첨부파일-->
 			<div class="file-upload">
 				<label for="ex-file" class="label-wrap">
@@ -166,7 +165,7 @@
 				</div>
 				<!-- 등록버튼 -->
 				<div class="upload-btn-box">
-					<button>
+					<button type="submit">
 						<span>업로드</span>
 					</button>
 				</div>

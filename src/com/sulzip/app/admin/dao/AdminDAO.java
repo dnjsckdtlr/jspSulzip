@@ -12,7 +12,13 @@ import com.sulzip.app.admin.vo.OrderVO;
 import com.sulzip.app.admin.vo.SearchVO;
 import com.sulzip.app.admin.vo.UserListVO;
 import com.sulzip.app.admin.vo.UserSearchVO;
+import com.sulzip.app.file.dto.FileDTO;
+import com.sulzip.app.myrecipe.dto.MyRecipeDTO;
+import com.sulzip.app.pmbridge.dto.PmBridgeDTO;
+import com.sulzip.app.product.dto.ProductDTO;
 import com.sulzip.app.product.vo.ProductVO;
+import com.sulzip.app.psbridge.dto.PsBridgeDTO;
+import com.sulzip.app.sulkit.dto.SulkitDTO;
 
 public class AdminDAO {
 	public SqlSession sqlsession;
@@ -137,6 +143,38 @@ public class AdminDAO {
 	
 	public List<OrderVO> searchName(OrderSearchVO orderSearchVO){
 		return sqlsession.selectList("admin.searchName", orderSearchVO);
+	}
+	
+	
+//	============술키트 업로드===============
+	
+	public void insertPs(PsBridgeDTO psBridgeDTO) {
+		sqlsession.insert("PsBridge.insert", psBridgeDTO);
+	}
+	
+	public List<ProductDTO> category(int categoryNumber){
+		return sqlsession.selectList("admin.category", categoryNumber);
+	}
+	
+	public void insert(SulkitDTO sulkitDTO) {
+	    sqlsession.insert("admin.insert", sulkitDTO);
+	}
+	
+	public void uploadFile(FileDTO fileDTO) {
+		sqlsession.insert("file.insert", fileDTO);
+	}
+	
+//	============글 삭제===============
+	public void myRecipeDel(MyRecipeDTO myRecipeDTO) {
+		sqlsession.delete("admin.myRecipeDel", myRecipeDTO);
+	}
+	
+	public void fileDel(FileDTO fileDTO) {
+		sqlsession.delete("admin.fileDel", fileDTO);
+	}
+	
+	public void pmBridgeDel(PmBridgeDTO pmBridgeDTO) {
+		sqlsession.delete("admin.pmBridgeDel", pmBridgeDTO);
 	}
 	
 }
