@@ -1,4 +1,3 @@
-
 /**
  * 
  */
@@ -39,7 +38,7 @@ const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[a-zA-Z\d!@#$%^&*()_+]
 
 
 // 비밀번호 조건체크
-$pwInput.on('blur', function(){
+/*$pwInput.on('blur', function(){
    if(regex.test( $(this).val() )){
       $checkPwMsg.text("사용가능한 비밀번호 입니다.");
       console.log("ㅎㅇ");
@@ -67,9 +66,10 @@ $('.join-btn-submit').on('click', function(){
       $('.form-sub').submit();
    }
    
-});
+});*/
 
 // 이름 확인
+
 
 
 
@@ -129,7 +129,6 @@ $(".agree-wrap").on("click", "#agree_all", function () {
 btn.addEventListener('click', () => {
   alert('회원가입 완료되었습니다.');
  let idMsg =$('#check-id-msg').text();
-
 
  console.log(idMsg.includes('사용 가능'));
 
