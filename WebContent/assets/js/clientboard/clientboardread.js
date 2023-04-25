@@ -95,6 +95,7 @@ $('.comment-list').on('click', '.comment-delete', function(){
       type : "get",
       data : {replyNumber : replyNumber},
       success : function() {
+		 alert("삭제하시겠습니까?");
          replyAjax();
       },
       error : function(a,b,c){

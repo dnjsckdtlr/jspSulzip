@@ -34,6 +34,21 @@ public class AdminFrontController extends HttpServlet{
 		case "/admin/sulkitUploadOk.adm":
 			new AdminSulkitUploadOkController().execute(req, resp);
 			break;
+		case "/admin/productUpload.adm":
+			new AdminProductUploadController().execute(req, resp);
+			break;
+		case "/admin/alcoholUploadOk.adm":
+			new AdminAlcoholUploadOkController().execute(req, resp);
+			break;
+		case "/admin/ingredientsUploadOk.adm":
+			new AdminIngredientsUploadOkController().execute(req, resp);
+			break;
+		case "/admin/suppliesUploadOk.adm":
+			new AdminSuppliesUploadOkController().execute(req, resp);
+			break;
+		case "/admin/productDelete.adm":
+			new AdminProductDeleteController().execute(req, resp);
+			break;
 		case "/admin/user.adm":
 			new AdminUserController().execute(req,resp);
 			break;

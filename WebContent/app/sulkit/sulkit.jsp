@@ -58,7 +58,7 @@
 					<div class="card" data-num="${sulkit.getSulkitNumber()}">
                         <img src="${pageContext.request.contextPath}/assets/img/sulkit/${sulkit.getSulkitImg()}" class="card-img-top inside">
                         <div class="card-body">
-                            <p class="card-text-1">술</p>
+                            <p class="card-text-1">술키트</p>
                             <h5 class="card-title inside">${sulkit.getSulkitNameKor()}</h5>
                             <p class="card-text-2"><small class="text-muted">${sulkit.getSulkitPrice()}</small></p>
                         </div>

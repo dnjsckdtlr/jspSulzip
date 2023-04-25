@@ -87,7 +87,7 @@ public class MyRecipeUploadOkController implements Execute {
 
 		List<String> productList = Arrays.stream(multipartReq.getParameterValues("category1"))
 				.filter(cate -> !cate.equals("")).collect(Collectors.toList());
-		// System.out.println(productList);
+		 System.out.println(productList);
 
 		List<String> volList = Arrays.stream(multipartReq.getParameterValues("pmBridgeVol"))
 				.filter(vol -> !vol.equals("")).collect(Collectors.toList());
@@ -100,10 +100,9 @@ public class MyRecipeUploadOkController implements Execute {
 			myRecipeDAO.insertPmBridge(pmBridgeDTO);
 		}
 		
-//		업로드 후 작성된 글로 이동
 		int boardNumber = myRecipeDAO.getSequence();
 		System.out.println(boardNumber);
-		resp.sendRedirect("/myrecipe/myRecipeDetail.mrb?num="+boardNumber);
+		resp.sendRedirect("/sulkit/sulkitDetail.suk?num="+boardNumber);
 	}
 
 }

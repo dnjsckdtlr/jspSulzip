@@ -57,7 +57,7 @@
 					<div class="card" data-num="${ingre.getProductNumber()}">
                         <img src="${pageContext.request.contextPath}/assets/img/ingredients/${ingre.getProductSystemName()}" class="card-img-top inside">
                         <div class="card-body">
-                            <p class="card-text-1">술</p>
+                            <p class="card-text-1">재료</p>
                             <h5 class="card-title inside">${ingre.getProductNameKor()}</h5>
                             <p class="card-text-2"><small class="text-muted">${ingre.getProductPrice()}</small></p>
                         </div>

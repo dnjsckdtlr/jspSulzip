@@ -66,7 +66,7 @@
               </div>
               <div class="row price-area2">
                 <div class="col-12" style="text-align: right;">
-                  <span>총 수량</span><span id="total_num">1</span><span>&nbsp;개&nbsp;&nbsp;|&nbsp;&nbsp;</span><span id="price"><c:out value="${ingredients.getProductPrice()}"/></span><span class="won">&nbsp;원</span>
+                  <span>총 수량&nbsp;</span><span id="total_num">1</span><span>&nbsp;개&nbsp;&nbsp;|&nbsp;&nbsp;</span><span id="price"><c:out value="${ingredients.getProductPrice()}"/></span><span class="won">&nbsp;원</span>
                 </div>
               </div>
               <div class="row mt-3">

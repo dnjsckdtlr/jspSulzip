@@ -18,11 +18,10 @@ public class AdminSulkitUploadController implements Execute {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		AdminDAO adminDAO = new AdminDAO();
 		
-		//카테고리 넘버가 2(술)와 3(재료)인 상품목록을 List로 가져오기
 		List<ProductDTO> alcoholList = adminDAO.category(2); 
 		List<ProductDTO> ingreList = adminDAO.category(3); 
 		
-		//술은 알콜리스트에, 재료는 인그리리스트에 담기
+		
 		req.setAttribute("alcoholList", alcoholList);
 		req.setAttribute("ingreList", ingreList);
 		

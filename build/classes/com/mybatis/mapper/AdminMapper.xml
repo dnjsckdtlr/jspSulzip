@@ -216,6 +216,37 @@
 		on p.product_number = c.product_number
 		where u.user_name  = like concat('%', #{keyword}, '%')
 	</select>
+	
+	<!-- 술키트 업로드 -->
+	<select id="category" parameterType="_int" resultType="ProductDTO">
+		select product_number, product_name_kor, product_system_name
+		from product
+		where category_number = #{categoryNumber}
+	</select>
+	
+	<insert id="insert">
+		insert into sulkit
+		(sulkit_name_kor, sulkit_name_eng, sulkit_desc, sulkit_recipe, sulkit_price, sulkit_img)
+		values(#{sulkitNameKor}, #{sulkitNameEng}, #{sulkitDesc}, #{sulkitRecipe}, #{sulkitPrice}, #{sulkitImg});
+	</insert>
+	
+	<!-- 글 삭제 -->
+	<delete id="myRecipeDel" parameterType="MyRecipeDTO">
+		delete from myrecipe
+		where myRecipe_number= #{myRecipeNumber}
+	</delete>
+	
+	<delete id="fileDel" parameterType="FileDTO">
+		delete from file
+		where myRecipe_number = #{myRecipeNumber}
+	</delete>
+
+	<delete id="pmBridgeDel" parameterType="PmBridgeDTO">
+		delete from pmbridge
+		where myRecipe_number = #{myRecipeNumber}
+	</delete>
+	
+	
 
 </mapper>
 

@@ -40,23 +40,23 @@
 					<div>이미지 업로드</div>
 				</div>
 			</label> 
-			<input type="file" id="ex-file" name="myRecipeFileList" accept=".jpg, .jpeg, .png" multiple />
+			<input type="file" id="ex-file" name="sulkitFile" accept=".jpg, .jpeg, .png" multiple />
 				<div class="img-preview"></div>
 			</div>
-			<form action="/myrecipe/myRecipeUploadOk.mrb" method="post" enctype="multipart/form-data">
-				<input type="file" name="myRecipeFile1" id="" class="myRecipeFileInput" /> <br />
+			<form action="/admin/sulkitUploadOk.adm" method="post" enctype="multipart/form-data">
+				<input type="file" name="sulkitFile" id="" class="myRecipeFileInput" /> <br />
         <!-- 상품 이름 입력 -->
         <div class="name-title"><span>상품이름(국문)</span></div>
-        <input type="text" class="input" />
+        <input type="text" class="input" name="sulkitNameKor"/>
         <div class="name-title"><span>상품이름(영문)</span></div>
-        <input type="text" class="input" />
+        <input type="text" class="input" name="sulkitNameEng"/>
         <!-- 상품 설명 -->
         <div class="pro-info-title"><span>상품설명</span></div>
-        <input type="text" class="info-input" />
+        <input type="text" class="info-input" name="sulkitDesc"/>
         <!-- 커서 이동하는 법 물어보기 -->
         <!-- 가격 입력 -->
         <div class="pro-price-title"><span>가격</span></div>
-        <input type="text" class="input" />
+        <input type="text" class="input" name="sulkitprice"/>
         <!-- 재료 -->
 	       <div class="ingredient-title">
 				<span class="ingre-svg"> 재료 정보&nbsp;&nbsp; 
@@ -134,14 +134,15 @@
         <!-- 레시피 -->
         <div class="recipe-title"><span>레시피</span></div>
         <div class="input-box">
-          <textarea name="" id="" cols="30" rows="10" class="recipe-input"></textarea>
+          <textarea name="sulkitRecipe" id="" cols="30" rows="10" class="recipe-input"></textarea>
         </div>
         <!-- 등록버튼 -->
         <div class="upload-btn-box">
-          <button><span>업로드</span></button>
+          <button type="submit"><span>업로드</span></button>
         </div>
+        </form>
       </div>
-      </form>
+      
     </main>
      <footer>
     	<jsp:include page="${pageContext.request.contextPath}/app/footer.jsp"/>

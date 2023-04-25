@@ -84,6 +84,7 @@ width: 485px;
 }
 .login-btn .btn-login{
   background-color: #D61C6A;
+  border : 1px solid #D61C6A;
   padding: 15px 0;
   width: 100%;
   font-size: 18px;

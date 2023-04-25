@@ -82,7 +82,7 @@
       				</div>
 	      			<div class="comment-btn-group">
 	      				<button type=button class="comment-modify-ready" data-number="${reply.replyNumber}">수정</button>
-	      				<button type=button class="comment-delete" data-number="${reply.replyNumber}">삭제</button>
+	      				<button type=button class="comment-delete" data-number="${reply.replyNumber}" >삭제</button>
 	      			</div>
 	      			<div class="comment-btn-group none">
 	      				<button type=button class="comment-modify">수정완료</button>

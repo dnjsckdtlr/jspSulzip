@@ -45,4 +45,17 @@
 		limit #{startRow}, #{rowCount} 
 	</select>
 	
+	<select id="allProduct" parameterType="_int" resultType="AllProductVO">
+		<if test='productNumber &lt;= 100'>
+	        select sulkit_number as number, sulkit_name_kor as name_kor, sulkit_name_eng as name_eng, sulkit_desc, sulkit_recipe, sulkit_price as price, sulkit_img as img
+			from sulkit
+			where sulkit_number = #{productNumber}
+	    </if>
+	    <if test='productNumber &gt; 100'>
+	        select product_number as number, product_name_kor as name_kor, product_name_eng as name_eng, product_price as price, product_ea, product_vol, product_alcohol_degree, category_number, product_system_name as img
+			from product
+			where product_number = #{productNumber}
+	    </if>
+	</select>
+	
 </mapper>

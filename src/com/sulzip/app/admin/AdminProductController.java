@@ -42,20 +42,21 @@ public class AdminProductController implements Execute {
 		List<ProductVO> sulkitList = adminDAO.sulkitList();
 		List<ProductVO> productList = adminDAO.productList();
 		
+		
+		
 //		System.out.println(sulkitList);
 //		System.out.println(productList);
 		
 		req.setAttribute("sulkitList", sulkitList);
 		req.setAttribute("productList", productList);
+		req.setAttribute("sulkit2", sulkitDTO);
+		
 		
 		List<ProductVO> joined = new ArrayList<ProductVO>();
 		joined.addAll(sulkitList);
 		joined.addAll(productList);
 		
 		req.setAttribute("joined", joined);
-		
-		System.out.println(joined);
-		
 		
 		req.getRequestDispatcher("/app/admin/adminproduct.jsp").forward(req, resp);
 	}

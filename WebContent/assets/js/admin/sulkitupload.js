@@ -19,101 +19,6 @@ $('.all').on('change', '.category', function(){
 		}
 });
 
-/* 이미지 업로드 시 미리보기 나오기 */
-let $imgPreview = $('.img-preview');
-
-$('#ex-file').on('change', function() {
-	removePreview();
-
-	let files = checkLength(this.files, 3);
-
-	fileInput(files);
-
-	addPreview(files);
-
-});
-
-/* 업로드한 파일 3개 이상이면 알림창 */
-function checkLength(files, length) {
-
-	if (files.length > length) {
-		alert(`파일은 최대 ${length}개까지만 가능합니다.`);
-		return files;
-	}
-	return files;
-}
-
-/* 미리보기 이미지와 삭제버튼 만들기*/
-function addPreview(files) {
-	for (let i = 0; i < files.length; i++) {
-		let src = URL.createObjectURL(files[i]);
-		$imgPreview.eq(i).html(
-			`<li class="preview-li">
-                  <div class="preview-img-box">
-                    <img src="${src}" class="preview-img" />
-                  </div>
-                  <div class="preview-cancel-box">
-                    <button type="button" class="img-cancel-btn" data-name="${files[i].name}">
-                      삭제
-                    </button>
-                  </div>
-                </li>`
-		).css('background-color', 'white');
-	}
-}
-
-/* 미리보기 이미지 삭제버튼 구현 */
-$imgPreview.on('click', '.img-cancel-btn', function() {
-	/* 화면에서 삭제 */
-	$(this).parent().parent().remove();
-
-	/* 파일배열에서 삭제 */
-	let files = $("#ex-file")[0].files;
-	let fileName = $(this).data('name');
-	let dt = new DataTransfer();
-
-	for (let i = 0; i < files.length; i++) {
-		if (files[i].name !== fileName) {
-			dt.items.add(files[i]);
-		}
-	}
-
-	$("#ex-file")[0].files = dt.files;
-
-	/* 파일인풋 수정 */
-	fileInput($("#ex-file")[0].files);
-
-	/* 취소버튼 누르면 사진 앞으로 정렬 */
-	removePreview();
-	addPreview($("#ex-file")[0].files);
-});
-
-/* 미리보기 전체 삭제 */
-function removePreview() {
-	for (let i = 0; i < $imgPreview.length; i++) {
-		$imgPreview.eq(i).html(``).css('background-color', '#f5f5f5');
-	}
-}
-
-/* 인풋파일 리스트 쪼개서 인풋에 하나씩 담기*/
-function fileInput(files) {
-	let $input = $(".myRecipeFileInput");
-
-	for (let i = 0; i < 3; i++) {
-		/* 넣은거 초과는 비어있게끔 */
-		if (i >= files.length) {
-			let dt = new DataTransfer();
-
-			$input[i].files = dt.files;
-		} else {
-			/* 넣은거 이하는 순서대로 파일 넣기 */
-			let dt = new DataTransfer();
-			dt.items.add(files[i]);
-
-			$input[i].files = dt.files;
-		}
-	}
-}
 
 /* 재료정보 개수 추가 */
 let $plusBtn = $(".bi-plus-circle-fill");
@@ -145,7 +50,78 @@ function minus(){
 	}
 }
 
+/*===============================================*/
+/* 이미지 업로드 시 미리보기 나오기 */
 
+
+let $imgPreview = $('.img-preview');
+
+$('#ex-file').on('change', function() {
+	removePreview();
+
+	let files = checkLength(this.files, 1);
+
+	console.log("1");
+	addPreview(files);
+	console.log("3");
+	addFile(files);
+
+});
+function checkLength(files, length) {
+
+	if (files.length > length) {
+		alert(`파일은 최대 ${length}개까지만 가능합니다.`);
+		return new DataTransfer().files;
+	}
+	return files;
+}
+
+function addPreview(files) {
+	for (let i = 0; i < files.length; i++) {
+	let src = URL.createObjectURL(files[i]);
+	$imgPreview.html(
+		`<li class="preview-li">
+			<div class="preview-img-box">
+                <img src="${src}" class="preview-img" />
+              </div>
+              <div class="preview-cancel-box">
+                <button type="button" class="img-cancel-btn" data-name="${files[i].name}">
+                  삭제
+                </button>
+              </div>
+			</li>`
+	).css('background-color', 'white');
+	}
+}
+
+/* 미리보기 이미지 삭제버튼 구현 */
+$imgPreview.on('click', '.img-cancel-btn', function() {
+	/* 화면에서 삭제 */
+	$(this).parent().parent().remove();
+
+	/* 파일배열에서 삭제 */
+	let files = $("#ex-file").files;
+	let dt = new DataTransfer();
+
+	$("#ex-file")[0].files = dt.files;
+
+	/* 미리보기 삭제 */
+	removePreview();
+});
+
+/* 미리보기 삭제 */
+function removePreview() {
+	$imgPreview.html(``).css('background-color', '#f5f5f5');
+}
+
+/* 파일 처리 */
+function addFile(files){
+	let  $fileInput = $('.myRecipeFileInput');
+	
+	$fileInput[0].files = files;
+	
+	console.log($fileInput[0].files);
+}
 
 
 

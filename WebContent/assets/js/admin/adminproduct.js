@@ -85,6 +85,37 @@ function showList(list){
 $('.ea')
 
 
+/* 게시글 삭제 */
+
+let $delete = $('#board-delete');
+
+$delete.on('click', function(){
+	let productAr = [];
+	$('.cbox:checked').each(function(i, item){
+		
+		productAr.push($(this).closest('.ctg-list-box').find('.list-code').text().trim());
+	});
+	
+	console.log(productAr)
+	/*let $sulkitNumber = $(this).data('num');*/
+	alert("정말 삭제하시겠습니까?")
+	
+	$.ajax({
+		url : '/admin/productDelete.adm',
+		type : 'get',
+		traditional : true,
+		data : {
+			productNumber : productAr
+		},
+		success : function(){
+			location.reload();
+			alert("삭제되었습니다.")
+		},
+		error : function(a,b,c){
+			console.error(c);
+		}
+	});
+});
 
 
 

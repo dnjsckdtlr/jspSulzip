@@ -57,7 +57,7 @@
 					<div class="card" data-num="${sup.getProductNumber()}">
                         <img src="${pageContext.request.contextPath}/assets/img/supplies/${sup.getProductSystemName()}" class="card-img-top inside">
                         <div class="card-body">
-                            <p class="card-text-1">술</p>
+                            <p class="card-text-1">용품</p>
                             <h5 class="card-title inside">${sup.getProductNameKor()}</h5>
                             <p class="card-text-2"><small class="text-muted">${sup.getProductPrice()}</small></p>
                         </div>
