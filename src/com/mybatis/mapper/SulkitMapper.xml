@@ -18,7 +18,17 @@
 	<select id="sulkitBoard" parameterType="map" resultType="SulkitDTO">
 		select sulkit_number, sulkit_name_kor, sulkit_price, sulkit_img
 		from sulkit
-		order by sulkit_number desc
+		<choose>
+			<when test='order == null or order.equals("all")'>
+				order by sulkit_number desc
+			</when>
+			<when test='order.equals("name")'>
+				order by sulkit_name_kor
+			</when>
+			<when test='order.equals("price")'>
+				order by sulkit_price
+			</when>
+		</choose>
 		limit #{startRow}, #{rowCount} 
 	</select>
 

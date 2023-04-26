@@ -23,26 +23,23 @@ public class MyRecipeDetailController implements Execute {
 		FileDAO fileDAO = new FileDAO();
 		MyRecipeDAO myRecipeDAO = new MyRecipeDAO();
 		HttpSession session = req.getSession();
-		Integer userNumber = (Integer) session.getAttribute("userNumber");
-		String path = null;
+		Integer userNumber = (Integer)session.getAttribute("userNumber");
 		
 		int mrbNum = Integer.parseInt(req.getParameter("num"));
 
+		String uploaderId = myRecipeDAO.getUserId(mrbNum);
 		MyRecipeDTO myRecipeDTO = myRecipeDAO.select(mrbNum);
 		List<MyRecipeVO> ingreList = myRecipeDAO.ingre(mrbNum);
 		List<FileDTO> fileList = fileDAO.select(mrbNum);
 		
+		req.setAttribute("mrbNum", mrbNum);
+		req.setAttribute("userNumber", userNumber);
+		req.setAttribute("uploaderId", uploaderId);
 		req.setAttribute("myRecipe", myRecipeDTO);
 		req.setAttribute("ingreList", ingreList);
 		req.setAttribute("fileList", fileList);
 		
-		if (userNumber == null) {
-			path = "/app/user/login.jsp";
-		} else {
-			path = "/app/myrecipe/myrecipedetail.jsp";
-		}
-		
-		req.getRequestDispatcher(path).forward(req, resp);
+		req.getRequestDispatcher("/app/myrecipe/myrecipedetail.jsp").forward(req, resp);
 
 	}
 

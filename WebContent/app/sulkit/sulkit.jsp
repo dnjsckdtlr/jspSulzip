@@ -45,9 +45,23 @@
                 </div>
             </div>
             <div class="filter-group mb-5">
-                <button type="button" class="btn btn-dark">전체보기</button>
-                <button type="button" class="btn btn-light text-secondary" >베스트</button>
-                <button type="button" class="btn btn-light text-secondary" >스테디</button>
+	            <c:choose>
+	            	<c:when test="${order eq 'name'}">
+		            	<button type="button" class="btn btn-light text-secondary" data-order="all">전체보기</button>
+		                <button type="button" class="btn btn-dark" data-order="name">가나다순</button>
+		                <button type="button" class="btn btn-light text-secondary" data-order="price">낮은가격순</button>
+	            	</c:when>
+	            	<c:when test="${order eq 'price'}">
+		            	<button type="button" class="btn btn-light text-secondary" data-order="all">전체보기</button>
+		                <button type="button" class="btn btn-light text-secondary" data-order="name">가나다순</button>
+		                <button type="button" class="btn btn-dark" data-order="price">낮은가격순</button>
+	            	</c:when>
+	            	<c:otherwise>
+		            	<button type="button" class="btn btn-dark" data-order="all">전체보기</button>
+		                <button type="button" class="btn btn-light text-secondary" data-order="name">가나다순</button>
+		                <button type="button" class="btn btn-light text-secondary" data-order="price">낮은가격순</button>
+	            	</c:otherwise>
+	            </c:choose>
             </div>
             <div class="list-group">
             
@@ -98,7 +112,7 @@
                         <ul class="pagination">
                         <c:if test="${prev}">
 	                         <li class="page-item">
-	                            <a class="page-link" href="?page=<c:out value='${startPage-1}'/>" tabindex="-1"><</a>
+	                            <a class="page-link" href="?order=<c:out value='${order}'/>&page=<c:out value='${startPage-1}'/>" tabindex="-1"><</a>
 	                          </li>
                         </c:if>
 <c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
@@ -108,12 +122,12 @@
 							</c:if>
 							
 	                        <li class="page-item <c:out value='${disabledClass}' />">
-	                        	<a class="page-link" href="?page=<c:out value='${pageNum}'/>"><c:out value="${pageNum}"/></a>
+	                        	<a class="page-link" href="?order=<c:out value='${order}'/>&page=<c:out value='${pageNum}'/>"><c:out value="${pageNum}"/></a>
                         	</li>
 </c:forEach>
 						<c:if test="${next}">
                          	<li class="page-item">
-                            	<a class="page-link" href="?page=<c:out value='${endPage+1}'/>">></a>
+                            	<a class="page-link" href="?order=<c:out value='${order}'/>&page=<c:out value='${endPage+1}'/>">></a>
                           	</li>
                         </c:if>
                         </ul>

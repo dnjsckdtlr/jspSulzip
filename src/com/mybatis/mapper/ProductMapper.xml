@@ -27,21 +27,51 @@
 	<select id="alcoholBoard" parameterType="map" resultType="ProductDTO">
 		select product_number, product_name_kor, product_price, product_alcohol_degree, product_system_name
 		from product where category_number = 2
-		order by product_number desc
+		<choose>
+			<when test='order == null or order.equals("all")'>
+				order by product_number desc
+			</when>
+			<when test='order.equals("name")'>
+				order by product_name_kor
+			</when>
+			<when test='order.equals("price")'>
+				order by product_price
+			</when>
+		</choose>		
 		limit #{startRow}, #{rowCount} 
 	</select>
 	
 	<select id="ingreBoard" parameterType="map" resultType="ProductDTO">
 		select product_number, product_name_kor, product_price, product_alcohol_degree, product_system_name
 		from product where category_number = 3
-		order by product_number desc
+		<choose>
+			<when test='order == null or order.equals("all")'>
+				order by product_number desc
+			</when>
+			<when test='order.equals("name")'>
+				order by product_name_kor
+			</when>
+			<when test='order.equals("price")'>
+				order by product_price
+			</when>
+		</choose>		
 		limit #{startRow}, #{rowCount} 
 	</select>
 	
 	<select id="supBoard" parameterType="map" resultType="ProductDTO">
 		select product_number, product_name_kor, product_price, product_alcohol_degree, product_system_name
 		from product where category_number = 4
-		order by product_number desc
+		<choose>
+			<when test='order == null or order.equals("all")'>
+				order by product_number desc
+			</when>
+			<when test='order.equals("name")'>
+				order by product_name_kor
+			</when>
+			<when test='order.equals("price")'>
+				order by product_price
+			</when>
+		</choose>
 		limit #{startRow}, #{rowCount} 
 	</select>
 	

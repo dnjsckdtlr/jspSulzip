@@ -2,18 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="file">
+
 	<insert id="insert" parameterType="FileDTO">
 		insert into file
 		(file_system_name, file_original_name, myRecipe_number)
 		values(#{fileSystemName}, #{fileOriginalName}, #{myRecipeNumber})
 	</insert>
+	
 	<select id="select" parameterType="_int" resultType="FileDTO">
 		select file_system_name, file_original_name, myRecipe_number
 		from file
 		where myRecipe_number = #{myRecipeNumber}
 	</select>
+	
 	<delete id="delete" parameterType="_int">
 		delete from file
 		where myRecipe_number = #{myRecipeNumber}
 	</delete>
+	
+	<update id="modify">
+		update file
+		set file_original_name='', myRecipe_number=0
+		where file_system_name='';
+	</update>
+	
 </mapper>

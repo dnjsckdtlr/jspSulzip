@@ -49,6 +49,8 @@ $('.search').on('click', function(){
 function showList(list, category){
 	let text="";
 	let cate = category == 'M' ? '나만의 레시피' : '고객센터'; 
+	let cateNum = category == 'M' ? 'recipe' : 'client'; 
+	let deleteNum = category == 'M' ? 'myRcp' : 'board'; 
 	
 	list.forEach(content =>{
 		text += `
@@ -60,8 +62,8 @@ function showList(list, category){
 		                <div class="ctg-3"><span>${content.title}</span></div>
 		                <div class="ctg-4"><span>${content.id}</span></div>
 		                <div class="ctg-5">
-		                  <button>글보기 ></button>
-		                  <button>글삭제 ></button>
+		                  <button class="read ${cateNum}" data-num="${content.number}">글보기 ></button>
+		                  <button class="delete-2 ${deleteNum}" data-num="${content.number}">글삭제 ></button>
 		                </div>
 	              	</div>
 						
@@ -71,20 +73,61 @@ function showList(list, category){
 }
 
 
-let $read = $('.read');
 
-
-$read.on('click', function() {
-	console.log("안뇽");
+$('.read').on('click', function() {
+	
 	let mrbNum = $(this).data('num');
 	
 	window.location.href = "/myrecipe/myRecipeDetail.mrb?num=" + mrbNum;
-	console.log(mrbNum);
+	
 });
+
+$('.board-management').on('click', '.client', function() {
+
+	let boardNumber = $(this).data('num');
+	
+	window.location.href = "/clientboard/serviceReadOk.clb?boardNumber=" + boardNumber; 
+	
+});
+
+$('.board-management').on('click', '.recipe', function() {
+	
+	let mrbNum = $(this).data('num');
+	
+	window.location.href = "/myrecipe/myRecipeDetail.mrb?num=" + mrbNum;
+	
+});
+
+
 
 let $delete = $('.delete-2');
 
-$delete.on('click', function(){
+$('.board-management').on('click', '.myRcp', function(){
+let $boardNumber = $('.myRcp').data('num');
+
+console.log($boardNumber);
+	
+	alert("정말 삭제하시겠습니까?")
+	console.log("gg");
+	
+	$.ajax({
+		url : '/admin/boardDelete.adm',
+		type : 'get',
+		data : {
+			myRecipeNumber : $boardNumber
+		},
+		success : function(){
+			location.reload();
+			alert("삭제되었습니다.")
+		},
+		error : function(a,b,c){
+			console.error(c);
+		}
+	});
+	
+});
+
+$('.delete-2').on('click', function(){
 let $boardNumber = $(this).data('num');
 
 console.log($boardNumber);
@@ -97,6 +140,31 @@ console.log($boardNumber);
 		type : 'get',
 		data : {
 			myRecipeNumber : $boardNumber
+		},
+		success : function(){
+			location.reload();
+			alert("삭제되었습니다.")
+		},
+		error : function(a,b,c){
+			console.error(c);
+		}
+	});
+	
+});
+
+$('.board-management').on('click', '.board', function(){
+let $boardNumber = $('.board').data('num');
+
+console.log($boardNumber);
+	
+	alert("정말 삭제하시겠습니까?")
+	console.log("gg");
+	
+	$.ajax({
+		url : '/admin/CBoardDelete.adm',
+		type : 'get',
+		data : {
+			boardNumber : $boardNumber
 		},
 		success : function(){
 			location.reload();

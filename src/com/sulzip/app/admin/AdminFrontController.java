@@ -67,6 +67,9 @@ public class AdminFrontController extends HttpServlet{
 		case "/admin/boardDelete.adm":
 			new AdminBoardDeleteController().execute(req, resp);
 			break;
+		case "/admin/CBoardDelete.adm":
+			new AdminCBoardDeleteController().execute(req, resp);
+			break;
 		case "/admin/order.adm":
 			new AdminOrderController().execute(req, resp);
 			break;

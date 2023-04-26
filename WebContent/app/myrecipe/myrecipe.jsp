@@ -50,7 +50,9 @@
                  <button type="button" class="btn btn-light text-secondary" >스테디</button>
              </div>
              <div class="col-2 filter-group mb-5 d-md-flex justify-content-md-end">
-                    <a href="${pageContext.request.contextPath}/myrecipe/myRecipeUpload.mrb" class="btn" style="color: white; background-color: #d61c6a;">작성하기</a>
+             	<c:if test="${userNumber != null}">
+                    <a href="${pageContext.request.contextPath}/myrecipe/myRecipeUpload.mrb" class="btn writeBtn" style="color: white; background-color: #d61c6a;">작성하기</a>
+                </c:if>
              </div>
             </div>
             <div class="list-group">

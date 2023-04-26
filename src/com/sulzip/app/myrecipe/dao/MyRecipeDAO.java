@@ -40,12 +40,20 @@ public class MyRecipeDAO {
 		sqlSession.insert("file.insert", fileDTO);
 	}
 	
+	public void deleteFile(int myRecipeNumber) {
+		sqlSession.delete("file.delete", myRecipeNumber);
+	}
+	
 	public int getSequence() {
 		return sqlSession.selectOne("myRecipe.getSequence");
 	}
 	
 	public void insertPmBridge(PmBridgeDTO pmBridgeDTO) {
 		sqlSession.insert("PmBridge.insert", pmBridgeDTO);
+	}
+	
+	public void deletePmBridge(int myRecipeNumber) {
+		sqlSession.delete("PmBridge.delete", myRecipeNumber);
 	}
 	
 	public List<MyRecipeDTO> selectMrb(Map<String, Integer> pageMap){
@@ -58,5 +66,17 @@ public class MyRecipeDAO {
 	
 	public void upThumb(Map<String, String> thumbInfo) {
 		sqlSession.update("myRecipe.upThumb", thumbInfo);
+	}
+	
+	public String getUserId(int mrbNumber) {
+		return sqlSession.selectOne("myRecipe.getUserId", mrbNumber);
+	}
+	
+	public void modify(MyRecipeDTO myRecipeDTO) {
+		sqlSession.update("myRecipe.modify", myRecipeDTO);
+	}
+	
+	public void delete(int myRecipeNumber) {
+		sqlSession.delete("myRecipe.delete", myRecipeNumber);
 	}
 }

@@ -31,7 +31,7 @@ public class IngredientsListOkController implements Execute {
 		
 		int startRow = rowCount * (page-1);
 		
-		Map<String, Integer> pageMap = new HashMap<String, Integer>();
+		Map<String, Object> pageMap = new HashMap<String, Object>();
 		pageMap.put("startRow", startRow);
 		pageMap.put("rowCount", rowCount);
 		
@@ -54,8 +54,13 @@ public class IngredientsListOkController implements Execute {
 		
 		boolean next = endPage != realEndPage;
 		
+		String order = req.getParameter("order");
+		
+		pageMap.put("order", order);
+		
 		List<ProductDTO> ingreList = productDAO.ingreBoard(pageMap);
 		
+		req.setAttribute("order", order);
 		req.setAttribute("ingreList", ingreList);
 		req.setAttribute("page", page);
 		req.setAttribute("startPage", startPage);

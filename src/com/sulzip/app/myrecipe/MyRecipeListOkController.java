@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sulzip.app.Execute;
 import com.sulzip.app.myrecipe.dao.MyRecipeDAO;
@@ -18,6 +19,9 @@ public class MyRecipeListOkController implements Execute {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		MyRecipeDAO myRecipeDAO = new MyRecipeDAO();
+		HttpSession session = req.getSession();
+		
+		req.setAttribute("userNumber", session.getAttribute("userNumber"));
 		
 		String temp = req.getParameter("page");
 		

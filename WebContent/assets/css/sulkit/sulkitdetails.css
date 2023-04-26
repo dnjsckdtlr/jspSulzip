@@ -230,9 +230,9 @@
   	height: 60px;
   }
   
-
-  
-  
+.rounded-start {
+    border-radius: 0.25rem!important;
+}
   
   
   

@@ -53,8 +53,9 @@
   
   .content {
     width: 1000px;
-    height: 500px;
+    height: 100%;
     border-bottom: 1px solid#ddd;
+    padding: 50px 20px;
   }
   
   .btn-box {

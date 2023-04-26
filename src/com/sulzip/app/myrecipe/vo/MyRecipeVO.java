@@ -6,6 +6,8 @@ public class MyRecipeVO {
 	private String productNameKor;
 	private String productSystemName;
 	private String pmBridgeVol;
+	private int productNumber; 
+	private int categoryNumber;
 	
 	public MyRecipeVO() {
 	}
@@ -34,10 +36,27 @@ public class MyRecipeVO {
 		this.pmBridgeVol = pmBridgeVol;
 	}
 
+	public int getProductNumber() {
+		return productNumber;
+	}
+
+	public void setProductNumber(int productNumber) {
+		this.productNumber = productNumber;
+	}
+
+	public int getCategoryNumber() {
+		return categoryNumber;
+	}
+
+	public void setCategoryNumber(int categoryNumber) {
+		this.categoryNumber = categoryNumber;
+	}
+
 	@Override
 	public String toString() {
 		return "MyRecipeVO [productNameKor=" + productNameKor + ", productSystemName=" + productSystemName
-				+ ", pmBridgeVol=" + pmBridgeVol + "]";
+				+ ", pmBridgeVol=" + pmBridgeVol + ", productNumber=" + productNumber + ", categoryNumber="
+				+ categoryNumber + "]";
 	}
-	
+
 }

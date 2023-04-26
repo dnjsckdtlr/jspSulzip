@@ -66,14 +66,14 @@
               </div>
               <div class="row price-area2">
                 <div class="col-12" style="text-align: right;">
-                  <span>총 수량&nbsp;</span><span id="total_num">1</span><span>&nbsp;개&nbsp;&nbsp;|&nbsp;&nbsp;</span><span id="price"><c:out value="${sulkit.getSulkitPrice()}"/></span><span class="won">&nbsp;원</span>
+                  <span>총 수량</span>&nbsp;<span id="total_num">1</span><span>&nbsp;개&nbsp;&nbsp;|&nbsp;&nbsp;</span><span id="price"><c:out value="${sulkit.getSulkitPrice()}"/></span><span class="won">&nbsp;원</span>
                 </div>
               </div>
               <div class="row mt-3">
                 <div class="col-3"></div>
                 <div class="col-9">
                   <button class="btn btn-outline-secondary btn-sm cartBtn">장바구니 담기</button>
-                  <button class="btn btn-danger btn-sm" onclick="fn_go_to_link('${pageContext.request.contextPath}/order/order.ord')">바로 구매하기</button>
+                  <button class="btn btn-danger btn-sm orderBtn">바로 구매하기</button>
                 </div>
               </div>
               <div class="col-md-2"></div>

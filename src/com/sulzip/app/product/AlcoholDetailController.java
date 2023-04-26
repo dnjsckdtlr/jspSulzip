@@ -16,10 +16,7 @@ public class AlcoholDetailController implements Execute {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ProductDAO productDAO = new ProductDAO();
 		
-		System.out.println("1");
-		System.out.println(req.getParameter("num"));
 		int num = Integer.parseInt(req.getParameter("num"));
-		System.out.println("2");
 		ProductDTO productDTO = productDAO.alcohol(num);
 		
 		req.setAttribute("alcohol", productDTO);

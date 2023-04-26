@@ -13,6 +13,7 @@ import com.sulzip.app.admin.vo.SearchVO;
 import com.sulzip.app.admin.vo.SulkitUploadVO;
 import com.sulzip.app.admin.vo.UserListVO;
 import com.sulzip.app.admin.vo.UserSearchVO;
+import com.sulzip.app.clientboard.dto.ClientBoardDTO;
 import com.sulzip.app.file.dto.FileDTO;
 import com.sulzip.app.myrecipe.dto.MyRecipeDTO;
 import com.sulzip.app.pmbridge.dto.PmBridgeDTO;
@@ -181,6 +182,10 @@ public class AdminDAO {
 	
 	public void pmBridgeDel(PmBridgeDTO pmBridgeDTO) {
 		sqlsession.delete("admin.pmBridgeDel", pmBridgeDTO);
+	}
+	
+	public void clientDel(ClientBoardDTO clientDTO) {
+		sqlsession.delete("admin.clientDel", clientDTO);
 	}
 	
 //	============상품 등록===============

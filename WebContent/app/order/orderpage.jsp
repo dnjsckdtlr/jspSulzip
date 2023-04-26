@@ -209,7 +209,7 @@
                         </div>
                         <div class="form-group-2">
                           <label for="account-name"><b>입금자명</b></label>
-                          <div class="accout"><input type="text" name="accountName" /></div>
+                          <div class="accout"><input type="text" name="accountName" class="accountName"/></div>
                         </div>
                       </div>
                     </div>

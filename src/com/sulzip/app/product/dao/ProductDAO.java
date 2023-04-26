@@ -32,15 +32,15 @@ public class ProductDAO {
 		return sqlsession.selectOne("product.getTotal", categoryNumber);
 	}
 
-	public List<ProductDTO> alcoholBoard(Map<String, Integer> pageMap) {
+	public List<ProductDTO> alcoholBoard(Map<String, Object> pageMap) {
 		return sqlsession.selectList("product.alcoholBoard", pageMap);
 	}
 	
-	public List<ProductDTO> ingreBoard(Map<String, Integer> pageMap) {
+	public List<ProductDTO> ingreBoard(Map<String, Object> pageMap) {
 		return sqlsession.selectList("product.ingreBoard", pageMap);
 	}
 	
-	public List<ProductDTO> supBoard(Map<String, Integer> pageMap) {
+	public List<ProductDTO> supBoard(Map<String, Object> pageMap) {
 		return sqlsession.selectList("product.supBoard", pageMap);
 	}
 	

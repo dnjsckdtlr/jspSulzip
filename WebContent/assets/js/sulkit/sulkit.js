@@ -1,16 +1,12 @@
 /**
  * 
  */
-console.log("aaa");
-
 let $inside = $('.inside');
-
 
 $inside.on('click', function() {
 	let num = $(this).closest('.card').data('num');
 	
 	window.location.href = "/sulkit/sulkitDetail.suk?num=" + num;
-	console.log(num);
 });
 
 function alignItem(){
@@ -24,7 +20,13 @@ function alignItem(){
 	for(let i=0; i<needItemCount; i++){
 		$cardGroup.eq(idx).append(`<div class="card"></div>`);
 	}
-	console.log($card);
+	
 }
 
 alignItem();
+
+/* 정렬버튼 */
+$('.btn').on('click',function(){
+	let order = $(this).data("order");
+	window.location.href = `/sulkit/sulkit.suk?order=${order}`
+});

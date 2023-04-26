@@ -73,7 +73,7 @@
                 <div class="col-3"></div>
                 <div class="col-9">
                   <button class="btn btn-outline-secondary btn-sm cartBtn">장바구니 담기</button>
-                  <button class="btn btn-danger btn-sm" onclick="fn_go_to_link('${pageContext.request.contextPath}/order/order.ord')">바로 구매하기</button>
+                  <button class="btn btn-danger btn-sm orderBtn">바로 구매하기</button>
                 </div>
               </div>
               <div class="col-md-2"></div>
@@ -87,7 +87,7 @@
 	<jsp:include page="${pageContext.request.contextPath}/app/footer.jsp"/>
 </footer>
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/product/alcoholdetail.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/sulkit/sulkitdetail.js"></script>
 </body>
 
 <script type="text/javascript">

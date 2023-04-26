@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 import com.sulzip.app.Execute;
 import com.sulzip.app.admin.dao.AdminDAO;
+import com.sulzip.app.clientboard.dto.ClientBoardDTO;
 import com.sulzip.app.file.dto.FileDTO;
 import com.sulzip.app.myrecipe.dto.MyRecipeDTO;
 import com.sulzip.app.pmbridge.dto.PmBridgeDTO;
@@ -31,15 +32,14 @@ public class AdminBoardDeleteController implements Execute {
 		myRecipeDTO.setMyRecipeNumber(myRecipeNumber);
 		
 		
+		
 		System.out.println(myRecipeNumber);
 		
 		adminDAO.fileDel(fileDTO);
-		System.out.println("dd");
 		adminDAO.pmBridgeDel(pmBridgeDTO);
-		System.out.println("cc");
 		adminDAO.myRecipeDel(myRecipeDTO);
 		
-		System.out.println("aa");
+		
 		
 		
 	}

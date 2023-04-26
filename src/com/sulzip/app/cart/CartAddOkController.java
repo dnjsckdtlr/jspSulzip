@@ -24,33 +24,37 @@ public class CartAddOkController implements Execute {
 		HttpSession session = req.getSession();
 		Gson gson = new Gson();
 		PrintWriter out = resp.getWriter();
-		
-		int userNumber = (int)session.getAttribute("userNumber");
-		int productNumber = Integer.valueOf(req.getParameter("productNumber"));
-		int productEa = Integer.valueOf(req.getParameter("productEa")); 
-		int productTotalPrice= Integer.valueOf(req.getParameter("productPrice")) * productEa;
-		
-		cartVO2.setUserNumber(userNumber);
-		cartVO2.setProductNumber(productNumber);
-		cartVO2.setProductTotalPrice(productTotalPrice);
-		cartVO2.setProductEa(productEa);
-		
-		System.out.println(cartVO2);
-		Map<String, Integer> cartInfo = new HashMap<String, Integer>();
-		cartInfo.put("userNumber", userNumber);
-		cartInfo.put("productNumber", productNumber);
-		int cartCheck = cartDAO.cartCheck(cartInfo);
 		String replyJson;
 		
-		if(cartCheck == 0) {
-			cartDAO.insert(cartVO2);
-			replyJson = gson.toJson("success");
+		if(session.getAttribute("userNumber") == null) {
+			replyJson = gson.toJson("login");
 		} else {
-			replyJson = gson.toJson("fail");
+			int userNumber = (int)session.getAttribute("userNumber");
+			int productNumber = Integer.valueOf(req.getParameter("productNumber"));
+			int productEa = Integer.valueOf(req.getParameter("productEa")); 
+			int productTotalPrice= Integer.valueOf(req.getParameter("productPrice")) * productEa;
+			
+			cartVO2.setUserNumber(userNumber);
+			cartVO2.setProductNumber(productNumber);
+			cartVO2.setProductTotalPrice(productTotalPrice);
+			cartVO2.setProductEa(productEa);
+			
+			Map<String, Integer> cartInfo = new HashMap<String, Integer>();
+			cartInfo.put("userNumber", userNumber);
+			cartInfo.put("productNumber", productNumber);
+			int cartCheck = cartDAO.cartCheck(cartInfo);
+			
+			if(cartCheck == 0) {
+				cartDAO.insert(cartVO2);
+				replyJson = gson.toJson("success");
+			} else {
+				replyJson = gson.toJson("fail");
+			}
 		}
 		
 		out.print(replyJson.toString());
 		out.close();
+		
 	}
 
 }

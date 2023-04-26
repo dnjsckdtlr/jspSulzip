@@ -25,6 +25,7 @@ public class LoginOkController implements Execute {
 		String path = null;
 		String remember = req.getParameter("remember");
 		HttpSession session = req.getSession();
+		String prevPage = (String)req.getSession().getAttribute("prevPage");
 		
 		userDTO.setUserId(userId);
 		userDTO.setUserPw(userPw);
@@ -32,7 +33,7 @@ public class LoginOkController implements Execute {
 		try {
 			userNumber= userDAO.login(userDTO);
 			userId= userDAO.getUserId(userNumber);
-			path = "/";
+			path = prevPage;
 			
 			if(remember != null) {
 				Cookie cookie = new Cookie("userId", userId);
@@ -48,6 +49,7 @@ public class LoginOkController implements Execute {
 			System.out.println("예상치 못한 오류");
 		e.printStackTrace();
 		}
+		
 		resp.sendRedirect(path);
 		
 	}

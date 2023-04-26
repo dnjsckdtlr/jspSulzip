@@ -21,6 +21,8 @@ public class ServiceReadOkController implements Execute {
 		      
 		      req.setAttribute("boardRow", boardRow);
 		      
+		      req.setAttribute("num", boardNumber);
+		      
 		      req.getRequestDispatcher("/app/clientboard/servicepage.jsp").forward(req, resp);
 	}
 }

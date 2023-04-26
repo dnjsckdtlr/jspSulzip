@@ -58,10 +58,8 @@
               <li class="f-index-ul">고객센터</li>
               <li class="f-index-li">02-0000-0000</li>
               <li class="f-index-li">
-                운영시간 : 오전10:00~오후06:00 <br />점심시간 :12-13시
-                오후12:00~오후13:00 <br />
-                휴<span class="f-transparency">무휴</span>무 : 토, 일,
-                공휴일
+                운영시간 : 오전10:00~오후06:00<br />점심시간 : 오후12:00~오후13:00<br />
+                휴<span class="f-transparency">무휴</span>무 : 토, 일, 공휴일
               </li>
             </ul>
           </div>

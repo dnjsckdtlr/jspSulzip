@@ -23,7 +23,9 @@ $('#search-btn').on('click', function(){
 	let category = $('input[name=product]:checked').val();
 	let language = $('#product-name').val();
 	let resultEa = 0;
-
+	
+	
+	
 	$.ajax({
 		url : '/admin/search.adm',
 		type : 'get',
@@ -45,12 +47,6 @@ $('#search-btn').on('click', function(){
 	});
 });
 
-function showReply(replies){
-	  let text = "";
-	  replies.forEach(reply => {
-      text += `
-      `
-})};
 
 function showList(list){
 	let text = "";
@@ -76,6 +72,7 @@ function showList(list){
               	  <div class="list-price">${content.price}</div>
               </div>
 		`;
+		
 	});
 	
 	

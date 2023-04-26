@@ -31,7 +31,7 @@ public class AlcoholListOkController implements Execute {
 		
 		int startRow = rowCount * (page-1);
 		
-		Map<String, Integer> pageMap = new HashMap<String, Integer>();
+		Map<String, Object> pageMap = new HashMap<String, Object>();
 		pageMap.put("startRow", startRow);
 		pageMap.put("rowCount", rowCount);
 		
@@ -54,8 +54,13 @@ public class AlcoholListOkController implements Execute {
 		
 		boolean next = endPage != realEndPage;
 		
+		String order = req.getParameter("order");
+		
+		pageMap.put("order", order);
+		
 		List<ProductDTO> alcoholList = productDAO.alcoholBoard(pageMap);
 		
+		req.setAttribute("order", order);
 		req.setAttribute("alcoholList", alcoholList);
 		req.setAttribute("page", page);
 		req.setAttribute("startPage", startPage);

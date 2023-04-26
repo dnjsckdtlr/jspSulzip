@@ -29,6 +29,7 @@
 				<span class="cart-user-name"><c:out value="${userInfo.getUserName()}"/></span>님이 장바구니에 담아놓은 상품입니다.
 			</c:otherwise>
 		</c:choose>
+		
     </div>
 
     <form action="${pageContext.request.contextPath}/order/order.ord" class="cart-form">
@@ -46,6 +47,7 @@
               <input
                 type="checkbox"
                 name="cart_check_all"
+                class="cart_check_all"
                 value="1"
                 id="cart_check_all"
                 checked
@@ -74,16 +76,24 @@
 	              <div class="item-img">
 	                <c:choose>
 	                	<c:when test="${cart.getCategoryNumber() == 0}">
-							<img src="${pageContext.request.contextPath}/assets/img/sulkit/${cart.getProductSystemName()}" width="100" height="100"/>
+	                	  <a href="${pageContext.request.contextPath}/sulkit/sulkitDetail.suk?num=${cart.getProductNumber()}">
+							<img src="${pageContext.request.contextPath}/assets/img/sulkit/${cart.getProductSystemName()}" width="100" height="100" class="product-img"/>
+						  </a>
 						</c:when>
 						<c:when test="${cart.getCategoryNumber() == 2}">
-							<img src="${pageContext.request.contextPath}/assets/img/alcohol/${cart.getProductSystemName()}" width="100" height="100"/>
+						  <a href="${pageContext.request.contextPath}/product/alcoholDetail.prd?num=${cart.getProductNumber()}">
+							<img src="${pageContext.request.contextPath}/assets/img/alcohol/${cart.getProductSystemName()}" width="100" height="100" class="product-img"/>
+						  </a>
 						</c:when>
 						<c:when test="${cart.getCategoryNumber() == 3}">
-							<img src="${pageContext.request.contextPath}/assets/img/ingredients/${cart.getProductSystemName()}" width="100" height="100"/>
+						  <a href="${pageContext.request.contextPath}/product/ingredientsDetail.prd?num=${cart.getProductNumber()}">
+							<img src="${pageContext.request.contextPath}/assets/img/ingredients/${cart.getProductSystemName()}" width="100" height="100" class="product-img"/>
+						  </a>
 						</c:when>
 						<c:when test="${cart.getCategoryNumber() == 4}">
-							<img src="${pageContext.request.contextPath}/assets/img/supplies/${cart.getProductSystemName()}" width="100" height="100"/>
+						  <a href="${pageContext.request.contextPath}/product/suppliesDetail.prd?num=${cart.getProductNumber()}">
+							<img src="${pageContext.request.contextPath}/assets/img/supplies/${cart.getProductSystemName()}" width="100" height="100" class="product-img"/>
+						  </a>
 						</c:when>
 						<c:otherwise>
 							<img src="" alt="이미지 없음" width="100" height="100"/>
@@ -92,9 +102,33 @@
 	              </div>
 	            </td>
 	            <td class="product_name">
-	              <a href="" class="item-name-links">
-	                ${cart.getProductNameKor()}
-	              </a>
+		            <c:choose>
+		                	<c:when test="${cart.getCategoryNumber() == 0}">
+				                <a href="${pageContext.request.contextPath}/sulkit/sulkitDetail.suk?num=${cart.getProductNumber()}" class="item-name-links">
+				                  ${cart.getProductNameKor()}
+				                </a>
+							</c:when>
+							<c:when test="${cart.getCategoryNumber() == 2}">
+								<a href="${pageContext.request.contextPath}/product/alcoholDetail.prd?num=${cart.getProductNumber()}" class="item-name-links">
+				                ${cart.getProductNameKor()}
+				              	</a>
+							</c:when>
+							<c:when test="${cart.getCategoryNumber() == 3}">
+								<a href="${pageContext.request.contextPath}/product/ingredientsDetail.prd?num=${cart.getProductNumber()}" class="item-name-links">
+				                ${cart.getProductNameKor()}
+				              	</a>
+							</c:when>
+							<c:when test="${cart.getCategoryNumber() == 4}">
+								<a href="${pageContext.request.contextPath}/product/suppliesDetail.prd?num=${cart.getProductNumber()}" class="item-name-links">
+				                ${cart.getProductNameKor()}
+				              	</a>
+							</c:when>
+							<c:otherwise>
+								<a href="" class="item-name-links">
+				                ${cart.getProductNameKor()}
+				              	</a>
+							</c:otherwise>
+						</c:choose>
 	            </td>
 	            <td>
 	              <div class="options">

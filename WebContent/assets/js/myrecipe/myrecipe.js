@@ -1,10 +1,7 @@
 /**
  * 
  */
-console.log("aaa");
-
 let $inside = $('.inside');
-
 
 $inside.on('click', function() {
 	let mrbNum = $(this).closest('.card').data('num');
@@ -12,7 +9,6 @@ $inside.on('click', function() {
 	window.location.href = "/myrecipe/myRecipeDetail.mrb?num=" + mrbNum;
 	console.log(mrbNum);
 });
-
 
 function alignItem(){
 	let $cardGroup = $('.card-group');

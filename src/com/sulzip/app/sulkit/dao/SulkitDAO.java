@@ -24,7 +24,7 @@ public class SulkitDAO {
 		return sqlsession.selectList("sulkit.recipe", productNumber);
 	}
 	
-	public List<SulkitDTO> sulkitBoard(Map<String, Integer> pageMap) {
+	public List<SulkitDTO> sulkitBoard(Map<String, Object> pageMap) {
 		return sqlsession.selectList("sulkit.sulkitBoard", pageMap);
 	}
 	

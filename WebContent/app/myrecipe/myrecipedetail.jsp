@@ -42,10 +42,23 @@
           <div class="info-desc">
             ${myRecipe.getMyRecipeDesc()}
           </div>
-          <div class="abv">
-            <span>${myRecipe.getUserNumber()}</span>
+          <div class="detail-btn-wrap">
+	          <div class="abv">
+	            작성자 :&nbsp;<span>${uploaderId}</span>
+	          </div>
           </div>
-          <!-- <div class="button-box">
+          <div class="detail-btn-wrap">
+          	<div class = "user-btn-wrap">
+               <c:if test="${userNumber == myRecipe.getUserNumber()}">
+                    <a href="${pageContext.request.contextPath}/myrecipe/myRecipeUpdate.mrb?num=${mrbNum}" class="writeBtn abv" style="color: white; background-color: #d61c6a;">수정하기</a>
+               </c:if>
+               <c:if test="${userNumber == myRecipe.getUserNumber()}">
+                    <a href="${pageContext.request.contextPath}/myrecipe/myRecipeDelete.mrb" id="deleteBtn" class="writeBtn abv" onclick="return false" style="color: white; background-color: #6e6e73;">삭제하기</a>
+               </c:if>
+          	</div>
+          </div>
+          <!-- 좋아요 버튼
+          <div class="button-box">
             <button class="like-btn">
               <span>3</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

@@ -38,6 +38,15 @@ public class MyRecipeFrontController extends HttpServlet {
 		case "/myrecipe/myRecipeUploadOk.mrb": 
 			new MyRecipeUploadOkController().execute(req, resp);
 			break;
+		case "/myrecipe/myRecipeUpdate.mrb": 
+			new MyRecipeUpdateController().execute(req, resp);
+			break;
+		case "/myrecipe/myRecipeUpdateOk.mrb": 
+			new MyRecipeUpdateOkController().execute(req, resp);
+			break;
+		case "/myrecipe/myRecipeDelete.mrb": 
+			new MyRecipeDeleteOkController().execute(req, resp);
+			break;
 		}
 	}
 }

@@ -256,6 +256,11 @@
 		where myRecipe_number = #{myRecipeNumber}
 	</delete>
 	
+	<delete id="clientDel" parameterType="ClientBoardDTO">
+		delete from client_board
+		where board_number= #{boardNumber}
+	</delete>
+	
 	<!-- 상품 등록 -->
 	<insert id="productUpload" parameterType="ProductDTO">
 		insert into product
