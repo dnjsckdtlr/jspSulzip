@@ -52,5 +52,19 @@ function fn_edituser(userId){
 	});	
 }
 
+//폰
+const phoneInput = document.getElementById('userPhone');
+const errorMsg = document.querySelector('.error-msg');
 
-
+if (phoneInput) {
+	console.log("ㅎㅇ2");
+phoneInput.addEventListener('blur', function() {
+  const regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+  if (!regExp.test(this.value)) {
+    errorMsg.style.display = 'block';
+    phoneInput.focus();   
+  } else {
+    errorMsg.style.display = 'none';
+  }
+});
+}

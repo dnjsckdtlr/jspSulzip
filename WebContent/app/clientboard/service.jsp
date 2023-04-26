@@ -20,7 +20,7 @@
         	.h-ctg7{
 				color: black !important;
 			}
-        </style>
+    </style>
 </head>
 
 <body>

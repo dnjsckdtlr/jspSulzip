@@ -55,11 +55,11 @@ function totalPrice(){
 	let prices = $('.unitPrice');
 	
 	prices.each(function(){
-		totalPrice += parseInt($(this).text());
+		totalPrice += parseInt($(this).text().replace(/\,/g,""));
 	});
 	
 	$('.productTotalPrice').val(totalPrice);
-	$('.final-price').text(totalPrice+"원");
+	$('.final-price').text(totalPrice.toLocaleString()+"원");
 }
 
 

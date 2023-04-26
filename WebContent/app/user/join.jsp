@@ -44,7 +44,8 @@
                         <th class="join-th">아이디</th>
                         <td class="join-td">
                             <input type="text" name="userId" class="join_id" id="id" autofocus>
-                            <span class="text-details">&nbsp;영문자, 숫자, _만 입력 가능. 최소 3자 이상 입력하세요.<br></span>
+                            <span class="text-details"><br/>
+                            영문자, 숫자, _만 입력 가능. 최소 3자 이상 입력하세요.<br></span>
 							<span class="check-msg" id="check-id-msg"></span>
                         </td>
                     </tr>
@@ -74,6 +75,8 @@
                         <th class="join-th">주민등록번호</th>
                         <td class="join-td">
                             <input type="text" name="userRegistrationNumber" class="join_userRegistrationNumber">
+                            <br/>
+                            <span class="join-error-msg" id="join_userRegistrationNumber_error"></span>
                         </td>
                     </tr>
                     <tr class="join-tr">
@@ -93,6 +96,7 @@
                         <th class="join-th">휴대폰번호</th>
                         <td class="join-td">
                             <input type="text" name="userPhone" class="join_contact">
+                             <p class="error-msg" style="display: none;">휴대폰번호를 정확히 입력해주세요.ex)000-0000-0000</p>
                         </td>
                     </tr>
                 </tbody>
@@ -130,7 +134,7 @@
                           
             <!--fwrGVWEGWREF-->
             <button type="submit" class="join-btn-cancel" onclick="history.back()">취소</button>
-            <button type="submit" class="join-btn-submit">확인</button>
+            <button type="button" class="join-btn-submit">확인</button>
         </section>
 </form>
         

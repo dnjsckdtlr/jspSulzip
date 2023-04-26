@@ -1,18 +1,19 @@
 /** 체크된 항목들 가격 합산 */
 function totalPrice(){
-	let totalPrice = 	0;
+	let totalPrice = 0;
 	let checkBox = $('.cart_check:checked');
 	
 	checkBox.each(function(){
-		totalPrice += parseInt($(this).closest('.cart-tr2').find('.sell-price--in').text());
+		totalPrice += parseInt($(this).closest('.cart-tr2').find('.sell-price--in').text().replace(/\,/g,""));
 	});
 	
-	$('.cart-sum-price').text(totalPrice);
+	$('.cart-sum-price').text(totalPrice.toLocaleString());
 }
 
 /* 장바구니 페이지 로딩 시 총금액 출력*/
 window.onload = totalPrice();
 $('.cart-sum-price').text(totalPrice);
+
 
 /* 개수 업다운 버튼 클릭 시 우측 가격 변동 */
 let $add = $(".bi-arrow-up-square");
@@ -23,7 +24,7 @@ $add.on('click', function(){
 	let price = $(this).data('price');
 	
 	$(this).closest('.options').find('.quantity--in').text(ea+1);
-	$(this).closest('.cart-tr2').find('.sell-price--in').text(price*(ea+1));
+	$(this).closest('.cart-tr2').find('.sell-price--in').text((price*(ea+1)).toLocaleString());
 	
 	$(this).closest('.options').find('.productEa').val(ea+1);
 	$(this).closest('.cart-tr2').find('.productPrice').val(price*(ea+1));
@@ -37,7 +38,7 @@ $minus.on('click', function(){
 	
 	if(ea>1){
 		$(this).closest('.options').find('.quantity--in').text(ea-1);
-		$(this).closest('.cart-tr2').find('.sell-price--in').text(price*(ea-1));
+		$(this).closest('.cart-tr2').find('.sell-price--in').text((price*(ea-1)).toLocaleString());
 		
 		$(this).closest('.options').find('.productEa').val(ea-1);
 		$(this).closest('.cart-tr2').find('.productPrice').val(price*(ea-1));

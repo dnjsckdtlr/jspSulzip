@@ -45,8 +45,7 @@ function showReply(replies){
                      <div class="comment-content-wrap">
                         <div class="comment-content">
                            <p>${reply.replyContent}</p>
-                        </div>`
-                        
+                     </div>`
       if(userNumber == reply.userNumber){                  
       text +=         `<div class="comment-btn-group">
                            <button type=button class="comment-modify-ready">수정</button>
@@ -70,19 +69,23 @@ function showReply(replies){
 
 // 댓글 작성
 $('.submit-btn').on('click', function () {
-   $.ajax({
-      url : "/reply/replyWriteOk.rep",
-      type : "post",
-      data : {
-         boardNumber : boardNumber,
-         userNumber : userNumber,
-         replyContent : $('#content').val()
-      },   
-      success : function(){
-         replyAjax();
-         $('#content').val('');
-      }
-   });
+	if($('#content').val().trim() != ""){
+	   $.ajax({
+	      url : "/reply/replyWriteOk.rep",
+	      type : "post",
+	      data : {
+	         boardNumber : boardNumber,
+	         userNumber : userNumber,
+	         replyContent : $('#content').val()
+	      },   
+	      success : function(){
+	         replyAjax();
+	         $('#content').val('');
+	      }
+	   });
+ 	 } else {
+		alert('댓글을 작성해주세요.');
+	}
 });
 
 

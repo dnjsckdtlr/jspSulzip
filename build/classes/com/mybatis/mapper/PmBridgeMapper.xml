@@ -7,4 +7,9 @@
 		(myRecipe_number, product_number, pmBridge_vol)
 		VALUES(#{myRecipeNumber}, #{productNumber}, #{pmBridgeVol})
 	</insert>
+	
+	<delete id="delete">
+		delete from pmbridge
+		where myRecipe_number = #{myRecipeNumber}
+	</delete>
 </mapper>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,17 +57,21 @@
               </small></p>
               <div class="row price-area1">
                 <div class="col-3">
-                  <p id="unit_price"><c:out value="${supplies.getProductPrice()}"/></p>
+                  <span id="unit_price">
+                  <fmt:formatNumber value="${supplies.getProductPrice()}" pattern="#,###"/>
+                  </span>
+        		<span class="won1">원</span>
                 </div>
-                <div class="col-9" style="text-align: right;">
+ 				<div class="col-9" style="text-align: right;">
                   <button type="button" class="btn btn-outline-secondary" onclick="fn_price_cal('-');">-</button>
-                  <input type="text" class="select-num" value="1" size="1" readonly="readonly"/>
+                  <input type="text" class="select-num" value="1" size="3" readonly="readonly"/>
                   <button type="button" class="btn btn-outline-secondary" onclick="fn_price_cal('+');">+</button>
                 </div>
               </div>
               <div class="row price-area2">
                 <div class="col-12" style="text-align: right;">
-                  <span>총 수량&nbsp;</span><span id="total_num">1</span><span>&nbsp;개&nbsp;&nbsp;|&nbsp;&nbsp;</span><span id="price"><c:out value="${supplies.getProductPrice()}"/></span><span class="won">&nbsp;원</span>
+                  <span>총 수량</span>&nbsp;<span id="total_num">1</span><span>&nbsp;개&nbsp;&nbsp;|&nbsp;&nbsp;</span><span id="price"><fmt:formatNumber value="${supplies.getProductPrice()}" pattern="#,###"/></span>
+                  <span class="won2">원</span>
                 </div>
               </div>
               <div class="row mt-3">

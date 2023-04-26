@@ -224,11 +224,21 @@
 		where category_number = #{categoryNumber}
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" parameterType="SulkitDTO">
 		insert into sulkit
 		(sulkit_name_kor, sulkit_name_eng, sulkit_desc, sulkit_recipe, sulkit_price, sulkit_img)
 		values(#{sulkitNameKor}, #{sulkitNameEng}, #{sulkitDesc}, #{sulkitRecipe}, #{sulkitPrice}, #{sulkitImg});
 	</insert>
+	
+	<select id="ingre" parameterType="_int" resultType="SulkitUploadVO">
+		select p2.product_name_kor , p2.product_system_name , p.psBridge_vol 
+		from psbridge p , product p2
+		where p.sulkit_number = #{sulkitNumber} and p.product_number = p2.product_number
+	</select>
+	
+	<select id="getSequence" resultType="_int">
+		select last_insert_id()
+	</select>
 	
 	<!-- 글 삭제 -->
 	<delete id="myRecipeDel" parameterType="MyRecipeDTO">
@@ -246,6 +256,34 @@
 		where myRecipe_number = #{myRecipeNumber}
 	</delete>
 	
+	<delete id="clientDel" parameterType="ClientBoardDTO">
+		delete from client_board
+		where board_number= #{boardNumber}
+	</delete>
+	
+	<!-- 상품 등록 -->
+	<insert id="productUpload" parameterType="ProductDTO">
+		insert into product
+		(product_name_kor, product_name_eng, product_price, product_alcohol_degree, category_number, product_system_name)
+		values(#{productNameKor}, #{productNameEng}, #{productPrice}, #{productAlcoholDegree}, #{categoryNumber},
+		#{productSystemName})
+	</insert>
+	
+	<!-- 상품 삭제 -->
+	<delete id="sulkitDelete" parameterType="SulkitDTO">
+		delete from sulkit
+		where sulkit_number= #{sulkitNumber}
+	</delete>
+	
+	<delete id="productDelete" parameterType="ProductDTO">
+		delete from product
+		where product_number= #{productNumber}
+	</delete>
+	
+	<delete id="psBridgeDelete" parameterType="PsBridgeDTO">
+		delete from psbridge
+		where sulkit_number= #{sulkitNumber}
+	</delete>
 	
 
 </mapper>

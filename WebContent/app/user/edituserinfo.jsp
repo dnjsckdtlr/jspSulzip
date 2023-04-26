@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
     <title>edituserinfo</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
     <script src="${pageContext.request.contextPath}/assets/js/user/edituserinfo.js"></script>
 </head>
 <body>
@@ -42,21 +43,28 @@
 	                        <td class="edit-td">
 	                        	<input type="hidden" id="userPw" name="userPw" />
 	                            <input type="password" id="userChangePw" class="edit_pw" autofocus>
-	                            <span class="check-msg" id="check-pw-msg"></span>
-	                            
+	                            <br/><span class="check-msg" id="check-pw-msg"></span>
 	                        </td>
 	                    </tr>
 	                    <tr class="edit-tr">
 	                        <th class="edit-th">변경 할 비밀번호 확인</th>
 	                        <td class="edit-td">
 	                            <input type="password" id="userChangePwConfirm" class="edit_pwconfirm">
-	                            <span class="check-msg" id="check-pw-msg2"></span>
+	                            <br/><span class="check-msg" id="check-pw-msg2"></span>
 	                        </td>
 	                    </tr>
 	                    <tr class="edit-tr">
 	                        <th class="edit-th">이름</th>
 	                        <td class="edit-td">
 	                            <input type="text" name="userName" value="${userDTO.userName}" class="edit_name" readonly>
+	                        </td>
+	                    </tr>
+	                    <tr class="edit-tr">
+	                        <th class="edit-th">주민등록번호</th>
+	                        <td class="edit-td">
+	                            <input type="text" name="userRegistrationNumber" value="${userDTO.userRegistrationNumber}" class="edit_registrationNumber" readonly>
+	                        	<br/>
+	                        	<span class="edit-error-msg" id="edit_userRegistrationNumber_error"></span>
 	                        </td>
 	                    </tr>
 	                    <tr class="edit-tr">
@@ -75,7 +83,8 @@
 	                    <tr class="edit-tr">
 	                        <th class="edit-th">휴대폰번호</th>
 	                        <td class="edit-td">
-	                            <input type="text" name="userPhone" value="${userDTO.userPhone}" class="edit_contact">
+	                            <input type="text" id="userPhone" name="userPhone" value="${userDTO.userPhone}" class="edit_contact">
+	                        	<p class="error-msg" style="display: none;">휴대폰번호를 정확히 입력해주세요.ex)000-0000-0000</p>
 	                        </td>
 	                    </tr>
 	                </tbody>
@@ -86,7 +95,6 @@
 	            <button type="button" onclick="fn_edituser('${userDTO.userId}');" class="edit-btn-submit" >정보수정</button>
 	        </section>
         </form>
-        
     </main>
     <footer>
     	<jsp:include page="${pageContext.request.contextPath}/app/footer.jsp"/>

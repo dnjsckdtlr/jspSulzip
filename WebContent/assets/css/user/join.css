@@ -335,3 +335,15 @@
   font-size: 12px;
   text-align: center;
 }
+
+.check-msg{
+	color : #D61C6A;
+}
+
+.text-details{
+	color : #D61C6A;
+}
+
+.error-msg{
+	color : #D61C6A;
+}

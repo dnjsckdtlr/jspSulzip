@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="PsBridge">
-	<insert id="insert" parameterType="PsBridgeDTO">
+	<insert id="insertPs" parameterType="PsBridgeDTO">
 		insert into psbridge
 		(sulkit_number, product_number, psBridge_vol)
 		values(#{sulkitNumber}, #{productNumber}, #{psBridgeVol})

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,7 +74,8 @@
                         <div class="card-body">
                             <p class="card-text-1">용품</p>
                             <h5 class="card-title inside">${sup.getProductNameKor()}</h5>
-                            <p class="card-text-2"><small class="text-muted">${sup.getProductPrice()}</small></p>
+                            <p class="card-text-2"><small class="text-muted"><fmt:formatNumber value="${sup.getProductPrice()}" pattern="#,###"/>
+                  			<span class="won2">원</span></small></p>
                         </div>
                     </div>
 	<c:if test="${idx.count % 3 == 0}">

@@ -76,8 +76,9 @@
 }
 
 #unit_price{
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 700;
+    color: #6c757d;
 }
 
 #total_num{
@@ -92,13 +93,19 @@
 
 .select-num{
     text-align: center;
+    line-height : 2;
 }
 
 .btn{
     padding: 0.3rem, 0.9rem;
 }
 
-.won{
+.won1{
+    font-size: 14px;
+    color:#6c757d;
+}
+
+.won2{
     font-size: 20px;
 }
 

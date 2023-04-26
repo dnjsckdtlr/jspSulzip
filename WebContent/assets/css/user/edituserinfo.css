@@ -148,6 +148,20 @@
     vertical-align: middle;
 }
 
+.edit_registrationNumber{
+	max-width: 100%;
+    width: 358px;
+    height: 40px;
+    background-color: #eee;
+    opacity: 1;
+    border: none;
+    box-shadow: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+
 .edit_email{
     max-width: 100%;
     width: 358px;
@@ -262,3 +276,11 @@
 .edit_female{
     margin-left: 20px;
   }
+  
+.check-msg{
+	color : #D61C6A;
+}
+
+.error-msg{
+	color : #D61C6A;
+}

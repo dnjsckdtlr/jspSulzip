@@ -9,8 +9,7 @@
 		values(#{myRecipeNameKor}, #{myRecipeNameEng},#{myRecipeDesc}, #{myRecipeRecipe}, 0, #{userNumber})
 	</insert>
 	
-	<select id="select" parameterType="_int"
-		resultType="MyRecipeDTO">
+	<select id="select" parameterType="_int" resultType="MyRecipeDTO">
 		select myRecipe_name_kor, myRecipe_name_eng, myRecipe_desc, myRecipe_recipe, myRecipe_hits, user_number, thumbnail
 		from myrecipe
 		where myRecipe_number = #{myRecipeNumber}
@@ -48,6 +47,24 @@
 		set thumbnail = #{fileSystemName}
 		where myRecipe_number = #{myRecipeNumber}	
 	</update>
+	
+	<select id="getUserId" parameterType="_int" resultType="string">
+		select u.user_id
+		from myrecipe m join `user` u 
+		on m.user_number = u.user_number 
+		where m.myRecipe_number = #{mrbNumber}
+	</select>
+	
+	<update id="modify" parameterType="MyRecipeDTO">
+		update myrecipe
+		set myRecipe_name_kor=#{myRecipeNameKor}, myRecipe_name_eng=#{myRecipeNameEng}, myRecipe_desc=#{myRecipeDesc}, myRecipe_recipe=#{myRecipeRecipe}
+		where myRecipe_number = #{myRecipeNumber}
+	</update>
+	
+	<delete id="delete">
+		delete from myrecipe
+		where myRecipe_number = #{myRecipeNumber}
+	</delete>
 	
 </mapper>
 
