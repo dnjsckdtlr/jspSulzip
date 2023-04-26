@@ -28,12 +28,12 @@
     	<jsp:include page="${pageContext.request.contextPath}/app/header.jsp"/>
     </header>
     <main class="main">
+<form action="/user/joinOk.usr" method="POST" class="form-sub">
         <section class="section1">
             <div class="title">회원 가입</div>
         </section>
         <section class="section2">
             <div class="sub-title">회원정보입력</div>
-<form action="/user/joinOk.usr" method="POST" class="form-sub">
             <table class="join-table">
                 <colgroup class="join-colgroup">
                     <col class="join-col1">
@@ -68,14 +68,14 @@
                     <tr class="join-tr">
                         <th class="join-th">이름</th>
                         <td class="join-td">
-                            <input type="text" name="userName" class="join_name">
+                            <input type="text" name="userName" class="join_name" required/>
                         </td>
                     </tr>
                     <tr class="join-tr">
                         <th class="join-th">주민등록번호</th>
                         <td class="join-td">
-                            <input type="text" name="userRegistrationNumber" class="join_userRegistrationNumber">
-                            <br/>
+                            <input type="text" name="userRegistrationNumber" class="join_userRegistrationNumber" required/>
+                            <br>
                             <span class="join-error-msg" id="join_userRegistrationNumber_error"></span>
                         </td>
                     </tr>
@@ -89,13 +89,13 @@
                     <tr class="join-tr">
                         <th class="join-th">이메일</th>
                         <td class="join-td">
-                            <input type="text" name="userEmail" class="join_email">
+                            <input type="text" name="userEmail" class="join_email" required/>
                         </td>
                     </tr>
                     <tr class="join-tr">
                         <th class="join-th">휴대폰번호</th>
                         <td class="join-td">
-                            <input type="text" name="userPhone" class="join_contact">
+                            <input type="text" name="userPhone" class="join_contact" required/>
                              <p class="error-msg" style="display: none;">휴대폰번호를 정확히 입력해주세요.ex)000-0000-0000</p>
                         </td>
                     </tr>

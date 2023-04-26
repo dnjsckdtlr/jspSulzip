@@ -70,7 +70,8 @@
               </div>
               <div class="row price-area2">
                 <div class="col-12" style="text-align: right;">
-                  <span>총 수량</span>&nbsp;<span id="total_num">1</span><span>&nbsp;개&nbsp;&nbsp;|&nbsp;&nbsp;</span><span id="price"><fmt:formatNumber value="${sulkit.getSulkitPrice()}" pattern="#,###"/></span>
+                  <span>총 수량</span>&nbsp;<span id="total_num">1</span><span>&nbsp;개&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                  <span id="price"><fmt:formatNumber value="${sulkit.getSulkitPrice()}" pattern="#,###"/></span>
                   <span class="won2">원</span>
                 </div>
               </div>

@@ -30,7 +30,7 @@ const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[a-zA-Z\d!@#$%^&*()_+]
 
 
 // 비밀번호 조건체크
-/*$pwInput.on('blur', function(){
+$pwInput.on('blur', function(){
    if(regex.test( $(this).val() )){
       $checkPwMsg.text("사용가능한 비밀번호 입니다.");
    }else{
@@ -55,33 +55,8 @@ $pwInput2.on('blur', function(){
 });
 
 
-$('.join-btn-submit').on('click', function(){
-   console.log()
-   if($checkMsg.text().includes('사용가능') && $checkPwMsg.text().includes('사용가능') && $checkPwMsg2.text().includes('동일')){
-      $('.form-sub').submit();
-   }
-   
-});*/
-
-// 이름 확인
 
 
-
-
-// 약관 확인하기
-/*let agreeAll = $('#agree_all');
-$agreeAll.on('submit', function(e){
-   e.preventDefault(); // 기본 이벤트를 막아주는 명령어이다.
-   
-   console.log( $('#agree').prop('checked') );
-   if( $('#agree').prop('checked') ){
-      this.submit(); // submit 이벤트를 발생시키는 메소드(당연히 폼 요소에 사용해야한다.)
-   }else{
-      alert("약관에 동의해주세요!")
-   }
-   
-});
-*/
 
 
 
@@ -142,31 +117,5 @@ userRegistrationNumberInput.addEventListener('blur', function() {
     userRegistrationNumberErrorMsg.textContent = '';
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
